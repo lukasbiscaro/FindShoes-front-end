@@ -17,6 +17,9 @@ module.exports = {
         bgLogin: '#1c1c2b'
       }
     },
+    fontFamily: {
+      'sans': 'Inter, Helvetica, Arial',
+    }
   },
   plugins: [],
 }
