@@ -4,18 +4,19 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    colors: {
-      bgPrimary: '#0A0817',
-      bgSecondary: '#FEFEFE',
-      highlightPrimary: '#5E36FF',
-      highlightPrimary2: '#A088FF',
-      highlightSecondary: '#BE54FF',
-      textBlack: '#03030B',
-      textWhite: '#F5F5F5',
-      textGray: '#9B9B9B',
-      bgLogin: '#1c1c2b',
+    extend: {
+      colors: {
+        bgPrimary: '#0A0817',
+        bgSecondary: '#FEFEFE',
+        highlightPrimary: '#5E36FF',
+        highlightPrimary2: '#A088FF',
+        highlightSecondary: '#BE54FF',
+        textBlack: '#03030B',
+        textWhite: '#F5F5F5',
+        textGray: '#9B9B9B',
+        bgLogin: '#1c1c2b'
+      }
     },
-    extend: {},
   },
   plugins: [],
 }

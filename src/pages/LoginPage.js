@@ -1,4 +1,4 @@
-import teste from '../images/LoginPage.png'
+import bgImage from '../images/BgLoginPage.png'
 import React, { useState } from 'react';
 import { BiShow, BiHide } from 'react-icons/bi'
 import { Link } from 'react-router-dom';
@@ -18,16 +18,16 @@ const LoginPage = () => {
                     <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
                         <div className="flex flex-col">
                             <Link to='/'>
-                                <div className='text-textWhite flex text-3xl'>
+                                <div className='text-white flex text-3xl'>
                                     <div className='font-bold'>Find</div>
                                     <div>Shoes</div>
                                 </div>
-                                <div className='text-textWhite'>M A R K E T P L A C E</div>
+                                <div className='text-white'>M A R K E T P L A C E</div>
                             </Link>
 
                             <div className="mt-20">
-                                <h2 className="text-lg font-semibold text-textWhite">Please login to your account</h2>
-                                <p className="mt-2 text-sm text-textGray">Don’t have an account? <a className="font-medium text-highlightPrimary2 hover:underline" href="/register">Sign Up</a></p>
+                                <h2 className="text-lg font-semibold text-white">Please login to your account</h2>
+                                <p className="mt-2 text-sm text-textGray">Don’t have an account? <a className="font-medium text-highlightPrimary2 hover:underline" href="/sign-up">Sign Up</a></p>
                             </div>
                         </div>
                         <form className="mt-10 grid grid-cols-1 gap-y-8 relative">
@@ -36,14 +36,14 @@ const LoginPage = () => {
                                 <input
                                     type="email"
                                     required
-                                    className="block w-full appearance-none rounded-md bg-bgLogin text-textWhite px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm bg-sky-500" />
+                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" />
                             </div>
                             <div>
                                 <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Password</label>
                                 <input
                                     type={(open === false) ? 'password' : 'text'}
                                     required
-                                    className="block w-full appearance-none rounded-md bg-bgLogin text-textWhite px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" />
+                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" />
                             </div>
                             <div className='text-3xl absolute mt-2 top-32 right-3 cursor-pointer'>
                                 {
@@ -69,7 +69,7 @@ const LoginPage = () => {
                 </div>
                 <div className="hidden sm:contents lg:relative lg:block lg:flex-1">
                     <img
-                        alt="bgImage" src={teste}
+                        alt="bgImage" src={bgImage}
                         width="1664" height="1866"
                         className="absolute inset-0 h-full w-full object-cover" />
                 </div>
