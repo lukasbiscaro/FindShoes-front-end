@@ -11,8 +11,8 @@ export default function NavBar() {
                         <div className="flex items-center md:gap-x-12">
                             <a aria-label="Home" href="/">
                                 <div className="text-white hover:text-highlightPrimary2">
-                                    <h1 className="font-bold text-xl">Find<span className="font-light">Shoes</span></h1>
-                                    <h2 className="font-light tracking-widest uppercase text-xs">Marketplace</h2>
+                                    <h1 className="font-bold text-sm sm:text-xl">Find<span className="font-light">Shoes</span></h1>
+                                    <h2 className="font-light tracking-widest uppercase text-xs sm:text-xs">Marketplace</h2>
                                 </div>
                             </a>
                             <div className="hidden md:flex md:gap-x-6">
@@ -27,7 +27,7 @@ export default function NavBar() {
                                     <div class="relative flex w-full flex-wrap items-stretch">
                                         <input
                                             type="search"
-                                            class="relative m-0 block w-[1%] min-w-0 w-52 flex-auto rounded-xl border border-solid border-highlightPrimary2 bg-transparent bg-clip-padding py-2 pl-3 pr-12 leading-2 text-base font-normal text-highlightPrimary2 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-highlightPrimary2 focus:shadow-te-primary focus:outline-none placeholder-highlightPrimary2"
+                                            class="relative m-0 block w-[1%] min-w-0 w-52 leading-[22px] flex-auto rounded-xl border border-solid border-highlightPrimary2 bg-transparent bg-clip-padding py-2 pl-3 pr-12 leading-2 text-base font-normal text-highlightPrimary2 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-highlightPrimary2 focus:shadow-te-primary focus:outline-none placeholder-highlightPrimary2"
                                             placeholder="Search..."
                                             aria-label="Search"
                                             aria-describedby="button-addon2" />
@@ -82,8 +82,8 @@ export default function NavBar() {
                         <div className="flex items-center md:gap-x-12">
                             <a aria-label="Home" href="/">
                                 <div className="text-white hover:text-highlightPrimary2">
-                                    <h1 className="font-bold text-xl">Find<span className="font-light">Shoes</span></h1>
-                                    <h2 className="font-light tracking-widest uppercase text-xs">Marketplace</h2>
+                                <h1 className="font-bold text-sm sm:text-xl">Find<span className="font-light">Shoes</span></h1>
+                                    <h2 className="font-light tracking-widest uppercase text-xs sm:text-xs">Marketplace</h2>
                                 </div>
                             </a>
                             <div className="hidden md:flex md:gap-x-6">
@@ -98,7 +98,7 @@ export default function NavBar() {
                                     <div class="relative flex w-full flex-wrap items-stretch">
                                         <input
                                             type="search"
-                                            class="relative m-0 block w-[1%] min-w-0 w-52 flex-auto rounded-xl border border-solid border-highlightPrimary2 bg-transparent bg-clip-padding py-2 pl-3 pr-12 leading-2 text-base font-normal text-highlightPrimary2 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-highlightPrimary2 focus:shadow-te-primary focus:outline-none placeholder-highlightPrimary2"
+                                            class="relative m-0 block w-[1%] min-w-0 w-52 leading-[22px] flex-auto rounded-xl border border-solid border-highlightPrimary2 bg-transparent bg-clip-padding py-2 pl-3 pr-12 leading-2 text-base font-normal text-highlightPrimary2 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-highlightPrimary2 focus:shadow-te-primary focus:outline-none placeholder-highlightPrimary2"
                                             placeholder="Search..."
                                             aria-label="Search"
                                             aria-describedby="button-addon2" />
