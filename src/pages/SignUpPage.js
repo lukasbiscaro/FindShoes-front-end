@@ -1,13 +1,14 @@
 import bgImage from '../images/BgLoginPage.png'
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import axios from 'axios'
 
 const SignUpPage = () => {
 
-    const schemaForm = yup.object().shape({
+    const schemaSign = yup.object().shape({
         firstName: yup.string().required("First Name is required!"),
         lastName: yup.string().required("Last Name is required!"),
         email: yup.string().email("Email must be a valid email (@example.com)").required("Email is required!"),
@@ -16,11 +17,40 @@ const SignUpPage = () => {
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: yupResolver(schemaForm)
+        resolver: yupResolver(schemaSign)
     })
 
-    const onSubmit = (data) => {
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const defSubmit = (data) => {
+
+        const newUser = {
+            firstName,
+            lastName,
+            email,
+            password
+        }
+
         console.log(data)
+
+        console.log(process.env.REACT_APP_API_URL)
+
+        axios.post(`${process.env.REACT_APP_API_URL}/auth/sign-up`, newUser)
+            .then(response => {
+                console.log(newUser)
+                if (response.status === 201) {
+                    setFirstName('')
+                    setLastName('')
+                    setEmail('')
+                    setPassword('')
+                    alert('User created')
+                }
+            })
+            .catch(err => console.log(err))
+
     }
 
     return (
@@ -43,7 +73,7 @@ const SignUpPage = () => {
                             </div>
                         </div>
                         <form
-                            onSubmit={handleSubmit(onSubmit)}
+                            onSubmit={handleSubmit(defSubmit)}
                             className="mt-10 grid grid-cols-1 gap-y-8 relative">
                             <div className='flex gap-x-8'>
                                 <div>
@@ -51,6 +81,8 @@ const SignUpPage = () => {
                                     <input
                                         {...register("firstName")}
                                         type="text"
+                                        value={firstName}
+                                        onChange={e => setFirstName(e.target.value)}
                                         className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" />
                                     <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
                                         <p className='ml-1'>{errors.firstName?.message}</p>
@@ -61,6 +93,8 @@ const SignUpPage = () => {
                                     <input
                                         {...register("lastName")}
                                         type="text"
+                                        value={lastName}
+                                        onChange={e => setLastName(e.target.value)}
                                         className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                     />
                                     <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
@@ -73,6 +107,8 @@ const SignUpPage = () => {
                                 <input
                                     {...register("email")}
                                     type="text"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
                                     className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                 />
                                 <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
@@ -84,6 +120,8 @@ const SignUpPage = () => {
                                 <input
                                     {...register("password")}
                                     type="password"
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
                                     className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                 />
                                 <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
@@ -102,7 +140,7 @@ const SignUpPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <button className="group relative h-10 w-40 overflow-hidden rounded-md text-lg shadow">
+                                <button type='submit' className="group relative h-10 w-40 overflow-hidden rounded-md text-lg shadow">
                                     <div className="absolute inset-0 w-2 bg-highlightPrimary2 transition-all duration-[500ms] ease-out group-hover:w-full"></div>
                                     <span className="text-highlightPrimary2 relative group-hover:text-black">Sign Up →</span>
                                 </button>

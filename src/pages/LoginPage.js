@@ -2,14 +2,30 @@ import bgImage from '../images/BgLoginPage.png'
 import React, { useState } from 'react';
 import { BiShow, BiHide } from 'react-icons/bi'
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 const LoginPage = () => {
 
-    const [open, setOpen] = useState(false)
+    const schemaLogin = yup.object().shape({
+        email: yup.string().required("Please, enter a valid email address."),
+        password: yup.string().required("Please, enter a password."),
+    })
 
-    const toggle = () => {
-        setOpen(!open)
+    const { register, handleSubmit, formState: {errors} } = useForm({
+        resolver: yupResolver(schemaLogin)
+    })
+
+    const onSubmit = (data) => {
+        console.log(data)
     }
+
+    // const [open, setOpen] = useState(false)
+
+    // const toggle = () => {
+    //     setOpen(!open)
+    // }
 
     return (
         <>
@@ -30,26 +46,37 @@ const LoginPage = () => {
                                 <p className="mt-2 text-sm text-textGray">Don’t have an account? <a className="font-medium text-highlightPrimary2 hover:underline" href="/sign-up">Sign Up</a></p>
                             </div>
                         </div>
-                        <form className="mt-10 grid grid-cols-1 gap-y-8 relative">
+                        <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            className="mt-10 grid grid-cols-1 gap-y-8 relative">
                             <div>
                                 <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Email</label>
                                 <input
+                                    {...register("email")}
                                     type="email"
-                                    required
-                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" />
+                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" 
+                                    />
+                                    <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
+                                        <p className='ml-1'>{errors.email?.message}</p>
+                                    </div>
                             </div>
                             <div>
                                 <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Password</label>
                                 <input
-                                    type={(open === false) ? 'password' : 'text'}
-                                    required
-                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" />
+                                    {...register("password")}
+                                    // type={(open === false) ? 'password' : 'text'}
+                                    type="password"
+                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" 
+                                    />
+                                    <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
+                                        <p className='ml-1'>{errors.password?.message}</p>
+                                    </div>
                             </div>
-                            <div className='text-3xl absolute mt-2 top-32 right-3 cursor-pointer'>
+                            {/* <div className='text-3xl absolute mt-2 top-32 right-3 cursor-pointer'>
                                 {
                                     (open === false) ? <BiHide onClick={toggle} /> : <BiShow onClick={toggle} />
                                 }
-                            </div>
+                            </div> */}
                             <div className="space-y-3">
                                 <div className="flex items-center space-x-2">
                                     <div className="flex h-5 items-center">
