@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import axios from 'axios'
 
 const LoginPage = () => {
 
@@ -13,19 +14,29 @@ const LoginPage = () => {
         password: yup.string().required("Please, enter a password."),
     })
 
-    const { register, handleSubmit, formState: {errors} } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaLogin)
     })
 
-    const onSubmit = (data) => {
-        console.log(data)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const defSubmit = () => {
+
+        const user = {
+            email,
+            password
+        }
+
+        axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
+            .then(response => {
+                localStorage.setItem('token', response.data.jwt)
+                setEmail('')
+                setPassword('')
+                alert("User logged")
+            })
+            .catch(err => console.log(err))
     }
-
-    // const [open, setOpen] = useState(false)
-
-    // const toggle = () => {
-    //     setOpen(!open)
-    // }
 
     return (
         <>
@@ -34,49 +45,47 @@ const LoginPage = () => {
                     <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
                         <div className="flex flex-col">
                             <Link to='/'>
-                                <div className='text-white flex text-3xl'>
-                                    <div className='font-bold'>Find</div>
-                                    <div>Shoes</div>
-                                </div>
-                                <div className='text-white'>M A R K E T P L A C E</div>
+                                <a aria-label="Home" href="/">
+                                    <div className="text-white hover:text-highlightPrimary2">
+                                        <h1 className="font-bold text-3xl">Find<span className="font-light">Shoes</span></h1>
+                                        <h2 className="font-light tracking-widest uppercase text-lg">Marketplace</h2>
+                                    </div>
+                                </a>
                             </Link>
-
                             <div className="mt-20">
                                 <h2 className="text-lg font-semibold text-white">Please login to your account</h2>
                                 <p className="mt-2 text-sm text-textGray">Don’t have an account? <a className="font-medium text-highlightPrimary2 hover:underline" href="/sign-up">Sign Up</a></p>
                             </div>
                         </div>
                         <form
-                            onSubmit={handleSubmit(onSubmit)}
+                            onSubmit={handleSubmit(defSubmit)}
                             className="mt-10 grid grid-cols-1 gap-y-8 relative">
                             <div>
                                 <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Email</label>
                                 <input
                                     {...register("email")}
                                     type="email"
-                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" 
-                                    />
-                                    <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
-                                        <p className='ml-1'>{errors.email?.message}</p>
-                                    </div>
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
+                                />
+                                <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
+                                    <p className='ml-1'>{errors.email?.message}</p>
+                                </div>
                             </div>
                             <div>
                                 <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Password</label>
                                 <input
                                     {...register("password")}
-                                    // type={(open === false) ? 'password' : 'text'}
                                     type="password"
-                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" 
-                                    />
-                                    <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
-                                        <p className='ml-1'>{errors.password?.message}</p>
-                                    </div>
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
+                                    className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
+                                />
+                                <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
+                                    <p className='ml-1'>{errors.password?.message}</p>
+                                </div>
                             </div>
-                            {/* <div className='text-3xl absolute mt-2 top-32 right-3 cursor-pointer'>
-                                {
-                                    (open === false) ? <BiHide onClick={toggle} /> : <BiShow onClick={toggle} />
-                                }
-                            </div> */}
                             <div className="space-y-3">
                                 <div className="flex items-center space-x-2">
                                     <div className="flex h-5 items-center">

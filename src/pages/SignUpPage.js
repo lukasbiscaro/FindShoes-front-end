@@ -25,7 +25,7 @@ const SignUpPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const defSubmit = (data) => {
+    const defSubmit = () => {
 
         const newUser = {
             firstName,
@@ -34,13 +34,8 @@ const SignUpPage = () => {
             password
         }
 
-        console.log(data)
-
-        console.log(process.env.REACT_APP_API_URL)
-
         axios.post(`${process.env.REACT_APP_API_URL}/auth/sign-up`, newUser)
             .then(response => {
-                console.log(newUser)
                 if (response.status === 201) {
                     setFirstName('')
                     setLastName('')
@@ -60,13 +55,13 @@ const SignUpPage = () => {
                     <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
                         <div className="flex flex-col">
                             <Link to='/'>
-                                <div className='text-white flex text-3xl'>
-                                    <div className='font-bold'>Find</div>
-                                    <div>Shoes</div>
-                                </div>
-                                <div className='text-white'>M A R K E T P L A C E</div>
+                                <a aria-label="Home" href="/">
+                                    <div className="text-white hover:text-highlightPrimary2">
+                                        <h1 className="font-bold text-3xl">Find<span className="font-light">Shoes</span></h1>
+                                        <h2 className="font-light tracking-widest uppercase text-lg">Marketplace</h2>
+                                    </div>
+                                </a>
                             </Link>
-
                             <div className="mt-20">
                                 <h2 className="text-lg font-semibold text-white">Be part of one of the biggest marketplaces in the sneaker world!</h2>
                                 <p className="mt-2 text-sm text-textGray">Already have an account? <a className="font-medium text-highlightPrimary2 hover:underline" href="/login">Sign In</a></p>
