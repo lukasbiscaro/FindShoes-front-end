@@ -4,4 +4,6 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    background: #0A0817 url('../src/images/bg.png') no-repeat center top;
+    background-size: cover;
 }
