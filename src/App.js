@@ -5,6 +5,8 @@ import SignUpPage from './pages/SignUpPage.js'
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
 import IsLogged from './components/IsLogged.js';
+import Collections from './pages/Collections';
+import ExploreItems from './pages/ExploreItems';
 
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
             <ProfilePage />
           </IsLogged>
         } />
+        <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/collections' element={<Collections />} />
+        <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/exploreItems' element={<ExploreItems />} />
       </Routes>
     </div>
   );
