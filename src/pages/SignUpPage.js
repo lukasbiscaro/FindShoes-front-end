@@ -24,6 +24,7 @@ const SignUpPage = () => {
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
 
     const defSubmit = () => {
 
@@ -41,6 +42,7 @@ const SignUpPage = () => {
                     setLastName('')
                     setEmail('')
                     setPassword('')
+                    setConfirmPassword('')
                     alert('User created')
                 }
             })
@@ -127,6 +129,8 @@ const SignUpPage = () => {
                                 <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Confirm Password</label>
                                 <input
                                     {...register("confirmPassword")}
+                                    value={confirmPassword}
+                                    onChange={e => setConfirmPassword(e.target.value)}
                                     type="password"
                                     className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                 />
