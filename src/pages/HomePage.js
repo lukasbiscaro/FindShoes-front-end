@@ -46,168 +46,150 @@ const HomePage = () => {
                 <div id="bestShoesCards" className="mb-60 h-60 overflowx-hidden">
                     <div className="relative w-full p-8 overflowx-hidden">
                         <div className="flex absolute left-0 animate-marquee-infinite overflowx-hidden"> {/*ADD CLASS animate-marquee-infinite*/}
-                            
-                            <div className='flex w-64 mr-4'>
-                                <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 md:border-2 border-opacity-10">
-                                    <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
-                                    <p className="text-gray-400 text-xs font-bold">
-                                        Collection
-                                    </p>
-                                    <h4 className='text-white text-lg font-bold'>
-                                        Name of the item
-                                    </h4>
-                                    <div className='flex flex-row justify-between items-center mt-8'>
-                                        <div className='text-highlightPrimary2 text-base font-bold'>
-                                            R$ 200,00
+                            <a href="#">             
+                                <div className='flex w-64 mr-4'>
+                                    <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
+                                        <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
+                                        <p className="text-gray-400 text-xs font-bold">
+                                            Collection
+                                        </p>
+                                        <h4 className='text-white text-lg font-bold'>
+                                            Name of the item
+                                        </h4>
+                                        <div className='flex flex-row justify-between items-center mt-8'>
+                                            <div className='text-highlightPrimary2 text-base font-bold'>
+                                                R$ 200,00
+                                            </div>
+                                            <a href="link" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
+                                                <span className="mr-2">
+                                                    <FiShoppingCart />
+                                                </span>
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                            </a>
                                         </div>
-                                        <a href="#" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
-                                            <span className="mr-2">
-                                                <FiShoppingCart />
-                                            </span>
-                                            <span className="text-xs md:text-xs font-regular"> Shop</span>
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className='flex w-64 mr-4'>
-                                <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 md:border-2 border-opacity-10">
-                                    <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
-                                    <p className="text-gray-400 text-xs font-bold">
-                                        Collection
-                                    </p>
-                                    <h4 className='text-white text-lg font-bold'>
-                                        Name of the item
-                                    </h4>
-                                    <div className='flex flex-row justify-between items-center mt-8'>
-                                        <div className='text-highlightPrimary2 text-base font-bold'>
-                                            R$ 200,00
+                            </a>
+                            <a href="#">             
+                                <div className='flex w-64 mr-4'>
+                                    <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
+                                        <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
+                                        <p className="text-gray-400 text-xs font-bold">
+                                            Collection
+                                        </p>
+                                        <h4 className='text-white text-lg font-bold'>
+                                            Name of the item
+                                        </h4>
+                                        <div className='flex flex-row justify-between items-center mt-8'>
+                                            <div className='text-highlightPrimary2 text-base font-bold'>
+                                                R$ 200,00
+                                            </div>
+                                            <a href="link" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
+                                                <span className="mr-2">
+                                                    <FiShoppingCart />
+                                                </span>
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                            </a>
                                         </div>
-                                        <a href="#" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
-                                            <span className="mr-2">
-                                                <FiShoppingCart />
-                                            </span>
-                                            <span className="text-xs md:text-xs font-regular"> Shop</span>
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className='flex w-64 mr-4'>
-                                <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 md:border-2 border-opacity-10">
-                                    <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
-                                    <p className="text-gray-400 text-xs font-bold">
-                                        Collection
-                                    </p>
-                                    <h4 className='text-white text-lg font-bold'>
-                                        Name of the item
-                                    </h4>
-                                    <div className='flex flex-row justify-between items-center mt-8'>
-                                        <div className='text-highlightPrimary2 text-base font-bold'>
-                                            R$ 200,00
+                            </a>
+                            <a href="#">             
+                                <div className='flex w-64 mr-4'>
+                                    <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
+                                        <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
+                                        <p className="text-gray-400 text-xs font-bold">
+                                            Collection
+                                        </p>
+                                        <h4 className='text-white text-lg font-bold'>
+                                            Name of the item
+                                        </h4>
+                                        <div className='flex flex-row justify-between items-center mt-8'>
+                                            <div className='text-highlightPrimary2 text-base font-bold'>
+                                                R$ 200,00
+                                            </div>
+                                            <a href="link" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
+                                                <span className="mr-2">
+                                                    <FiShoppingCart />
+                                                </span>
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                            </a>
                                         </div>
-                                        <a href="#" src="#" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
-                                            <span className="mr-2">
-                                                <FiShoppingCart />
-                                            </span>
-                                            <span className="text-xs md:text-xs font-regular"> Shop</span>
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className='flex w-64 mr-4'>
-                                <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 md:border-2 border-opacity-10">
-                                    <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
-                                    <p className="text-gray-400 text-xs font-bold">
-                                        Collection
-                                    </p>
-                                    <h4 className='text-white text-lg font-bold'>
-                                        Name of the item
-                                    </h4>
-                                    <div className='flex flex-row justify-between items-center mt-8'>
-                                        <div className='text-highlightPrimary2 text-base font-bold'>
-                                            R$ 200,00
+                            </a>
+                            <a href="#">             
+                                <div className='flex w-64 mr-4'>
+                                    <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
+                                        <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
+                                        <p className="text-gray-400 text-xs font-bold">
+                                            Collection
+                                        </p>
+                                        <h4 className='text-white text-lg font-bold'>
+                                            Name of the item
+                                        </h4>
+                                        <div className='flex flex-row justify-between items-center mt-8'>
+                                            <div className='text-highlightPrimary2 text-base font-bold'>
+                                                R$ 200,00
+                                            </div>
+                                            <a href="link" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
+                                                <span className="mr-2">
+                                                    <FiShoppingCart />
+                                                </span>
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                            </a>
                                         </div>
-                                        <a href="#" src="#" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
-                                            <span className="mr-2">
-                                                <FiShoppingCart />
-                                            </span>
-                                            <span className="text-xs md:text-xs font-regular"> Shop</span>
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className='flex w-64 mr-4'>
-                                <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 md:border-2 border-opacity-10">
-                                    <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
-                                    <p className="text-gray-400 text-xs font-bold">
-                                        Collection
-                                    </p>
-                                    <h4 className='text-white text-lg font-bold'>
-                                        Name of the item
-                                    </h4>
-                                    <div className='flex flex-row justify-between items-center mt-8'>
-                                        <div className='text-highlightPrimary2 text-base font-bold'>
-                                            R$ 200,00
+                            </a>
+                            <a href="#">             
+                                <div className='flex w-64 mr-4'>
+                                    <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
+                                        <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
+                                        <p className="text-gray-400 text-xs font-bold">
+                                            Collection
+                                        </p>
+                                        <h4 className='text-white text-lg font-bold'>
+                                            Name of the item
+                                        </h4>
+                                        <div className='flex flex-row justify-between items-center mt-8'>
+                                            <div className='text-highlightPrimary2 text-base font-bold'>
+                                                R$ 200,00
+                                            </div>
+                                            <a href="link" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
+                                                <span className="mr-2">
+                                                    <FiShoppingCart />
+                                                </span>
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                            </a>
                                         </div>
-                                        <a href="#" src="#" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
-                                            <span className="mr-2">
-                                                <FiShoppingCart />
-                                            </span>
-                                            <span className="text-xs md:text-xs font-regular"> Shop</span>
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className='flex w-64 mr-4'>
-                                <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 md:border-2 border-opacity-10">
-                                    <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
-                                    <p className="text-gray-400 text-xs font-bold">
-                                        Collection
-                                    </p>
-                                    <h4 className='text-white text-lg font-bold'>
-                                        Name of the item
-                                    </h4>
-                                    <div className='flex flex-row justify-between items-center mt-8'>
-                                        <div className='text-highlightPrimary2 text-base font-bold'>
-                                            R$ 200,00
+                            </a>
+                            <a href="#">             
+                                <div className='flex w-64 mr-4'>
+                                    <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
+                                        <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
+                                        <p className="text-gray-400 text-xs font-bold">
+                                            Collection
+                                        </p>
+                                        <h4 className='text-white text-lg font-bold'>
+                                            Name of the item
+                                        </h4>
+                                        <div className='flex flex-row justify-between items-center mt-8'>
+                                            <div className='text-highlightPrimary2 text-base font-bold'>
+                                                R$ 200,00
+                                            </div>
+                                            <a href="link" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
+                                                <span className="mr-2">
+                                                    <FiShoppingCart />
+                                                </span>
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                            </a>
                                         </div>
-                                        <a href="#" src="#" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
-                                            <span className="mr-2">
-                                                <FiShoppingCart />
-                                            </span>
-                                            <span className="text-xs md:text-xs font-regular"> Shop</span>
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className='flex w-64 mr-4'>
-                                <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 md:border-2 border-opacity-10">
-                                    <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
-                                    <p className="text-gray-400 text-xs font-bold">
-                                        Collection
-                                    </p>
-                                    <h4 className='text-white text-lg font-bold'>
-                                        Name of the item
-                                    </h4>
-                                    <div className='flex flex-row justify-between items-center mt-8'>
-                                        <div className='text-highlightPrimary2 text-base font-bold'>
-                                            R$ 200,00
-                                        </div>
-                                        <a href="#" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-6 md:py-3 px-3 py-2 rounded-xl">
-                                            <span className="mr-2">
-                                                <FiShoppingCart />
-                                            </span>
-                                            <span className="text-xs md:text-xs font-regular"> Shop</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -221,18 +203,18 @@ const HomePage = () => {
                     </h1>
                 </div>
 
-                <div class="mx-auto max-w-2xl py-2 px-4 sm:py-0 sm:px-6 lg:max-w-7xl lg:px-8">
-                    <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        <div class="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary md:border-2 border-opacity-30">
+                <div className="mx-auto max-w-2xl lg:max-w-7xl">
+                    <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                        <div className="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary border-2 border-opacity-30">
                             <a href="#">
                                 <div className='absolute h-full w-full left-0 top-0 bg-gradient-to-b from-highlightSecondary rounded-md opacity-20 z-0'></div>
-                                <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
-                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." class="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
+                                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
+                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." className="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
                                 </div>
-                                <div class="mt-4 flex justify-between relative z-50">
+                                <div className="mt-4 flex justify-between relative z-50">
                                     <div>
-                                        <h3 class="text-sm text-gray-700">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
+                                        <h3 className="text-sm text-gray-700">
+                                            <span aria-hidden="true" className="absolute inset-0"></span>
                                             <span className="text-gray-400 text-xs font-bold">
                                                 Collection
                                             </span>
@@ -244,16 +226,16 @@ const HomePage = () => {
                                 </div>
                             </a>
                         </div>
-                        <div class="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary md:border-2 border-opacity-30">
+                        <div className="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary border-2 border-opacity-30">
                             <a href="#">
                                 <div className='absolute h-full w-full left-0 top-0 bg-gradient-to-b from-highlightSecondary rounded-md opacity-20 z-0'></div>
-                                <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
-                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." class="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
+                                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
+                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." className="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
                                 </div>
-                                <div class="mt-4 flex justify-between relative z-50">
+                                <div className="mt-4 flex justify-between relative z-50">
                                     <div>
-                                        <h3 class="text-sm text-gray-700">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
+                                        <h3 className="text-sm text-gray-700">
+                                            <span aria-hidden="true" className="absolute inset-0"></span>
                                             <span className="text-gray-400 text-xs font-bold">
                                                 Collection
                                             </span>
@@ -265,16 +247,16 @@ const HomePage = () => {
                                 </div>
                             </a>
                         </div>
-                        <div class="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary md:border-2 border-opacity-30">
+                        <div className="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary border-2 border-opacity-30">
                             <a href="#">
                                 <div className='absolute h-full w-full left-0 top-0 bg-gradient-to-b from-highlightSecondary rounded-md opacity-20 z-0'></div>
-                                <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
-                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." class="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
+                                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
+                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." className="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
                                 </div>
-                                <div class="mt-4 flex justify-between relative z-50">
+                                <div className="mt-4 flex justify-between relative z-50">
                                     <div>
-                                        <h3 class="text-sm text-gray-700">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
+                                        <h3 className="text-sm text-gray-700">
+                                            <span aria-hidden="true" className="absolute inset-0"></span>
                                             <span className="text-gray-400 text-xs font-bold">
                                                 Collection
                                             </span>
@@ -286,16 +268,16 @@ const HomePage = () => {
                                 </div>
                             </a>
                         </div>
-                        <div class="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary md:border-2 border-opacity-30">
+                        <div className="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary border-2 border-opacity-30">
                             <a href="#">
                                 <div className='absolute h-full w-full left-0 top-0 bg-gradient-to-b from-highlightSecondary rounded-md opacity-20 z-0'></div>
-                                <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
-                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." class="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
+                                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
+                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." className="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
                                 </div>
-                                <div class="mt-4 flex justify-between relative z-50">
+                                <div className="mt-4 flex justify-between relative z-50">
                                     <div>
-                                        <h3 class="text-sm text-gray-700">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
+                                        <h3 className="text-sm text-gray-700">
+                                            <span aria-hidden="true" className="absolute inset-0"></span>
                                             <span className="text-gray-400 text-xs font-bold">
                                                 Collection
                                             </span>
@@ -307,16 +289,16 @@ const HomePage = () => {
                                 </div>
                             </a>
                         </div>
-                        <div class="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary md:border-2 border-opacity-30">
+                        <div className="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary border-2 border-opacity-30">
                             <a href="#">
                                 <div className='absolute h-full w-full left-0 top-0 bg-gradient-to-b from-highlightSecondary rounded-md opacity-20 z-0'></div>
-                                <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
-                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." class="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
+                                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none lg:h-48 relative z-50">
+                                    <img src={item1} alt="Front of men&#039;s Basic Tee in black." className="w-full object-cover object-center lg:h-48 lg:w-full h-48 rounded-lg" />
                                 </div>
-                                <div class="mt-4 flex justify-between relative z-50">
+                                <div className="mt-4 flex justify-between relative z-50">
                                     <div>
-                                        <h3 class="text-sm text-gray-700">
-                                            <span aria-hidden="true" class="absolute inset-0"></span>
+                                        <h3 className="text-sm text-gray-700">
+                                            <span aria-hidden="true" className="absolute inset-0"></span>
                                             <span className="text-gray-400 text-xs font-bold">
                                                 Collection
                                             </span>
@@ -340,12 +322,12 @@ const HomePage = () => {
                     </h1>
                 </div>
 
-                <div class="mx-auto max-w-2xl py-2 px-4 sm:py-0 sm:px-6 lg:max-w-7xl lg:px-8">
-                    <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        <div class="group relative p-4 bg-white rounded-lg">
-                            <div class="flex justify-between relative z-50">
+                <div className="mx-auto max-w-2xl lg:max-w-7xl">
+                    <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                        <div className="group relative p-4 bg-white rounded-lg">
+                            <div className="flex justify-between relative z-50">
                                 <div>
-                                    <p class="text-sm text-gray-900 mb-4">
+                                    <p className="text-sm text-gray-900 mb-4">
                                         <span className="text-gray-900 text-xs font-regular">
                                             The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
                                         </span>
@@ -359,10 +341,10 @@ const HomePage = () => {
                                 </div>
                             </div>
                         </div>  
-                        <div class="group relative p-4 bg-white rounded-lg">
-                            <div class="flex justify-between relative z-50">
+                        <div className="group relative p-4 bg-white rounded-lg">
+                            <div className="flex justify-between relative z-50">
                                 <div>
-                                    <p class="text-sm text-gray-900 mb-4">
+                                    <p className="text-sm text-gray-900 mb-4">
                                         <span className="text-gray-900 text-xs font-regular">
                                             The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
                                         </span>
@@ -376,10 +358,10 @@ const HomePage = () => {
                                 </div>
                             </div>
                         </div> 
-                        <div class="group relative p-4 bg-white rounded-lg">
-                            <div class="flex justify-between relative z-50">
+                        <div className="group relative p-4 bg-white rounded-lg">
+                            <div className="flex justify-between relative z-50">
                                 <div>
-                                    <p class="text-sm text-gray-900 mb-4">
+                                    <p className="text-sm text-gray-900 mb-4">
                                         <span className="text-gray-900 text-xs font-regular">
                                             The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
                                         </span>
@@ -393,10 +375,10 @@ const HomePage = () => {
                                 </div>
                             </div>
                         </div> 
-                        <div class="group relative p-4 bg-white rounded-lg">
-                            <div class="flex justify-between relative z-50">
+                        <div className="group relative p-4 bg-white rounded-lg">
+                            <div className="flex justify-between relative z-50">
                                 <div>
-                                    <p class="text-sm text-gray-900 mb-4">
+                                    <p className="text-sm text-gray-900 mb-4">
                                         <span className="text-gray-900 text-xs font-regular">
                                             The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
                                         </span>
@@ -410,10 +392,10 @@ const HomePage = () => {
                                 </div>
                             </div>
                         </div> 
-                        <div class="group relative p-4 bg-white rounded-lg">
-                            <div class="flex justify-between relative z-50">
+                        <div className="group relative p-4 bg-white rounded-lg">
+                            <div className="flex justify-between relative z-50">
                                 <div>
-                                    <p class="text-sm text-gray-900 mb-4">
+                                    <p className="text-sm text-gray-900 mb-4">
                                         <span className="text-gray-900 text-xs font-regular">
                                             The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
                                         </span>
