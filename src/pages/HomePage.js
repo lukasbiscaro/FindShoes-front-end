@@ -25,7 +25,7 @@ const HomePage = () => {
                     <h2 className="mt-2 text-textGray text-sm px-6 text-center leading-none md:text-xl md:px-56">
                         The largest digital marketplace for the best shoes
                     </h2>
-                    <a href="#" className="text-white mt-10 mb-10 flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-8 md:py-4 px-4 py-2 rounded-xl">
+                    <a href="/collections" className="text-white mt-10 mb-10 flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 md:px-8 md:py-4 px-4 py-2 rounded-xl">
                         <span className="mr-2">
                             <BsLightningCharge />
                         </span>
