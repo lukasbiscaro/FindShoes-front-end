@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import IsLogged from './components/IsLogged.js';
 import Collections from './pages/Collections';
 import ExploreItems from './pages/ExploreItems';
+import ItemDetail from './pages/ItemDetail';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/collections' element={<Collections />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/exploreItems' element={<ExploreItems />} />
+        <Route path='/itemDetail' element={<ItemDetail />} />
       </Routes>
     </div>
   );
