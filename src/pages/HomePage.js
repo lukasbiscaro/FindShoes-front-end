@@ -429,7 +429,6 @@ const HomePage = () => {
                         </div>   
                     </div>
                 </div>
-
             </main>
 
             <Footer />
