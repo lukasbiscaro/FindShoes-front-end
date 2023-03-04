@@ -1,7 +1,6 @@
 import bgImage from '../images/BgLoginPage.png'
 import React, { useState } from 'react';
-import { BiShow, BiHide } from 'react-icons/bi'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -21,6 +20,8 @@ const LoginPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
+    const navigate = useNavigate()
+
     const defSubmit = () => {
 
         const user = {
@@ -34,6 +35,7 @@ const LoginPage = () => {
                 setEmail('')
                 setPassword('')
                 alert("User logged")
+                navigate('/')
             })
             .catch(err => console.log(err))
     }

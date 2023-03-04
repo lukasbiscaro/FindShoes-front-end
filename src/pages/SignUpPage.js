@@ -1,6 +1,6 @@
 import bgImage from '../images/BgLoginPage.png'
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -26,6 +26,8 @@ const SignUpPage = () => {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
 
+    const navigate = useNavigate()
+
     const defSubmit = () => {
 
         const newUser = {
@@ -44,10 +46,10 @@ const SignUpPage = () => {
                     setPassword('')
                     setConfirmPassword('')
                     alert('User created')
+                    navigate('/login')
                 }
             })
             .catch(err => console.log(err))
-
     }
 
     return (

@@ -22,9 +22,7 @@ function App() {
             <ProfilePage />
           </IsLogged>
         } />
-        <Route path='/profile' element={<ProfilePage />} />
         <Route path='/collections' element={<Collections />} />
-        <Route path='/profile' element={<ProfilePage />} />
         <Route path='/exploreItems' element={<ExploreItems />} />
         <Route path='/itemDetail' element={<ItemDetail />} />
         <Route path='/myCart' element={<MyCart />} />
