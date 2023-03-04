@@ -12,7 +12,7 @@ const HomePage = () => {
             
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-6">
-                    <h1 className="font-bold text-white text-2xl mx-10 text-center leading-none text-7xl mx-56 relative">
+                    <h1 className="font-bold text-white text-center leading-none text-7xl mx-56 relative">
                         Explore All Items
                     </h1>
                 </div>
@@ -37,7 +37,7 @@ const HomePage = () => {
                                             <span className="mr-2">
                                                 <FiShoppingCart />
                                             </span>
-                                            <span className="text-xs text-xs font-regular"> Shop</span>
+                                            <span className="text-xs font-regular"> Shop</span>
                                         </a>
                                     </div>
                                 </div>
