@@ -22,7 +22,7 @@ const LoginPage = () => {
 
     const navigate = useNavigate()
 
-    const defSubmit = () => {
+    const onSubmit = () => {
 
         const user = {
             email,
@@ -32,8 +32,6 @@ const LoginPage = () => {
         axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
             .then(response => {
                 localStorage.setItem('token', response.data.jwt)
-                setEmail('')
-                setPassword('')
                 alert("User logged")
                 navigate('/')
             })
@@ -56,11 +54,11 @@ const LoginPage = () => {
                             </Link>
                             <div className="mt-20">
                                 <h2 className="text-lg font-semibold text-white">Please login to your account</h2>
-                                <p className="mt-2 text-sm text-textGray">Don’t have an account? <a className="font-medium text-highlightPrimary2 hover:underline" href="/sign-up">Sign Up</a></p>
+                                <p className="mt-2 text-sm text-textGray">Don't have an account? <a className="font-medium text-highlightPrimary2 hover:underline" href="/sign-up">Sign Up</a></p>
                             </div>
                         </div>
                         <form
-                            onSubmit={handleSubmit(defSubmit)}
+                            onSubmit={handleSubmit(onSubmit)}
                             className="mt-10 grid grid-cols-1 gap-y-8 relative">
                             <div>
                                 <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Email</label>
@@ -97,7 +95,9 @@ const LoginPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <button className="group relative h-10 w-40 overflow-hidden rounded-md text-lg shadow">
+                                <button
+                                    type='submit'
+                                    className="group relative h-10 w-40 overflow-hidden rounded-md text-lg shadow">
                                     <div className="absolute inset-0 w-2 bg-highlightPrimary2 transition-all duration-[500ms] ease-out group-hover:w-full"></div>
                                     <span className="text-highlightPrimary2 relative group-hover:text-textBlack">Sign In →</span>
                                 </button>
