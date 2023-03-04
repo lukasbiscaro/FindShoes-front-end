@@ -45,7 +45,7 @@ const HomePage = () => {
 
                 <div id="bestShoesCards" className="mb-60 h-60 overflowx-hidden">
                     <div className="relative w-full p-8 overflowx-hidden">
-                        <div className="flex absolute left-0 animate-marquee-infinite overflowx-hidden"> {/*ADD CLASS animate-marquee-infinite*/}
+                        <div className="flex absolute left-0 animate-marquee-infinite overflowx-hidden"> 
                             <a href="#">             
                                 <div className='flex w-64 mr-4'>
                                     <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
