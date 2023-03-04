@@ -46,11 +46,12 @@ const ProfilePage = () => {
             })
     }, [refresh])
 
-    const onSubmit = () => {
+    const onSubmit = e => {
 
         const updatedUser = {
             firstName,
-            lastName
+            lastName,
+            password
         }
 
         axios.put(`${process.env.REACT_APP_API_URL}/profile`, updatedUser, { headers })
@@ -75,7 +76,7 @@ const ProfilePage = () => {
                 if (response.status === 204) {
                     // toast("Item successfully deleted! ✅")
                     alert("deleted")
-                    navigate('/login')
+                    navigate('/sign-up')
                 }
             })
             .catch(err => console.log(err))
@@ -104,7 +105,7 @@ const ProfilePage = () => {
                                 </div>
                                 <div>
                                     <div className="bg-bgPrimary rounded-xl shadow-lg p-8 text-gray-800">
-                                        <form onClick={handleSubmit(onSubmit)}
+                                        <form onSubmit={handleSubmit(onSubmit)}
                                             className="flex flex-col space-y-6">
                                             <div className="flex justify-between gap-5">
                                                 <div>
@@ -143,7 +144,7 @@ const ProfilePage = () => {
                                                     type="text"
                                                     className="mt-4 w-full appearance-none rounded-md bg-black text-white px-3 py-3 hover:cursor-not-allowed border border-highlightPrimary" />
                                             </div>
-                                            {/* <div>
+                                            <div>
                                                 <label className="text-lg text-highlightPrimary2">Edit Password</label>
                                                 <input
                                                     {...register("password")}
@@ -168,9 +169,8 @@ const ProfilePage = () => {
                                                 <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
                                                     <p className='ml-1'>{errors.confirmPassword?.message}</p>
                                                 </div>
-                                            </div> */}
+                                            </div>
                                             <button
-                                                onClick={onSubmit}
                                                 type='submit'
                                                 className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
                                                 <FaLock className="text-black" />Save Changes
