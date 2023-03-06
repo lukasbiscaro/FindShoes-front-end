@@ -20,31 +20,20 @@ const SignUpPage = () => {
         resolver: yupResolver(schemaSign)
     })
 
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
-
     const navigate = useNavigate()
 
-    const defSubmit = () => {
+    const defSubmit = (data) => {
 
         const newUser = {
-            firstName,
-            lastName,
-            email,
-            password
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            password: data.password
         }
 
         axios.post(`${process.env.REACT_APP_API_URL}/auth/sign-up`, newUser)
             .then(response => {
                 if (response.status === 201) {
-                    setFirstName('')
-                    setLastName('')
-                    setEmail('')
-                    setPassword('')
-                    setConfirmPassword('')
                     alert('User created')
                     navigate('/login')
                 }
@@ -80,8 +69,6 @@ const SignUpPage = () => {
                                     <input
                                         {...register("firstName")}
                                         type="text"
-                                        value={firstName}
-                                        onChange={e => setFirstName(e.target.value)}
                                         className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm" />
                                     <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
                                         <p className='ml-1'>{errors.firstName?.message}</p>
@@ -92,8 +79,6 @@ const SignUpPage = () => {
                                     <input
                                         {...register("lastName")}
                                         type="text"
-                                        value={lastName}
-                                        onChange={e => setLastName(e.target.value)}
                                         className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                     />
                                     <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
@@ -106,8 +91,6 @@ const SignUpPage = () => {
                                 <input
                                     {...register("email")}
                                     type="text"
-                                    value={email}
-                                    onChange={e => setEmail(e.target.value)}
                                     className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                 />
                                 <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
@@ -119,8 +102,6 @@ const SignUpPage = () => {
                                 <input
                                     {...register("password")}
                                     type="password"
-                                    value={password}
-                                    onChange={e => setPassword(e.target.value)}
                                     className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                 />
                                 <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
@@ -131,8 +112,6 @@ const SignUpPage = () => {
                                 <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Confirm Password</label>
                                 <input
                                     {...register("confirmPassword")}
-                                    value={confirmPassword}
-                                    onChange={e => setConfirmPassword(e.target.value)}
                                     type="password"
                                     className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                 />

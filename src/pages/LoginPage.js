@@ -17,16 +17,13 @@ const LoginPage = () => {
         resolver: yupResolver(schemaLogin)
     })
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-
     const navigate = useNavigate()
 
-    const onSubmit = () => {
+    const onSubmit = (data) => {
 
         const user = {
-            email,
-            password
+            email: data.email,
+            password: data.password
         }
 
         axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
@@ -35,7 +32,7 @@ const LoginPage = () => {
                 alert("User logged")
                 navigate('/')
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log())
     }
 
     return (
@@ -65,8 +62,6 @@ const LoginPage = () => {
                                 <input
                                     {...register("email")}
                                     type="email"
-                                    value={email}
-                                    onChange={e => setEmail(e.target.value)}
                                     className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                 />
                                 <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
@@ -78,8 +73,6 @@ const LoginPage = () => {
                                 <input
                                     {...register("password")}
                                     type="password"
-                                    value={password}
-                                    onChange={e => setPassword(e.target.value)}
                                     className="focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-2 focus:outline-none sm:text-sm"
                                 />
                                 <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
