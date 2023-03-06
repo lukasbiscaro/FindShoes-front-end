@@ -8,6 +8,7 @@ import IsLogged from './components/IsLogged.js';
 import Collections from './pages/Collections';
 import ExploreItems from './pages/ExploreItems';
 import ItemDetail from './pages/ItemDetail';
+import MyCart from './pages/MyCart';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/collections' element={<Collections />} />
         <Route path='/exploreItems' element={<ExploreItems />} />
         <Route path='/itemDetail' element={<ItemDetail />} />
+        <Route path='/myCart' element={<MyCart />} />
       </Routes>
     </div>
   );
