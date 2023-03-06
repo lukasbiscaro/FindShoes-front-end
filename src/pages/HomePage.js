@@ -1,16 +1,16 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
+import NavBarLogged from '../components/NavBarLogged.js';
 import Footer from '../components/Footer';
 import { BsLightningCharge, BsStar } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
-
+import Islogged from '../components/IsLogged.js'
 import item1 from '../images/bg.png';
 
 const HomePage = () => {
     return (
         <>
-            <NavBar />
-            
+        <NavBar/>
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-24">
                     <h1 className="font-bold text-white text-2xl mx-2 text-center leading-none md:text-7xl md:mx-56 relative">
@@ -32,7 +32,7 @@ const HomePage = () => {
                         <span className="text-xs md:text-xl"> EXPLORE THE COLLECTIONS</span>
                     </a>
                 </div>
-    
+
 
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-24">
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightPrimary2 font-bold text-xs px-16 text-center leading-none md:text-base md:px-56">
@@ -46,7 +46,7 @@ const HomePage = () => {
                 <div id="bestShoesCards" className="mb-60 h-60 overflowx-hidden">
                     <div className="relative w-full p-8 overflowx-hidden">
                         <div className="flex absolute left-0 animate-marquee-infinite overflowx-hidden"> {/*ADD CLASS animate-marquee-infinite*/}
-                            <a href="#">             
+                            <a href="#">
                                 <div className='flex w-64 mr-4'>
                                     <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                                         <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
@@ -64,13 +64,13 @@ const HomePage = () => {
                                                 <span className="mr-2">
                                                     <FiShoppingCart />
                                                 </span>
-                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#">             
+                            <a href="#">
                                 <div className='flex w-64 mr-4'>
                                     <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                                         <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
@@ -88,13 +88,13 @@ const HomePage = () => {
                                                 <span className="mr-2">
                                                     <FiShoppingCart />
                                                 </span>
-                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#">             
+                            <a href="#">
                                 <div className='flex w-64 mr-4'>
                                     <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                                         <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
@@ -112,13 +112,13 @@ const HomePage = () => {
                                                 <span className="mr-2">
                                                     <FiShoppingCart />
                                                 </span>
-                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#">             
+                            <a href="#">
                                 <div className='flex w-64 mr-4'>
                                     <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                                         <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
@@ -136,13 +136,13 @@ const HomePage = () => {
                                                 <span className="mr-2">
                                                     <FiShoppingCart />
                                                 </span>
-                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#">             
+                            <a href="#">
                                 <div className='flex w-64 mr-4'>
                                     <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                                         <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
@@ -160,13 +160,13 @@ const HomePage = () => {
                                                 <span className="mr-2">
                                                     <FiShoppingCart />
                                                 </span>
-                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#">             
+                            <a href="#">
                                 <div className='flex w-64 mr-4'>
                                     <div className="w-60 p-4 md:w-64 md:p-4 md:h-auto bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                                         <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
@@ -184,7 +184,7 @@ const HomePage = () => {
                                                 <span className="mr-2">
                                                     <FiShoppingCart />
                                                 </span>
-                                                <span className="text-xs md:text-xs font-regular"> Shop</span>  
+                                                <span className="text-xs md:text-xs font-regular"> Shop</span>
                                             </a>
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-36">
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightSecondary font-bold text-xs px-16 text-center leading-none md:text-base md:px-56">
                         Discovery
@@ -340,7 +340,7 @@ const HomePage = () => {
                                     </p>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                         <div className="group relative p-4 bg-white rounded-lg">
                             <div className="flex justify-between relative z-50">
                                 <div>
@@ -357,7 +357,7 @@ const HomePage = () => {
                                     </p>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <div className="group relative p-4 bg-white rounded-lg">
                             <div className="flex justify-between relative z-50">
                                 <div>
@@ -374,7 +374,7 @@ const HomePage = () => {
                                     </p>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <div className="group relative p-4 bg-white rounded-lg">
                             <div className="flex justify-between relative z-50">
                                 <div>
@@ -391,7 +391,7 @@ const HomePage = () => {
                                     </p>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <div className="group relative p-4 bg-white rounded-lg">
                             <div className="flex justify-between relative z-50">
                                 <div>
@@ -408,11 +408,10 @@ const HomePage = () => {
                                     </p>
                                 </div>
                             </div>
-                        </div>   
+                        </div>
                     </div>
                 </div>
             </main>
-
             <Footer />
         </>
     )
