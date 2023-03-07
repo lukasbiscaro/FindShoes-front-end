@@ -1,4 +1,9 @@
-import { FiShoppingCart, FiUser } from 'react-icons/fi'
+import { Fragment } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom'
+import { FiShoppingCart, FiUser } from 'react-icons/fi';
+import { Menu, Transition } from '@headlessui/react';
+import { userNavigation } from '../db/profileNav';
 
 const NavBarLogged = () => {
     return (
@@ -54,9 +59,39 @@ const NavBarLogged = () => {
                                 </span>
                                 <span> My Cart (0)</span>
                             </a>
-                            <a className="group inline-flex items-center justify-center rounded-xl py-2 leading-6 px-3 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary2 text-highlightPrimary2 hover:text-slate-100 hover:bg-highlightPrimary2 active:bg-highlightPrimary2 active:text-blue-100 focus-visible:outline-highlightPrimary2" href="/profile">
-                                <span className="h-5 flex flex-col justify-center"><FiUser /></span>
-                            </a>
+
+                            <Menu as="div" className="relative">
+                                <div>
+                                    <Menu.Button className="group inline-flex items-center justify-center rounded-xl py-2 leading-6 px-3 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary2 text-highlightPrimary2 hover:text-slate-100 hover:bg-highlightPrimary2 active:bg-highlightPrimary2 active:text-blue-100 focus-visible:outline-highlightPrimary2">
+                                        <span className="sr-only">Open user menu</span>
+                                        <span className="h-5 flex flex-col justify-center"><FiUser /></span>
+                                    </Menu.Button>
+                                </div>
+                                <Transition
+                                    as={Fragment}
+                                    enter="transition ease-out duration-100"
+                                    enterFrom="transform opacity-0 scale-95"
+                                    enterTo="transform opacity-100 scale-100"
+                                    leave="transition ease-in duration-75"
+                                    leaveFrom="transform opacity-100 scale-100"
+                                    leaveTo="transform opacity-0 scale-95"
+                                >
+                                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-gray-900">
+                                        {userNavigation.map((item) => (
+                                            <Menu.Item key={item.name}>
+                                                {({ active }) => (
+                                                    <Link
+                                                        to={item.to}
+                                                        className='flex rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary2 hover:text-black cursor-pointer'
+                                                    >
+                                                        {item.name}
+                                                    </Link>
+                                                )}
+                                            </Menu.Item>
+                                        ))}
+                                    </Menu.Items>
+                                </Transition>
+                            </Menu>
                         </div>
 
                         <div className="-mr-1 md:hidden">
