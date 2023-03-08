@@ -1,7 +1,8 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { FaApplePay } from 'react-icons/fa';
 
 import item1 from '../images/bg.png';
 
@@ -20,7 +21,7 @@ const myCart = () => {
                 <div className="flex flex-col items-center sm:flex-row p-4 min-h-max bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                     <div className='flex flex-col w-full'>
                         <div className='flex flex-row mb-6'>
-                            <div className="flex flex-col sm:mr-6 mr-0 sm:w-60 w-full mb-4 sm:mb-0">
+                            <div className="flex flex-col mr-6 sm:w-60 w-full mb-4 sm:mb-0">
                                 <img src={item1} alt="" className="w-full h-48 rounded-lg" />
                             </div>
                             <div className="flex flex-col mr-6 md:w-96">
@@ -63,7 +64,7 @@ const myCart = () => {
                         </div>
 
                         <div className='flex flex-row mb-6'>
-                            <div className="flex flex-col sm:mr-6 mr-0 sm:w-60 w-full mb-4 sm:mb-0">
+                        <div className="flex flex-col mr-6 sm:w-60 w-full mb-4 sm:mb-0">
                                 <img src={item1} alt="" className="w-full h-48 rounded-lg" />
                             </div>
                             <div className="flex flex-col mr-6 md:w-96">
@@ -107,22 +108,27 @@ const myCart = () => {
 
                         <div className='bg-highlightPrimary2 h-px opacity-20'></div>
 
-                        <div className='flex flex-col justify-end items-end p-4 text-white font-bold'>
+                        <div className='flex flex-col justify-end items-end py-6 text-white font-bold'>
                             <span className="text-3xl font-bold text-white">
                                 Subtotal
                             </span>
                             <span className="text-highlightPrimary2 text-3xl font-bold">
                                 R$ 400,00
                             </span>
-                            <span className='text-xs text-highlightPrimary2 mb-4'>
+                            <span className='text-xs text-highlightPrimary2'>
                                 Em até 10x de R$ 40,00
                             </span>
                         </div>
 
                         <div className='bg-highlightPrimary2 h-px opacity-20'></div>
 
-                        <div className='flex flex-col justify-end items-end'>
-                            
+                        <div className='flex flex-row justify-end items-center py-6 text-white font-bold'>
+                            <Link to='/' className="text-white text-xs mr-6 hover:text-highlightPrimary2 underline">
+                                Delete all
+                            </Link>
+                            <Link to='/' className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-1 rounded-xl">
+                                <FaApplePay size={30} />
+                            </Link>
                         </div>
                         
                     </div>

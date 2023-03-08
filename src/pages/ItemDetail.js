@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 import { FiShoppingCart } from 'react-icons/fi';
 
 import item1 from '../images/bg.png';
@@ -14,12 +15,12 @@ const itemDetail = () => {
                 <div className="flex flex-col sm:flex-row p-4 min-h-max bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                     <div className="flex flex-col mr-6 md:w-96 pb-10">
                         <img src={item1} alt="" className="w-full h-60 rounded-lg mb-4" />
-                        <a href="link" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-3 px-3 py-2 rounded-xl">
+                        <Link to='/' className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-3 px-3 py-2 rounded-xl">
                             <span className="mr-2">
                                 <FiShoppingCart />
                             </span>
                             <span className="text-xs font-regular"> Shop</span>
-                        </a>
+                        </Link>
                     </div>
                     <div className="w-full">
                         <p className="text-gray-400 text-xs font-bold">

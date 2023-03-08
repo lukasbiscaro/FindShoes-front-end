@@ -1,10 +1,9 @@
 import { Fragment } from 'react';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { FiShoppingCart, FiUser } from 'react-icons/fi';
 import { Menu, Transition } from '@headlessui/react';
 import { userNavigation } from '../db/profileNav';
-import axios from 'axios';
 
 const NavBarLogged = () => {
     const navigate = useNavigate()

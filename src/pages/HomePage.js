@@ -11,7 +11,7 @@ const HomePage = () => {
     return (
         <>
         <NavBar/>
-            <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 overflow-hidden">
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-24">
                     <h1 className="font-bold text-white text-2xl mx-2 text-center leading-none md:text-7xl md:mx-56 relative">
                         <span className="absolute text-highlightPrimary left-0 top-6 z-50 rotate-45">
