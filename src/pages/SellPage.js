@@ -1,11 +1,61 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from "react"
 import axios from 'axios'
-import NavBarLogged from "../components/NavBarLogged";
+import { FaLock } from 'react-icons/fa'
+import NavBarLogged from "../components/NavBarLogged"
+import Footer from '../components/Footer.js'
 
 
-const ProductsPage = () => {
+const SellPage = () => {
+
+    const token = localStorage.getItem('token')
+
+    const headers = {
+        'Authorization': 'Bearer ' + token
+    }
+
+    const [image, setImage] = useState('')
+    const [name, setName] = useState('')
+    const [size, setSize] = useState('')
+    const [description, setDescription] = useState('')
+    const [price, setPrice] = useState('')
+    const [refresh, setRefresh] = useState(false)
+
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        const newProduct = {
+            image,
+            name,
+            size,
+            description,
+            price
+        }
+
+        axios.post(`${process.env.REACT_APP_API_URL}/sell`, newProduct, { headers })
+            .then(response => {
+                console.log(response.data)
+                alert('produto criado ')
+                setImage('')
+                setName('')
+                setSize('')
+                setDescription('')
+                setPrice('')
+                setRefresh(!refresh)
+
+            })
+            .catch(err => console.log(err))
+    }
+
+    const handleUpload = e => {
+        const uploadData = new FormData()
+        uploadData.append('shoeImage', e.target.files[0])
+        axios.post(`${process.env.REACT_APP_API_URL}/upload`, uploadData, { headers })
+            .then(response => {
+                setImage(response.data.url)
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
         <>
@@ -15,33 +65,75 @@ const ProductsPage = () => {
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                         <div className="overflow-hidden">
                             <h1 className="text-4xl text-highlightPrimary2 font-light uppercase">Sell Them</h1>
-                            <p className="text-white text-lg font-light py-5 mb-5">This are all your shoes registered in our system:</p>
-                            <div className="grid grid-cols-2 text-center text-white">
-                                <div>
-
-                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                            <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" />
+                            <p className="text-white text-lg font-light py-5 mb-5"><span className="font-light text-red-600">REMEMBERING!</span> The sale of fake products is prohibited.</p>
+                            <div className="flex flex-col text-white">
+                                <form onSubmit={e => handleSubmit(e)}>
+                                    <div>
+                                        <div className="text-lg text-highlightPrimary2">Name:</div>
+                                        <input
+                                            type='text'
+                                            value={name}
+                                            onChange={e => setName(e.target.value)}
+                                            className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
+                                            placeholder="Enter the name of the product..." />
                                     </div>
-
-                                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-                                    <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
-
-
-                                </div>
-                                <div>
-                                    qdkpqwodoqwd
-                                </div>
+                                    <div>
+                                        <div className="text-lg text-highlightPrimary2 mt-5">Size:</div>
+                                        <input
+                                            type='number'
+                                            value={size}
+                                            onChange={e => setSize(e.target.value)}
+                                            className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
+                                            placeholder="Enter the size of the product..." />
+                                    </div>
+                                    <div>
+                                        <div className="text-lg text-highlightPrimary2 mt-5">Leave a the description about your product:</div>
+                                        <textarea
+                                            value={description}
+                                            onChange={e => setDescription(e.target.value)}
+                                            rows="6"
+                                            className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
+                                            placeholder="Size, Condition, Condition of the box..."></textarea>
+                                        <div>
+                                        </div>
+                                        <div>
+                                            <div className="text-lg text-highlightPrimary2 mt-5">
+                                                Price:
+                                            </div>
+                                            <div className="relative mt-2 rounded-md shadow-sm">
+                                                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <span className="text-highlightPrimary2 sm:text-sm">$</span>
+                                                </div>
+                                                <input
+                                                    value={price}
+                                                    onChange={e => setPrice(e.target.value)}
+                                                    className="mt-4 focus:ring-1 pl-7 pr-20 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
+                                                    placeholder="0.00"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="text-lg text-highlightPrimary2 mb-5 mt-5">
+                                        Image of the Product:
+                                    </div>
+                                    <input
+                                        type="file"
+                                        onChange={e => handleUpload(e)}
+                                        className="mt-5 block w-full text-sm p-2 text-gray-600 rounded-lg cursor-pointer bg-bgLogin focus:outline-none file:" />
+                                    <button
+                                        type='submit'
+                                        className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
+                                        <FaLock className="text-black" />Save
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
 
-export default ProductsPage
+export default SellPage
