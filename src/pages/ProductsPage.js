@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import NavBarLogged from "../components/NavBarLogged";
+import Footer from '../components/Footer.js'
 import { AiOutlineEye, AiFillEdit } from 'react-icons/ai'
 import { FiDelete } from 'react-icons/fi'
 
@@ -48,8 +49,7 @@ const ProductsPage = () => {
                                                 </div>
                                                 <input
                                                     className="block w-full p-4 pl-10 text-sm text-white rounded-lg bg-purple-500 bg-opacity-10 focus:outline-none placeholder:text-white placeholder:text-opacity-30"
-                                                    placeholder="Search by the Name, Size or Price..."
-                                                    required />
+                                                    placeholder="Search by the Name, Size or Price..." />
                                                 <button
                                                     className="text-white absolute right-2.5 bottom-3 bg-highlightPrimary focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1">Search
                                                 </button>
@@ -60,6 +60,7 @@ const ProductsPage = () => {
                                                         <th className="px-6 py-4">Image</th>
                                                         <th className="px-6 py-4">Name</th>
                                                         <th className="px-6 py-4">Size</th>
+                                                        <th className="px-6 py-4">Description</th>
                                                         <th className="px-6 py-4">Price</th>
                                                         <th className="px-6 py-4"></th>
                                                     </tr>
@@ -73,6 +74,7 @@ const ProductsPage = () => {
                                                                 <tr className="text-white justify-center align-middle items-center">
                                                                     <img className="font-medium py-4 px-1 w-20 m-auto" alt="shoeImage" src={item.image} />
                                                                     <td>{item.name}</td>
+                                                                    <td>{item.size}</td>
                                                                     <td>{item.description}</td>
                                                                     <td>R$ {item.price}</td>
                                                                     <td className="text-2xl">
@@ -112,6 +114,7 @@ const ProductsPage = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
