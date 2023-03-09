@@ -9,6 +9,8 @@ import Collections from './pages/Collections';
 import ExploreItems from './pages/ExploreItems';
 import ItemDetail from './pages/ItemDetail';
 import MyCart from './pages/MyCart';
+import ProductsPage from './pages/ProductsPage.js'
+import SellPage from './pages/SellPage.js'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <ProfilePage />
           </IsLogged>
         } />
+        <Route path='/sell' element={<SellPage />} />
+        <Route path='/products' element={<ProductsPage />} />
         <Route path='/collections' element={<Collections />} />
         <Route path='/exploreItems' element={<ExploreItems />} />
         <Route path='/itemDetail' element={<ItemDetail />} />

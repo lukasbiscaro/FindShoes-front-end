@@ -60,13 +60,6 @@ const ProfilePage = () => {
             .catch(err => console.log(err))
     }
 
-    const logOut = e => {
-        e.preventDefault()
-
-        localStorage.clear()
-        navigate('/login')
-    }
-
     const deleteAccount = e => {
         e.preventDefault()
 
@@ -85,8 +78,8 @@ const ProfilePage = () => {
     return (
         <>
             <NavBarLogged />
-            <div className="container max-w-screen-lg mx-auto px-5 py-8">
-                <div className="border-highlightPrimary2 flex flex-col justify-between md:flex-row md:space-x-6 md:space-y-0 space-y-6 bg-purple-500 bg-opacity-10 w-full p-8 rounded-xl shadow-lg text-white
+            <div className="container max-w-screen-xl mx-auto px-5 py-8">
+                <div className="border-highlightPrimary2 flex flex-col justify-between md:flex-row md:space-x-6 md:space-y-0 space-y-6 bg-purple-500 bg-opacity-10 w-full p-8 shadow-lg text-white
             ">
                     <div className="flex flex-col space-y-8">
                         <div>
@@ -100,7 +93,7 @@ const ProfilePage = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="bg-bgPrimary rounded-xl shadow-lg p-8 text-gray-800">
+                        <div className="bg-bgPrimary shadow-lg p-8 text-gray-800">
                             <form onSubmit={handleSubmit(onSubmit)}
                                 className="flex flex-col space-y-6">
                                 <div className="flex justify-between gap-5">
