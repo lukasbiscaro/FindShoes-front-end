@@ -15,7 +15,7 @@ const ExploreItems = () => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:3001/', {headers})
+        axios.get('http://localhost:3001/products', {headers})
         .then(response => {
             setShoes(response.data)
         })
