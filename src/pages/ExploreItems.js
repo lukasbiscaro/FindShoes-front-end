@@ -1,15 +1,31 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import { FiShoppingCart } from 'react-icons/fi';
+import { useEffect, useState } from "react";
+import axios from 'axios';
+import ShoesCard from "../components/ShoesCard";
 
-import item1 from '../images/bg.png';
+const ExploreItems = () => {
+    const [shoes, setShoes] = useState([])
 
-const HomePage = () => {
+    const token = localStorage.getItem('token')
+
+    const headers = {
+        'Authorization': 'Bearer ' + token
+    }
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/', {headers})
+        .then(response => {
+            setShoes(response.data)
+        })
+        .catch(err => console.log(err))
+    }, [])
+
     return (
         <>
             <NavBar />
-            
+             
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-6">
                     <h1 className="font-bold text-white text-center leading-none text-7xl mx-56 relative">
@@ -20,32 +36,14 @@ const HomePage = () => {
                 <div id="bestShoesCards">
                     <div className="mx-auto max-w-2xl py-2 px-4 sm:py-0 sm:px-6 lg:max-w-7xl lg:px-8">
                         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                            <a href="/itemDetail">
-                                <div className="p-4 group relative bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
-                                    <img src={item1} alt="" className="w-full h-48 rounded-lg mb-4" />
-                                    <p className="text-gray-400 text-xs font-bold">
-                                        Collection
-                                    </p>
-                                    <h4 className='text-white text-lg font-bold'>
-                                        Name of the item
-                                    </h4>
-                                    <div className='flex flex-row justify-between items-center mt-8'>
-                                        <div className='text-highlightPrimary2 text-base font-bold'>
-                                            R$ 200,00
-                                        </div>
-                                        <a href="link" className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-3 px-3 py-2 rounded-xl">
-                                            <span className="mr-2">
-                                                <FiShoppingCart />
-                                            </span>
-                                            <span className="text-xs font-regular"> Shop</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
+                            { shoes.length > 0 && shoes.map(singleShoes => {
+                                return (
+                                    <ShoesCard singleShoes={singleShoes} key={singleShoes._id} />
+                                )
+                            })}   
                         </div>
                     </div>
                 </div>
-                
             </main>
 
             <Footer />
@@ -53,4 +51,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default ExploreItems
