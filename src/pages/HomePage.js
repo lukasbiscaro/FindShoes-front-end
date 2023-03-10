@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import NavBarLogged from '../components/NavBarLogged.js';
 import Islogged from '../components/IsLogged.js';
-import Footer from '../components/Footer';
 import { BsLightningCharge, BsStar } from 'react-icons/bs';
 import axios from 'axios';
 import ShoesCard from "../components/ShoesCard";
 import CollectionsCard from "../components/CollectionsCard";
-
-import item1 from '../images/bg.png';
 
 const HomePage = () => {
     const [shoes, setShoes] = useState([])
@@ -21,7 +19,7 @@ const HomePage = () => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:3001/products', {headers})
+        axios.get(`${process.env.REACT_APP_API_URL}/products`, {headers})
         .then(response => {
             setShoes(response.data)
         })
@@ -29,7 +27,7 @@ const HomePage = () => {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:3001/products', {headers})
+        axios.get(`${process.env.REACT_APP_API_URL}/products`, {headers})
         .then(response => {
             setCollections(response.data)
         })
