@@ -7,7 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import IsLogged from './components/IsLogged.js';
 import Collections from './pages/Collections';
 import ExploreItems from './pages/ExploreItems';
-import ItemDetail from './pages/ItemDetail';
+import ProductDetail from './pages/ProductDetail';
 import MyCart from './pages/MyCart';
 import ProductsPage from './pages/ProductsPage.js'
 import SellPage from './pages/SellPage.js'
@@ -28,7 +28,7 @@ function App() {
         <Route path='/products' element={<ProductsPage />} />
         <Route path='/collections' element={<Collections />} />
         <Route path='/exploreItems' element={<ExploreItems />} />
-        <Route path='/itemDetail' element={<ItemDetail />} />
+        <Route path='/productDetail' element={<ProductDetail />} />
         <Route path='/myCart' element={<MyCart />} />
       </Routes>
     </div>
