@@ -2,11 +2,36 @@ import React from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from 'axios';
 import { FiShoppingCart } from 'react-icons/fi';
 
 import item1 from '../images/bg.png';
 
-const itemDetail = () => {
+const ProductDetail = () => {
+    const [product, setProduct] = useState(null)
+
+    const { productId } = useParams()
+
+    const token = localStorage.getItem('token')
+
+    const headers = {
+        'Authorization': 'Bearer ' + token
+    }
+
+    useEffect(() => {
+        axios.get(`http://localhost:3001/products/${productId}`, {headers})
+        .then(response => {
+            setProduct(response.data)
+        })
+        .catch(err => console.log(err))
+    }, [])
+
+    if(!product) {
+        return <p>Loading...</p>
+    }
+
     return (
         <>
             <NavBar />
@@ -14,8 +39,8 @@ const itemDetail = () => {
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col sm:flex-row p-4 min-h-max bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                     <div className="flex flex-col mr-6 md:w-96 pb-10">
-                        <img src={item1} alt="" className="w-full h-60 rounded-lg mb-4" />
-                        <Link to='/' className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-3 px-3 py-2 rounded-xl">
+                        <img src={product.image} alt="" className="w-full h-60 rounded-lg mb-4" />
+                        <Link to={product._id} className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-3 px-3 py-2 rounded-xl">
                             <span className="mr-2">
                                 <FiShoppingCart />
                             </span>
@@ -49,4 +74,4 @@ const itemDetail = () => {
     )
 }
 
-export default itemDetail
+export default ProductDetail
