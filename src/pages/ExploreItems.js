@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import { useEffect, useState } from "react";
 import axios from 'axios';
 import ShoesCard from "../components/ShoesCard";
 
@@ -15,7 +14,7 @@ const ExploreItems = () => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:3001/products', {headers})
+        axios.get(`${process.env.REACT_APP_API_URL}/products`, {headers})
         .then(response => {
             setShoes(response.data)
         })

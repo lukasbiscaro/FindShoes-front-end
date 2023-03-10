@@ -9,7 +9,6 @@ import { FiDelete } from 'react-icons/fi'
 
 
 const ProductsPage = () => {
-
     const token = localStorage.getItem('token')
 
     const headers = {
