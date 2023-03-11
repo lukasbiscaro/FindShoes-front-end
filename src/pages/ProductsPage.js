@@ -8,7 +8,6 @@ import { AiOutlineEye, AiFillEdit } from 'react-icons/ai'
 import { FiDelete } from 'react-icons/fi'
 import { AuthContext } from '../contexts/AuthContext';
 
-
 const ProductsPage = () => {
     const { isLoading, loggedInUser } = useContext(AuthContext)
 

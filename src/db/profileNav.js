@@ -1,18 +1,22 @@
 export const userNavigation = [
     {
         name: 'Exit',
-        to: '/'
+        to: '/',
+        click: 'logout'
     },
     {
         name: 'Profile',
-        to: '/profile'
+        to: '/profile',
+        click: ''
     },
     {
         name: 'Products',
-        to: '/products'
+        to: '/products',
+        click: ''
     },
     {
         name: 'Sell',
-        to: '/sell'
+        to: '/sell',
+        click: ''
     },
 ]
