@@ -37,7 +37,7 @@ const NavBarLogged = () => {
                                 <div className="relative flex w-full flex-wrap items-stretch">
                                     <input
                                         type="search"
-                                        className="relative m-0 block w-[1%] min-w-0 w-52 leading-[22px] flex-auto rounded-xl border border-solid border-highlightPrimary2 bg-transparent bg-clip-padding py-2 pl-3 pr-12 leading-2 text-base font-normal text-highlightPrimary2 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-highlightPrimary2 focus:shadow-te-primary focus:outline-none placeholder-highlightPrimary2"
+                                        className="text-white relative m-0 block w-[1%] min-w-0 w-52 leading-[22px] flex-auto border border-solid border-opacity-20 border-highlightPrimary2 bg-transparent bg-clip-padding py-2 pl-3 pr-12 leading-2 text-base font-normal outline-none transition duration-300 ease-in-out focus:border-primary-600  focus:shadow-te-primary focus:outline-none focus:ring-1 focus:ring-highlightPrimary placeholder:text-white placeholder:text-opacity-30"
                                         placeholder="Search..."
                                         aria-label="Search"
                                         aria-describedby="button-addon2" />
@@ -61,18 +61,15 @@ const NavBarLogged = () => {
                         </div>
 
                         <div className="hidden md:flex md:gap-x-3">
-                            <a id="myCart" className="group inline-flex items-center justify-center rounded-xl py-2 px-6 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary bg-highlightPrimary text-white hover:text-slate-100 hover:bg-highlightPrimary2 hover:border-highlightPrimary2 active:bg-highlightPrimary2 active:text-blue-100 focus-visible:outline-highlightPrimary2" href="/myCart">
-                                <span className="mr-2">
-                                    <FiShoppingCart />
-                                </span>
-                                <span> My Cart (0)</span>
+                            <a id="myCart" className="transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary bg-highlightPrimary text-white hover:text-black uppercase hover:font-bold" href="/myCart">
+                                <FiShoppingCart className='text-lg' />
                             </a>
 
                             <Menu as="div" className="relative">
                                 <div>
-                                    <Menu.Button className="group inline-flex items-center justify-center rounded-xl py-2 leading-6 px-3 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary2 text-highlightPrimary2 hover:text-slate-100 hover:bg-highlightPrimary2 active:bg-highlightPrimary2 active:text-blue-100 focus-visible:outline-highlightPrimary2">
+                                    <Menu.Button className="transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary text-white hover:text-black hover:bg-highlightPrimary uppercase">
                                         <span className="sr-only">Open user menu</span>
-                                        <span className="h-5 flex flex-col justify-center"><FiUser /></span>
+                                        <span className="h-5 flex flex-col justify-center"><FiUser className='text=' /></span>
                                     </Menu.Button>
                                 </div>
                                 <Transition

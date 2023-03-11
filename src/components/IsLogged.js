@@ -1,11 +1,17 @@
-import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom"
+import { useContext } from "react"
+import { AuthContext } from "../contexts/AuthContext"
 
 const IsLogged = props => {
 
-    const token = localStorage.getItem('token')
+    const { isLoading, loggedInUser } = useContext(AuthContext)
 
-    if (!token) {
-        return <Navigate to='/login' />
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
+
+    if (!loggedInUser.user._id) {
+        return <Navigate to="/login" />
     }
 
     return props.children
