@@ -5,7 +5,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 const ShoesCard = ({ product }) => {
     return (
         <>
-            <Link to={`/products/${product._id}`} className="p-4 group relative bg-highlightPrimary bg-opacity-20 border-highlightPrimary2 border-2 border-opacity-10">
+            <Link to={`/all-products/${product._id}`} className="p-4 group relative bg-highlightPrimary bg-opacity-20 border-highlightPrimary2 border-2 border-opacity-10">
                 <img src={product.image} alt="" className="w-full object-cover object-center lg:h-48 lg:w-full h-48" />
                 <h5 className='text-white text-opacity-50 text-xs font-light mt-5'>
                     {product.brand}
@@ -17,7 +17,7 @@ const ShoesCard = ({ product }) => {
                     {/* <div className='text-highlightPrimary2 text-base font-bold'>
                         R$ {singleShoes.price}
                     </div> */}
-                    <Link to={`/products/${product._id}`} className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-3 w-full rounded-xl">
+                    <Link to={`/all-products/${product._id}`} className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-3 w-full rounded-xl">
                         <span className="mr-2">
                             <FiShoppingCart />
                         </span>
