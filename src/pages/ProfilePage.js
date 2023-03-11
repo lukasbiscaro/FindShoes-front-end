@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import NavBarLogged from "../components/NavBarLogged"
 import { FaLock } from 'react-icons/fa'
 import axios from 'axios';
@@ -7,8 +7,12 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
+import { AuthContext } from '../contexts/AuthContext';
 
 const ProfilePage = () => {
+
+    const { isLoading, loggedInUser } = useContext(AuthContext)
 
     const schemaSign = yup.object().shape({
         firstName: yup.string().required("First Name is required!"),
@@ -25,10 +29,9 @@ const ProfilePage = () => {
     const [refresh, setRefresh] = useState(false)
 
     const navigate = useNavigate()
-    const token = localStorage.getItem('token')
 
     const headers = {
-        'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + loggedInUser.jwt
     }
 
     useEffect(() => {
@@ -39,7 +42,7 @@ const ProfilePage = () => {
             .catch(err => {
                 console.log(err)
             })
-    }, [refresh])
+    }, [isLoading])
 
     const onSubmit = (data) => {
 
@@ -52,7 +55,14 @@ const ProfilePage = () => {
         axios.put(`${process.env.REACT_APP_API_URL}/profile`, updatedUser, { headers })
             .then(response => {
                 if (response.status === 200) {
-                    alert('User Updated')
+                    toast.success('Profile Successfully Updated!',
+                        {
+                            style: {
+                                borderRadius: '10px',
+                                background: '#5D36FF',
+                                color: '#fff',
+                            }
+                        })
                     reset()
                     setRefresh(!refresh)
                 }
@@ -66,9 +76,7 @@ const ProfilePage = () => {
         axios.delete(`${process.env.REACT_APP_API_URL}/profile`, { headers })
             .then(response => {
                 if (response.status === 204) {
-                    // toast("Item successfully deleted! ✅")
                     localStorage.clear()
-                    alert("deleted")
                     navigate('/sign-up')
                 }
             })
@@ -83,11 +91,11 @@ const ProfilePage = () => {
             ">
                     <div className="flex flex-col space-y-8">
                         <div>
-                            <h1 className="font-bold text-4xl tracking-wide">Personal Information</h1>
+                            <h1 className="text-4xl text-highlightPrimary2 font-light uppercase">Personal Information</h1>
                         </div>
                         <div className="flex flex-col space-y-6 ">
                             <div>
-                                <div className="text-lg font-bold text-highlightPrimary2">Full Name:</div>
+                                <div className="text-lg font-light text-highlightPrimary2 uppercase">Full Name:</div>
                                 <p>{data?.user?.firstName} {data?.user?.lastName}</p>
                             </div>
                         </div>
@@ -155,6 +163,10 @@ const ProfilePage = () => {
                                     className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
                                     <FaLock className="text-black" />Save Changes
                                 </button>
+                                <Toaster
+                                    position="top-center"
+                                    reverseOrder={false}
+                                />
                             </form>
                             <button
                                 onClick={deleteAccount}

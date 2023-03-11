@@ -1,20 +1,23 @@
 import React from "react";
-import { useEffect, useState } from "react"
+import { useState, useContext } from "react"
 import axios from 'axios'
 import { FaLock } from 'react-icons/fa'
 import NavBarLogged from "../components/NavBarLogged"
 import Footer from '../components/Footer.js'
+import toast, { Toaster } from 'react-hot-toast';
+import { AuthContext } from '../contexts/AuthContext';
 
 
 const SellPage = () => {
 
-    const token = localStorage.getItem('token')
+    const { loggedInUser } = useContext(AuthContext)
 
     const headers = {
-        'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + loggedInUser.jwt
     }
 
     const [image, setImage] = useState('')
+    const [brand, setBrand] = useState('')
     const [name, setName] = useState('')
     const [size, setSize] = useState('')
     const [description, setDescription] = useState('')
@@ -26,6 +29,7 @@ const SellPage = () => {
 
         const newProduct = {
             image,
+            brand,
             name,
             size,
             description,
@@ -35,8 +39,16 @@ const SellPage = () => {
         axios.post(`${process.env.REACT_APP_API_URL}/sell`, newProduct, { headers })
             .then(response => {
                 console.log(response.data)
-                alert('produto criado ')
+                toast.success('Profile Successfully Updated!',
+                    {
+                        style: {
+                            borderRadius: '10px',
+                            background: '#5D36FF',
+                            color: '#fff',
+                        }
+                    })
                 setImage('')
+                setBrand('')
                 setName('')
                 setSize('')
                 setDescription('')
@@ -74,6 +86,15 @@ const SellPage = () => {
                                             type='text'
                                             value={name}
                                             onChange={e => setName(e.target.value)}
+                                            className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
+                                            placeholder="Enter the name of the product..." />
+                                    </div>
+                                    <div>
+                                        <div className="text-lg text-highlightPrimary2 mt-5">Brand:</div>
+                                        <input
+                                            type='text'
+                                            value={brand}
+                                            onChange={e => setBrand(e.target.value)}
                                             className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
                                             placeholder="Enter the name of the product..." />
                                     </div>

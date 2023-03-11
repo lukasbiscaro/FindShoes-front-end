@@ -15,7 +15,8 @@ module.exports = {
         textWhite: '#F5F5F5',
         textGray: '#9B9B9B',
         bgLogin: '#1c1c2b',
-        bgButtonDelete: '#21262C'
+        bgButtonDelete: '#21262C',
+        mainBg: '0A0817'
       },
       keyframes: {
         marquee: {

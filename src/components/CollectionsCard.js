@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const CollectionsCard = ({collection}) => {
+const CollectionsCard = ({ collection }) => {
     return (
         <>
             <div className="group relative p-4 bg-opacity-20 rounded-lg border-highlightSecondary border-2 border-opacity-30">
@@ -23,7 +23,7 @@ const CollectionsCard = ({collection}) => {
                         </div>
                     </div>
                 </Link>
-            </div> 
+            </div>
         </>
     )
 }

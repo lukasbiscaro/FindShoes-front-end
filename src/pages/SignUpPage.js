@@ -1,5 +1,5 @@
 import bgImage from '../images/BgLoginPage.png'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -34,7 +34,7 @@ const SignUpPage = () => {
         axios.post(`${process.env.REACT_APP_API_URL}/auth/sign-up`, newUser)
             .then(response => {
                 if (response.status === 201) {
-                    alert('User created')
+                    alert('qopdkpqwokd')
                     navigate('/login')
                 }
             })
@@ -49,7 +49,7 @@ const SignUpPage = () => {
                         <div className="flex flex-col">
                             <Link to='/'>
                                 <a aria-label="Home" href="/">
-                                    <div className="text-white hover:text-highlightPrimary2">
+                                    <div className="text-white">
                                         <h1 className="font-bold text-3xl">Find<span className="font-light">Shoes</span></h1>
                                         <h2 className="font-light tracking-widest uppercase text-lg">Marketplace</h2>
                                     </div>

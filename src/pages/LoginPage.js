@@ -1,5 +1,5 @@
 import bgImage from '../images/BgLoginPage.png'
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup'
@@ -7,6 +7,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import axios from 'axios'
 
 const LoginPage = () => {
+
+    const navigate = useNavigate()
 
     const schemaLogin = yup.object().shape({
         email: yup.string().required("Please, enter a valid email address."),
@@ -17,8 +19,6 @@ const LoginPage = () => {
         resolver: yupResolver(schemaLogin)
     })
 
-    const navigate = useNavigate()
-
     const onSubmit = (data) => {
 
         const user = {
@@ -28,11 +28,11 @@ const LoginPage = () => {
 
         axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
             .then(response => {
-                localStorage.setItem('token', response.data.jwt)
+                localStorage.setItem('loggedInUser', JSON.stringify(response.data))
                 alert("User logged")
                 navigate('/')
             })
-            .catch(err => console.log())
+            .catch(err => console.log(err))
     }
 
     return (
@@ -43,7 +43,7 @@ const LoginPage = () => {
                         <div className="flex flex-col">
                             <Link to='/'>
                                 <a aria-label="Home" href="/">
-                                    <div className="text-white hover:text-highlightPrimary2">
+                                    <div className="text-white">
                                         <h1 className="font-bold text-3xl">Find<span className="font-light">Shoes</span></h1>
                                         <h2 className="font-light tracking-widest uppercase text-lg">Marketplace</h2>
                                     </div>
@@ -77,14 +77,6 @@ const LoginPage = () => {
                                 />
                                 <div className='text-sm text-red-500 mt-5 border border-none rounded-sm'>
                                     <p className='ml-1'>{errors.password?.message}</p>
-                                </div>
-                            </div>
-                            <div className="space-y-3">
-                                <div className="flex items-center space-x-2">
-                                    <div className="flex h-5 items-center">
-                                        <input type="checkbox" className="h-4 w-4 cursor-pointer accent-highlightPrimary" />
-                                    </div>
-                                    <div className="text-xs text-textGray">Remember Me</div>
                                 </div>
                             </div>
                             <div>
