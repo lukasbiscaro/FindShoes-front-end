@@ -1,42 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import NavBarLogged from '../components/NavBarLogged.js';
-import Islogged from '../components/IsLogged.js';
 import { BsLightningCharge, BsStar } from 'react-icons/bs';
 import axios from 'axios';
 import ShoesCard from "../components/ShoesCard";
 import CollectionsCard from "../components/CollectionsCard";
+import { AuthContext } from '../contexts/AuthContext';
 
 const HomePage = () => {
+
     const [shoes, setShoes] = useState([])
     const [colections, setCollections] = useState([])
 
-    const token = localStorage.getItem('token')
+    const { loggedInUser } = useContext(AuthContext)
 
     const headers = {
-        'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + loggedInUser.jwt
     }
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products`, {headers})
-        .then(response => {
-            setShoes(response.data)
-        })
-        .catch(err => console.log(err))
+        axios.get(`${process.env.REACT_APP_API_URL}/products`, { headers })
+            .then(response => {
+                setShoes(response.data)
+            })
+            .catch(err => console.log(err))
     }, [])
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products`, {headers})
-        .then(response => {
-            setCollections(response.data)
-        })
-        .catch(err => console.log(err))
+        axios.get(`${process.env.REACT_APP_API_URL}/products`, { headers })
+            .then(response => {
+                setCollections(response.data)
+            })
+            .catch(err => console.log(err))
     }, [])
 
     return (
         <>
-        <NavBar/> 
+            <NavBar />
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 overflow-hidden">
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-24">
                     <h1 className="font-bold text-white text-2xl mx-2 text-center leading-none md:text-7xl md:mx-56 relative">
@@ -55,7 +55,7 @@ const HomePage = () => {
                         <span className="mr-2">
                             <BsLightningCharge />
                         </span>
-                        <span className="text-xs md:text-xl"> EXPLORE THE COLLECTIONS</span>
+                        <span className="text-xs md:text-xl">EXPLORE THE COLLECTIONS</span>
                     </a>
                 </div>
 
@@ -64,7 +64,7 @@ const HomePage = () => {
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightPrimary2 font-bold text-xs px-16 text-center leading-none md:text-base md:px-56">
                         Hot items of the week
                     </h3>
-                    <h1 className="font-bold text-white text-2xl mx-10 text-center leading-none md:text-7xl md:mx-56 relative">
+                    <h1 className="font-light text-white uppercase text-2xl mx-10 text-center leading-none md:text-5xl md:mx-56 relative">
                         Best Shoes
                     </h1>
                 </div>
@@ -72,11 +72,11 @@ const HomePage = () => {
                 <div id="bestShoesCards">
                     <div className="mx-auto max-w-2xl py-2 sm:py-0 lg:max-w-7xl">
                         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                            { shoes.length > 0 && shoes.map(singleShoes => {
+                            {shoes.length > 0 && shoes.map(singleShoes => {
                                 return (
                                     <ShoesCard singleShoes={singleShoes} key={singleShoes._id} />
                                 )
-                            })}   
+                            })}
                         </div>
                     </div>
                 </div>
@@ -85,18 +85,18 @@ const HomePage = () => {
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightSecondary font-bold text-xs px-16 text-center leading-none md:text-base md:px-56">
                         Discovery
                     </h3>
-                    <h1 className="font-bold text-white text-2xl mx-10 text-center leading-none md:text-7xl md:mx-56 relative mb-0 md:mb-4">
+                    <h1 className="font-light text-white uppercase text-2xl mx-10 text-center leading-none md:text-5xl md:mx-56 relative">
                         Collections
                     </h1>
                 </div>
 
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
                     <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        { colections.length > 0 && colections.map(brand => {
+                        {colections.length > 0 && colections.map(brand => {
                             return (
                                 <CollectionsCard collection={brand} key={brand._id} />
                             )
-                        })}   
+                        })}
                     </div>
                 </div>
 
@@ -104,13 +104,13 @@ const HomePage = () => {
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightSecondary font-bold text-xs px-16 text-center leading-none md:text-base md:px-56">
                         ❤ Loved by people
                     </h3>
-                    <h1 className="font-bold text-white text-2xl mx-10 text-center leading-none md:text-7xl md:mx-56 relative mb-0 md:mb-4">
+                    <h1 className="font-light text-white uppercase text-2xl mx-10 text-center leading-none md:text-5xl md:mx-56 relative">
                         Around the World
                     </h1>
                 </div>
 
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
-                    <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    <div className="mt-14 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                         <div className="group relative p-4 bg-white rounded-lg">
                             <div className="flex justify-between relative z-50">
                                 <div>

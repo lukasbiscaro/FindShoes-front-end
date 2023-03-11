@@ -10,14 +10,12 @@ const myCart = () => {
     return (
         <>
             <NavBar />
-            
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-6 mb-6">
                     <h1 className="font-bold text-white text-center leading-none text-7xl mx-56 relative">
                         My Cart
                     </h1>
-                </div> 
-
+                </div>
                 <div className="flex flex-col items-center sm:flex-row p-4 min-h-max bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                     <div className='flex flex-col w-full'>
                         <div className='flex flex-row mb-6'>
@@ -64,7 +62,7 @@ const myCart = () => {
                         </div>
 
                         <div className='flex flex-row mb-6'>
-                        <div className="flex flex-col mr-6 sm:w-60 w-full mb-4 sm:mb-0">
+                            <div className="flex flex-col mr-6 sm:w-60 w-full mb-4 sm:mb-0">
                                 <img src={item1} alt="" className="w-full h-48 rounded-lg" />
                             </div>
                             <div className="flex flex-col mr-6 md:w-96">
@@ -130,7 +128,7 @@ const myCart = () => {
                                 <FaApplePay size={30} />
                             </Link>
                         </div>
-                        
+
                     </div>
                 </div>
             </main>

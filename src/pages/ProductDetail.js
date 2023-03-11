@@ -1,37 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { FiShoppingCart } from 'react-icons/fi';
+import { AuthContext } from '../contexts/AuthContext';
 
 const ProductDetail = () => {
     const [product, setProduct] = useState(null)
 
     const { productId } = useParams()
 
-    const token = localStorage.getItem('token')
+    const { loggedInUser } = useContext(AuthContext)
 
     const headers = {
-        'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + loggedInUser.jwt
     }
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products/${productId}`, {headers})
-        .then(response => {
-            setProduct(response.data)
-        })
-        .catch(err => console.log(err))
+        axios.get(`${process.env.REACT_APP_API_URL}/products/${productId}`, { headers })
+            .then(response => {
+                setProduct(response.data)
+            })
+            .catch(err => console.log(err))
     }, [])
 
-    if(!product) {
+    if (!product) {
         return <p>Loading...</p>
     }
 
     return (
         <>
             <NavBar />
-            
+
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col sm:flex-row p-4 min-h-max bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                     <div className="flex flex-col mr-6 md:w-96 pb-10">
@@ -59,8 +60,8 @@ const ProductDetail = () => {
                         </p>
                     </div>
                 </div>
-                   
-                
+
+
             </main>
 
             <Footer />
