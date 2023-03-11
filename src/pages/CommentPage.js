@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
+import axios from 'axios';
 import NavBarLogged from '../components/NavBarLogged'
 import Footer from '../components/Footer'
-import { useState, useContext } from 'react';
-import axios from 'axios';
-import toast, { Toaster } from 'react-hot-toast'
 import { AuthContext } from '../contexts/AuthContext';
+import toast, { Toaster } from 'react-hot-toast'
 
 const CommentPage = () => {
 

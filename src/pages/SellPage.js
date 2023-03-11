@@ -1,12 +1,10 @@
-import React from "react";
-import { useState, useContext } from "react"
+import React, { useState, useContext } from "react";
 import axios from 'axios'
-import { FaLock } from 'react-icons/fa'
+import { AuthContext } from '../contexts/AuthContext';
 import NavBarLogged from "../components/NavBarLogged"
 import Footer from '../components/Footer.js'
+import { FaLock } from 'react-icons/fa'
 import toast, { Toaster } from 'react-hot-toast';
-import { AuthContext } from '../contexts/AuthContext';
-
 
 const SellPage = () => {
 
@@ -39,7 +37,7 @@ const SellPage = () => {
         axios.post(`${process.env.REACT_APP_API_URL}/sell`, newProduct, { headers })
             .then(response => {
                 console.log(response.data)
-                toast.success('Profile Successfully Updated!',
+                toast.success('Product Successfully Added!',
                     {
                         style: {
                             borderRadius: '10px',
@@ -80,6 +78,13 @@ const SellPage = () => {
                             <p className="text-white text-lg font-light py-5 mb-5"><span className="font-light text-red-600">REMEMBERING!</span> The sale of fake products is prohibited.</p>
                             <div className="flex flex-col text-white">
                                 <form onSubmit={e => handleSubmit(e)}>
+                                    <div className="text-lg text-highlightPrimary2 mb-5 mt-5">
+                                        Image of the Product:
+                                    </div>
+                                    <input
+                                        type="file"
+                                        onChange={e => handleUpload(e)}
+                                        className="mt-5 mb-5 block w-full text-sm p-2 text-gray-600 rounded-lg cursor-pointer bg-bgLogin focus:outline-none file:" />
                                     <div>
                                         <div className="text-lg text-highlightPrimary2">Name:</div>
                                         <input
@@ -132,20 +137,17 @@ const SellPage = () => {
                                                     placeholder="0.00"
                                                 />
                                             </div>
+                                            <button
+                                                type='submit'
+                                                className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
+                                                <FaLock className="text-black" />Save
+                                            </button>
+                                            <Toaster
+                                                position="bottom-center"
+                                                reverseOrder={false}
+                                            />
                                         </div>
                                     </div>
-                                    <div className="text-lg text-highlightPrimary2 mb-5 mt-5">
-                                        Image of the Product:
-                                    </div>
-                                    <input
-                                        type="file"
-                                        onChange={e => handleUpload(e)}
-                                        className="mt-5 block w-full text-sm p-2 text-gray-600 rounded-lg cursor-pointer bg-bgLogin focus:outline-none file:" />
-                                    <button
-                                        type='submit'
-                                        className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
-                                        <FaLock className="text-black" />Save
-                                    </button>
                                 </form>
                             </div>
                         </div>

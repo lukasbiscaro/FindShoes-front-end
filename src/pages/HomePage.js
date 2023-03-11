@@ -1,37 +1,30 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import { BsLightningCharge, BsStar } from 'react-icons/bs';
-import axios from 'axios';
 import ShoesCard from "../components/ShoesCard";
 import CollectionsCard from "../components/CollectionsCard";
-import { AuthContext } from '../contexts/AuthContext';
+import CommentCard from '../components/CommentCard';
+import { BsLightningCharge, BsStar } from 'react-icons/bs';
 
 const HomePage = () => {
 
-    const [shoes, setShoes] = useState([])
-    const [colections, setCollections] = useState([])
-
-    const { loggedInUser } = useContext(AuthContext)
-
-    const headers = {
-        'Authorization': 'Bearer ' + loggedInUser.jwt
-    }
+    const [dataProducts, setDataProducts] = useState([])
+    const [dataComments, setDataComments] = useState([])
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products`, { headers })
+        axios.get(`${process.env.REACT_APP_API_URL}/all-products`)
             .then(response => {
-                setShoes(response.data)
+                setDataProducts(response.data)
             })
             .catch(err => console.log(err))
     }, [])
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products`, { headers })
+        axios.get(`${process.env.REACT_APP_API_URL}/all-comments`)
             .then(response => {
-                setCollections(response.data)
+                setDataComments(response.data)
             })
-            .catch(err => console.log(err))
     }, [])
 
     return (
@@ -72,9 +65,9 @@ const HomePage = () => {
                 <div id="bestShoesCards">
                     <div className="mx-auto max-w-2xl py-2 sm:py-0 lg:max-w-7xl">
                         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                            {shoes.length > 0 && shoes.map(singleShoes => {
+                            {dataProducts.length > 0 && dataProducts.map(product => {
                                 return (
-                                    <ShoesCard singleShoes={singleShoes} key={singleShoes._id} />
+                                    <ShoesCard product={product} key={product._id} />
                                 )
                             })}
                         </div>
@@ -92,9 +85,9 @@ const HomePage = () => {
 
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
                     <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        {colections.length > 0 && colections.map(brand => {
+                        {dataProducts.length > 0 && dataProducts.map(brand => {
                             return (
-                                <CollectionsCard collection={brand} key={brand._id} />
+                                <CollectionsCard brand={brand} key={brand._id} />
                             )
                         })}
                     </div>
@@ -111,91 +104,13 @@ const HomePage = () => {
 
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
                     <div className="mt-14 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        <div className="group relative p-4 bg-white rounded-lg">
-                            <div className="flex justify-between relative z-50">
-                                <div>
-                                    <p className="text-sm text-gray-900 mb-4">
-                                        <span className="text-gray-900 text-xs font-regular">
-                                            The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
-                                        </span>
-                                    </p>
-                                    <p className='text-black text-lg font-bold'>
-                                        Name of the person
-                                    </p>
-                                    <p className='text-highlightPrimary text-sm'>
-                                        CEO
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="group relative p-4 bg-white rounded-lg">
-                            <div className="flex justify-between relative z-50">
-                                <div>
-                                    <p className="text-sm text-gray-900 mb-4">
-                                        <span className="text-gray-900 text-xs font-regular">
-                                            The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
-                                        </span>
-                                    </p>
-                                    <p className='text-black text-lg font-bold'>
-                                        Name of the person
-                                    </p>
-                                    <p className='text-highlightPrimary text-sm'>
-                                        CEO
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="group relative p-4 bg-white rounded-lg">
-                            <div className="flex justify-between relative z-50">
-                                <div>
-                                    <p className="text-sm text-gray-900 mb-4">
-                                        <span className="text-gray-900 text-xs font-regular">
-                                            The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
-                                        </span>
-                                    </p>
-                                    <p className='text-black text-lg font-bold'>
-                                        Name of the person
-                                    </p>
-                                    <p className='text-highlightPrimary text-sm'>
-                                        CEO
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="group relative p-4 bg-white rounded-lg">
-                            <div className="flex justify-between relative z-50">
-                                <div>
-                                    <p className="text-sm text-gray-900 mb-4">
-                                        <span className="text-gray-900 text-xs font-regular">
-                                            The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
-                                        </span>
-                                    </p>
-                                    <p className='text-black text-lg font-bold'>
-                                        Name of the person
-                                    </p>
-                                    <p className='text-highlightPrimary text-sm'>
-                                        CEO
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="group relative p-4 bg-white rounded-lg">
-                            <div className="flex justify-between relative z-50">
-                                <div>
-                                    <p className="text-sm text-gray-900 mb-4">
-                                        <span className="text-gray-900 text-xs font-regular">
-                                            The best part about nftmkt is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.
-                                        </span>
-                                    </p>
-                                    <p className='text-black text-lg font-bold'>
-                                        Name of the person
-                                    </p>
-                                    <p className='text-highlightPrimary text-sm'>
-                                        CEO
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        {
+                            dataComments.length > 0 && dataComments.map(comment => {
+                                return (
+                                    <CommentCard comment={comment} key={comment._id} />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </main>

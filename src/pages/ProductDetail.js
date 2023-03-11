@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
+import axios from 'axios';
+import { Link, useParams } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import { Link, useParams } from 'react-router-dom';
-import axios from 'axios';
-import { FiShoppingCart } from 'react-icons/fi';
 import { AuthContext } from '../contexts/AuthContext';
+import { FiShoppingCart } from 'react-icons/fi';
 
 const ProductDetail = () => {
     const [product, setProduct] = useState(null)

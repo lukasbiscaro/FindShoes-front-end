@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
-import NavBarLogged from "../components/NavBarLogged"
-import { FaLock } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import NavBarLogged from "../components/NavBarLogged"
+import Footer from '../components/Footer';
+import { AuthContext } from '../contexts/AuthContext';
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import Footer from '../components/Footer';
-import { useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form';
+import { FaLock } from 'react-icons/fa'
 import toast, { Toaster } from 'react-hot-toast';
-import { AuthContext } from '../contexts/AuthContext';
 
 const ProfilePage = () => {
 
@@ -35,13 +35,11 @@ const ProfilePage = () => {
     }
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/profile`, { headers })
+        axios.get(`${process.env.REACT_APP_API_URL}/my-profile`, { headers })
             .then(response => {
                 setData(response.data)
             })
-            .catch(err => {
-                console.log(err)
-            })
+            .catch(err => console.log(err))
     }, [isLoading])
 
     const onSubmit = (data) => {
@@ -52,7 +50,7 @@ const ProfilePage = () => {
             password: data.password
         }
 
-        axios.put(`${process.env.REACT_APP_API_URL}/profile`, updatedUser, { headers })
+        axios.put(`${process.env.REACT_APP_API_URL}/my-profile`, updatedUser, { headers })
             .then(response => {
                 if (response.status === 200) {
                     toast.success('Profile Successfully Updated!',
@@ -73,7 +71,7 @@ const ProfilePage = () => {
     const deleteAccount = e => {
         e.preventDefault()
 
-        axios.delete(`${process.env.REACT_APP_API_URL}/profile`, { headers })
+        axios.delete(`${process.env.REACT_APP_API_URL}/my-profile`, { headers })
             .then(response => {
                 if (response.status === 204) {
                     localStorage.clear()

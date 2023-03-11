@@ -1,10 +1,10 @@
 import bgImage from '../images/BgLoginPage.png'
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form'
+import axios from 'axios'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import axios from 'axios'
+import { useForm } from 'react-hook-form'
 
 const SignUpPage = () => {
 
@@ -48,12 +48,10 @@ const SignUpPage = () => {
                     <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
                         <div className="flex flex-col">
                             <Link to='/'>
-                                <a aria-label="Home" href="/">
-                                    <div className="text-white">
-                                        <h1 className="font-bold text-3xl">Find<span className="font-light">Shoes</span></h1>
-                                        <h2 className="font-light tracking-widest uppercase text-lg">Marketplace</h2>
-                                    </div>
-                                </a>
+                                <div className="text-white">
+                                    <h1 className="font-bold text-3xl">Find<span className="font-light">Shoes</span></h1>
+                                    <h2 className="font-light tracking-widest uppercase text-lg">Marketplace</h2>
+                                </div>
                             </Link>
                             <div className="mt-20">
                                 <h2 className="text-lg font-semibold text-white">Be part of one of the biggest marketplaces in the sneaker world!</h2>

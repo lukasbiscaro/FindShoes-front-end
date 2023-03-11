@@ -1,23 +1,16 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import axios from 'axios';
 import ShoesCard from "../components/ShoesCard";
-import { AuthContext } from '../contexts/AuthContext';
 
 const ExploreItems = () => {
-    const [shoes, setShoes] = useState([])
-
-    const { loggedInUser } = useContext(AuthContext)
-
-    const headers = {
-        'Authorization': 'Bearer ' + loggedInUser.jwt
-    }
+    const [dataProducts, setDataProducts] = useState([])
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products`, { headers })
+        axios.get(`${process.env.REACT_APP_API_URL}/all-products`)
             .then(response => {
-                setShoes(response.data)
+                setDataProducts(response.data)
             })
             .catch(err => console.log(err))
     }, [])
@@ -36,9 +29,9 @@ const ExploreItems = () => {
                 <div id="bestShoesCards">
                     <div className="mx-auto max-w-2xl py-2 sm:py-0 lg:max-w-7xl">
                         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                            {shoes.length > 0 && shoes.map(singleShoes => {
+                            {dataProducts.length > 0 && dataProducts.map(product => {
                                 return (
-                                    <ShoesCard singleShoes={singleShoes} key={singleShoes._id} />
+                                    <ShoesCard product={product} key={product._id} />
                                 )
                             })}
                         </div>
