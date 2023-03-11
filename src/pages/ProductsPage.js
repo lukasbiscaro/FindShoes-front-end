@@ -7,7 +7,6 @@ import Footer from '../components/Footer.js'
 import { AiOutlineEye, AiFillEdit } from 'react-icons/ai'
 import { FiDelete } from 'react-icons/fi'
 
-
 const ProductsPage = () => {
     const token = localStorage.getItem('token')
 

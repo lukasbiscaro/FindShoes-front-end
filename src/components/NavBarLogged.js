@@ -91,7 +91,7 @@ const NavBarLogged = () => {
                                                     <>
                                                         <Link
                                                             to={item.to}
-                                                            onClick={logOut}
+                                                            onClick={item.click}
                                                             className='flex rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary2 hover:text-black cursor-pointer'
                                                         >
                                                             {item.name}
