@@ -25,7 +25,7 @@ const App = () => {
       <Route path='/my-comment' element={<IsLogged><CommentPage /></IsLogged>} />
       <Route path='/collections' element={<Collections />} />
       <Route path='/exploreItems' element={<ExploreItems />} />
-      <Route path='/my-products/:productId' element={<ProductDetail />} />
+      <Route path='/all-products/:id' element={<ProductDetail />} />
       <Route path='/myCart' element={<MyCart />} />
     </Routes>
   );
