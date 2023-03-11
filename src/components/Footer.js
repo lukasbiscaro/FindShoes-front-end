@@ -17,8 +17,8 @@ const Footer = () => {
                         </div>
                         <nav className="mt-10 text-sm" aria-label="quick links">
                             <div className="-my-1 flex justify-center gap-x-6">
-                                <Link className="inline-block rounded-lg py-1 px-2 text-sm text-white hover:opacity-80 hover:text-gray-400" href="/collections">Collections</Link>
-                                <Link className="inline-block rounded-lg py-1 px-2 text-sm text-white hover:opacity-80 hover:text-gray-400" href="/exploreItems">Explore Items</Link>
+                                <Link className="inline-block rounded-lg py-1 px-2 text-sm text-white hover:opacity-80 hover:text-gray-400" to="/collections">Collections</Link>
+                                <Link className="inline-block rounded-lg py-1 px-2 text-sm text-white hover:opacity-80 hover:text-gray-400" to="/exploreItems">Explore Items</Link>
                             </div>
                         </nav>
                     </div>
