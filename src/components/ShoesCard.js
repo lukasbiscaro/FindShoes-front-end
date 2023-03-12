@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiShoppingCart } from 'react-icons/fi';
 
 const ShoesCard = ({ product }) => {
     return (
         <>
-            <Link to={`/all-products/${product._id}`} className="p-4 group relative bg-highlightPrimary bg-opacity-20 border-highlightPrimary2 border-2 border-opacity-10">
-                <img src={product.image} alt="" className="w-full object-cover object-center lg:h-48 lg:w-full h-48" />
+            <div className="p-4 group relative bg-bgLogin bg-opacity-50">
+                <img
+                    src={product.image}
+                    alt="shoe-img"
+                    className="w-full object-cover object-center lg:h-48 h-48" />
                 <h5 className='text-white text-opacity-50 text-xs font-light mt-5'>
                     {product.brand}
                 </h5>
@@ -14,17 +16,15 @@ const ShoesCard = ({ product }) => {
                     {product.name}
                 </h4>
                 <div className='flex flex-row justify-between items-center mt-5'>
-                    {/* <div className='text-highlightPrimary2 text-base font-bold'>
-                        R$ {singleShoes.price}
-                    </div> */}
-                    <Link to={`/all-products/${product._id}`} className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-3 w-full rounded-xl">
-                        <span className="mr-2">
-                            <FiShoppingCart />
+                    <Link
+                        to={`/all-products/${product._id}`}
+                        className="w-full transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold border-b-4 border-highlightPrimary bg-highlightPrimary bg-opacity-20 uppercase">
+                        <span className='text-white text-opacity-50 hover:text-opacity-100 transition-all duration-300 ease-in-out'>
+                            view product
                         </span>
-                        <span className="text-xs font-regular"> </span>
                     </Link>
                 </div>
-            </Link>
+            </div>
         </>
     )
 }

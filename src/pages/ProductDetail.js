@@ -1,62 +1,87 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import { FiShoppingCart } from 'react-icons/fi';
 
 const ProductDetail = () => {
 
     const [dataProducts, setDataProducts] = useState([])
-
     const { productId } = useParams()
-
-    console.log(dataProducts)
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/all-products/${productId}`)
             .then(response => {
-                console.log(response.data)
                 setDataProducts(response.data)
             })
             .catch(err => console.log(err))
-    }, [])
-
-    if (!dataProducts) {
-        return <p>Loading...</p>
-    }
+    }, [productId])
 
     return (
         <>
             <NavBar />
-            <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col sm:flex-row p-4 min-h-max bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
-                    <div className="flex flex-col mr-6 md:w-96 pb-10">
-                        <img src={dataProducts.image} alt="" className="w-full h-60 rounded-lg mb-4" />
-                        <Link to={dataProducts} className="text-white flex justify-center items-center bg-highlightPrimary hover:bg-highlightPrimary2 px-6 py-3 px-3 py-2 rounded-xl">
-                            <span className="mr-2">
-                                <FiShoppingCart />
-                            </span>
-                            <span className="text-xs font-regular"> Shop</span>
-                        </Link>
-                    </div>
-                    <div className="w-full">
-                        <p className="text-gray-400 text-xs font-bold">
-                            Collection
-                        </p>
-                        <h4 className='text-white text-2xl font-bold'>
-                            {dataProducts.name}
-                        </h4>
-                        <div className='text-highlightPrimary2 text-xl font-bold'>
-                            {dataProducts.price}
+            <div className="container max-w-screen-xl mx-auto px-5 py-8">
+                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                        <div className="overflow-hidden">
+                            <h1 className="text-4xl mb-10 text-highlightPrimary2 font-light uppercase">Product Details</h1>
+                            <div className="overflow-hidden bg-purple-500 bg-opacity-10 p-16">
+                                <div className="container mx-auto">
+                                    {
+                                        dataProducts.length > 0 && dataProducts.map((product) => {
+                                            return (
+                                                <div
+                                                    key={product._id}
+                                                    className="w-full mx-auto flex flex-col lg:flex-row">
+                                                    <div className='flex-col'>
+                                                        <img
+                                                            alt="shoe-img"
+                                                            className="rounded-md"
+                                                            src={product.image} />
+                                                        <div className='flex gap-x-4 mt-4 overflow-auto'>
+                                                            <img
+                                                                alt="shoe-img"
+                                                                className="h-20 rounded-md"
+                                                                src={product.image} />
+                                                            <img
+                                                                alt="shoe-img"
+                                                                className="h-20 rounded-md"
+                                                                src={product.image} />
+                                                            <img
+                                                                alt="shoe-img"
+                                                                className="h-20 rounded-md"
+                                                                src={product.image} />
+                                                        </div>
+                                                    </div>
+                                                    <div className="w-full flex flex-col justify-evenly mt-12 md:mt-12 lg:mt-0 lg:pl-20">
+                                                        <div>
+                                                            <div>
+                                                                <h2 className="text-highlightPrimary text-sm font-bold uppercase tracking-widest mb-1">{product.brand}</h2>
+                                                                <h1 className="text-white text-3xl font-bold uppercase lg:text-2xl">{product.name}</h1>
+                                                            </div>
+                                                            <div className='mt-5 space-y-4 mb-10 md:mb-10 lg:mb-0'>
+                                                                <p className='text-md text-white text-opacity-50'>{product.description}</p>
+                                                                <p className='text-xl text-white uppercase lg:text-lg'>Size: <spa>43</spa></p>
+                                                            </div>
+                                                        </div>
+                                                        <div className="w-full mt-6">
+                                                            <div className="flex border-b-2 border-gray-200"></div>
+                                                            <div className="flex-col text-center mt-4 lg:flex-row">
+                                                                <span className="font-light text-xl text-white">R$ {product.price}</span>
+                                                                <button className="w-full mt-4 p-3 text-white bg-highlightPrimary  tracking-tight lg:mb-20 xl:mb-20">BUY NOW</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
                         </div>
-                        <p className="mt-6 mb-1 text-highlightPrimary2">Description</p>
-                        <p className="text-white text-xs font-normal pb-10">
-                            {dataProducts.description}
-                        </p>
                     </div>
                 </div>
-            </main>
+            </div>
             <Footer />
         </>
     )

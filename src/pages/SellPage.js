@@ -37,7 +37,7 @@ const SellPage = () => {
         axios.post(`${process.env.REACT_APP_API_URL}/sell`, newProduct, { headers })
             .then(response => {
                 console.log(response.data)
-                toast.success('Product Successfully Added!',
+                toast.success('Product Successfully Uploaded!',
                     {
                         style: {
                             borderRadius: '10px',
@@ -73,7 +73,7 @@ const SellPage = () => {
             <div className="container max-w-screen-xl mx-auto px-5 py-8">
                 <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                        <div className="overflow-hidden">
+                        <div>
                             <h1 className="text-4xl text-highlightPrimary2 font-light uppercase">Sell Them</h1>
                             <p className="text-white text-lg font-light py-5 mb-5"><span className="font-light text-red-600">REMEMBERING!</span> The sale of fake products is prohibited.</p>
                             <div className="flex flex-col text-white">
