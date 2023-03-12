@@ -51,13 +51,11 @@ const HomePage = () => {
                         <span className="text-xs md:text-xl">EXPLORE THE COLLECTIONS</span>
                     </a>
                 </div>
-
-
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-24">
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightPrimary2 font-bold text-xs px-16 text-center leading-none md:text-base md:px-56">
                         Hot items of the week
                     </h3>
-                    <h1 className="font-light text-white uppercase text-2xl mx-10 text-center leading-none md:text-5xl md:mx-56 relative">
+                    <h1 className="font-light text-white uppercase text-2xl mb-12 mx-5 text-center leading-none md:text-5xl md:mx-40 relative">
                         Best Shoes
                     </h1>
                 </div>
@@ -74,7 +72,7 @@ const HomePage = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-36">
+                <div className="mt-12 mb-12 flex flex-col relative justify-center items-center sm:mt-36">
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightSecondary font-bold text-xs px-16 text-center leading-none md:text-base md:px-56">
                         Discovery
                     </h3>
