@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
+import axios from 'axios';
 import NavBarLogged from '../components/NavBarLogged'
 import Footer from '../components/Footer'
-import { useState, useContext } from 'react';
-import axios from 'axios';
-import toast, { Toaster } from 'react-hot-toast'
 import { AuthContext } from '../contexts/AuthContext';
+import toast, { Toaster } from 'react-hot-toast'
 
 const CommentPage = () => {
 
@@ -24,7 +23,7 @@ const CommentPage = () => {
             text
         }
 
-        axios.post(`${process.env.REACT_APP_API_URL}/comment`, newComment, { headers })
+        axios.post(`${process.env.REACT_APP_API_URL}/my-comment`, newComment, { headers })
             .then(response => {
                 console.log(response.data)
                 toast('Thank you for your feedback!',

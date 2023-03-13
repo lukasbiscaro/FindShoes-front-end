@@ -19,7 +19,7 @@ const ProductsPage = () => {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products`, { headers })
+        axios.get(`${process.env.REACT_APP_API_URL}/my-products`, { headers })
             .then(response => {
                 setData(response.data)
                 setLoading(true)

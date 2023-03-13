@@ -1,9 +1,8 @@
-import { Fragment } from 'react';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
+import { userNavigation } from '../db/profileNav';
 import { FiShoppingCart, FiUser } from 'react-icons/fi';
 import { Menu, Transition } from '@headlessui/react';
-import { userNavigation } from '../db/profileNav';
 
 const NavBarLogged = () => {
     const navigate = useNavigate()

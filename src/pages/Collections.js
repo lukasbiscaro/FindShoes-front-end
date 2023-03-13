@@ -1,23 +1,16 @@
-import React from 'react';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import { useEffect, useState } from "react";
-import axios from 'axios';
-import CollectionsCard from "../components/CollectionsCard";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
+import CollectionsCard from "../components/CollectionsCard"
 
 const HomePage = () => {
-    const [colections, setCollections] = useState([])
-
-    const token = localStorage.getItem('token')
-
-    const headers = {
-        'Authorization': 'Bearer ' + token
-    }
+    const [dataProducts, setDataProducts] = useState([])
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products`, { headers })
+        axios.get(`${process.env.REACT_APP_API_URL}/all-products`)
             .then(response => {
-                setCollections(response.data)
+                setDataProducts(response.data)
             })
             .catch(err => console.log(err))
     }, [])
@@ -35,9 +28,9 @@ const HomePage = () => {
 
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
                     <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        {colections.length > 0 && colections.map(brand => {
+                        {dataProducts.length > 0 && dataProducts.map(brand => {
                             return (
-                                <CollectionsCard collection={brand} key={brand._id} />
+                                <CollectionsCard brand={brand} key={brand._id} />
                             )
                         })}
                     </div>

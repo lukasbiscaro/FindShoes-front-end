@@ -1,10 +1,10 @@
 import bgImage from '../images/BgLoginPage.png'
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import axios from 'axios'
 
 const LoginPage = () => {
 
@@ -42,12 +42,10 @@ const LoginPage = () => {
                     <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
                         <div className="flex flex-col">
                             <Link to='/'>
-                                <a aria-label="Home" href="/">
-                                    <div className="text-white">
-                                        <h1 className="font-bold text-3xl">Find<span className="font-light">Shoes</span></h1>
-                                        <h2 className="font-light tracking-widest uppercase text-lg">Marketplace</h2>
-                                    </div>
-                                </a>
+                                <div className="text-white">
+                                    <h1 className="font-bold text-3xl">Find<span className="font-light">Shoes</span></h1>
+                                    <h2 className="font-light tracking-widest uppercase text-lg">Marketplace</h2>
+                                </div>
                             </Link>
                             <div className="mt-20">
                                 <h2 className="text-lg font-semibold text-white">Please login to your account</h2>
