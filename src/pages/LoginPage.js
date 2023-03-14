@@ -37,7 +37,7 @@ const LoginPage = () => {
 
     return (
         <>
-            <div className="min-h-screen relative flex justify-center md:px-12 lg:px-0">
+            <div className="min-h-screen relative flex justify-center md:px-12 lg:px-0 mt-20 sm:mt-0">
                 <div className="relative z-10 flex flex-1 flex-col bg-bgPrimary py-10 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
                     <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
                         <div className="flex flex-col">
@@ -49,7 +49,7 @@ const LoginPage = () => {
                             </Link>
                             <div className="mt-20">
                                 <h2 className="text-lg font-semibold text-white">Please login to your account</h2>
-                                <p className="mt-2 text-sm text-textGray">Don't have an account? <a className="font-medium text-highlightPrimary2 hover:underline" href="/sign-up">Sign Up</a></p>
+                                <p className="mt-2 text-sm text-textGray">Don't have an account? <Link className="font-medium text-highlightPrimary2 hover:underline" to={"/sign-up"}>Sign Up</Link></p>
                             </div>
                         </div>
                         <form

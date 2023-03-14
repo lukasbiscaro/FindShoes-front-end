@@ -61,7 +61,7 @@ const ProductDetail = () => {
                                                             </div>
                                                             <div className='mt-5 space-y-4 mb-10 md:mb-10 lg:mb-0'>
                                                                 <p className='text-md text-white text-opacity-50'>{product.description}</p>
-                                                                <p className='text-xl text-white uppercase lg:text-lg'>Size: <spa>43</spa></p>
+                                                                <p className='text-xl text-white uppercase lg:text-lg'>Size: <spa>{product.size}</spa></p>
                                                             </div>
                                                         </div>
                                                         <div className="w-full mt-6">

@@ -7,11 +7,10 @@ import ProfilePage from './pages/ProfilePage.js'
 import SellPage from './pages/SellPage.js'
 import ProductsPage from './pages/ProductsPage.js'
 import CommentPage from './pages/CommentPage.js'
-import Collections from './pages/Collections'
 import ExploreItems from './pages/ExploreItems'
 import ProductDetail from './pages/ProductDetail'
 import MyCart from './pages/MyCart'
-import IsLogged from './components/IsLogged.js';
+import IsLogged from './components/IsLogged.js'
 
 const App = () => {
   return (
@@ -20,10 +19,10 @@ const App = () => {
       <Route path='/sign-up' element={<SignUpPage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/my-profile' element={<IsLogged><ProfilePage /></IsLogged>} />
-      <Route path='/sell' element={<IsLogged><SellPage /></IsLogged>} />
       <Route path='/my-products' element={<IsLogged><ProductsPage /></IsLogged>} />
       <Route path='/my-comment' element={<IsLogged><CommentPage /></IsLogged>} />
-      <Route path='/collections' element={<Collections />} />
+      <Route path='/sell' element={<IsLogged><SellPage /></IsLogged>} />
+      <Route path='/sell/:productId' element={<IsLogged><SellPage /></IsLogged>} />
       <Route path='/exploreItems' element={<ExploreItems />} />
       <Route path='/all-products/:productId' element={<ProductDetail />} />
       <Route path='/myCart' element={<MyCart />} />
