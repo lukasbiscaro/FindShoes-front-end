@@ -9,6 +9,9 @@ const ProductDetail = () => {
     const [dataProducts, setDataProducts] = useState([])
     const { productId } = useParams()
 
+
+    console.log(dataProducts)
+
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/all-products/${productId}`)
             .then(response => {

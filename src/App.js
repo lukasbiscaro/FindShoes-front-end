@@ -7,11 +7,12 @@ import ProfilePage from './pages/ProfilePage.js'
 import SellPage from './pages/SellPage.js'
 import ProductsPage from './pages/ProductsPage.js'
 import CommentPage from './pages/CommentPage.js'
-import Collections from './pages/Collections'
+import CollectionsPage from './pages/CollectionsPage.js'
 import ExploreItems from './pages/ExploreItems'
 import ProductDetail from './pages/ProductDetail'
 import MyCart from './pages/MyCart'
 import IsLogged from './components/IsLogged.js';
+import CollectionsPageBrand from './pages/CollectionsPageBrand';
 
 const App = () => {
   return (
@@ -23,7 +24,8 @@ const App = () => {
       <Route path='/sell' element={<IsLogged><SellPage /></IsLogged>} />
       <Route path='/my-products' element={<IsLogged><ProductsPage /></IsLogged>} />
       <Route path='/my-comment' element={<IsLogged><CommentPage /></IsLogged>} />
-      <Route path='/collections' element={<Collections />} />
+      {/* <Route path='/collections' element={<CollectionsPage />} />
+      <Route path='/collections/:brand' element={<CollectionsPageBrand />} /> */}
       <Route path='/exploreItems' element={<ExploreItems />} />
       <Route path='/all-products/:productId' element={<ProductDetail />} />
       <Route path='/myCart' element={<MyCart />} />

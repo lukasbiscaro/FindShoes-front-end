@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className="py-16">
                         <div className='flex justify-center'>
                             <Link aria-label="Home" href="/" className='flex justify-center'>
-                                <div className="text-white hover:text-highlightPrimary2">
+                                <div className="text-white">
                                     <h1 className="font-bold text-sm sm:text-xl">Find<span className="font-light">Shoes</span></h1>
                                     <h2 className="font-light tracking-widest uppercase text-xs sm:text-xs">Marketplace</h2>
                                 </div>
@@ -17,8 +17,8 @@ const Footer = () => {
                         </div>
                         <nav className="mt-10 text-sm" aria-label="quick links">
                             <div className="-my-1 flex justify-center gap-x-6">
-                                <Link className="inline-block rounded-lg py-1 px-2 text-sm text-white hover:opacity-80 hover:text-gray-400" href="/collections">Collections</Link>
-                                <Link className="inline-block rounded-lg py-1 px-2 text-sm text-white hover:opacity-80 hover:text-gray-400" href="/exploreItems">Explore Items</Link>
+                                {/* <Link className="inline-block rounded-lg py-1 px-2 text-sm text-white hover:opacity-80 hover:text-gray-400" href="/collections">Collections</Link> */}
+                                <Link className="inline-block py-1 px-2 text-sm text-white hover:border-b-2 hover:border-highlightPrimary2 hover:text-highlightPrimary2 uppercase" href="/exploreItems">Explore Items</Link>
                             </div>
                         </nav>
                     </div>
