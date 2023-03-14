@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState, useContext } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import NavBarLogged from "../components/NavBarLogged";
 import Footer from '../components/Footer.js'
@@ -9,6 +9,7 @@ import { FiDelete } from 'react-icons/fi'
 import { AuthContext } from '../contexts/AuthContext';
 
 const ProductsPage = () => {
+    const { productId } = useParams()
     const { isLoading, loggedInUser } = useContext(AuthContext)
 
     const headers = {
@@ -26,6 +27,14 @@ const ProductsPage = () => {
             })
             .catch(err => console.log(err))
     }, [isLoading])
+
+    const deleteProduct = productId => {
+        axios.delete(`${process.env.REACT_APP_API_URL}/my-products/${productId}`, { headers })
+            .then(response => {
+                alert("product deleted.")
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
         <>
@@ -85,7 +94,8 @@ const ProductsPage = () => {
                                                                         <button className="px-2 text-yellow-300">
                                                                             <AiFillEdit />
                                                                         </button>
-                                                                        <button>
+                                                                        <button
+                                                                            onClick={() => deleteProduct(item._id)}>
                                                                             <FiDelete className="text-red-500" />
                                                                         </button>
                                                                     </td>

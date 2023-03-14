@@ -1,22 +1,18 @@
 export const userNavigation = [
     {
         name: 'Exit',
-        to: '/',
-        click: 'logout'
+        href: '/'
     },
     {
         name: 'Profile',
-        to: '/profile',
-        click: ''
+        href: '/profile'
     },
     {
         name: 'Products',
-        to: '/products',
-        click: ''
+        href: '/products'
     },
     {
         name: 'Sell',
-        to: '/sell',
-        click: ''
+        href: '/sell'
     },
 ]
