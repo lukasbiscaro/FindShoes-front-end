@@ -1,12 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from 'axios'
 import { AuthContext } from '../contexts/AuthContext';
 import NavBarLogged from "../components/NavBarLogged"
 import Footer from '../components/Footer.js'
 import { FaLock } from 'react-icons/fa'
 import toast, { Toaster } from 'react-hot-toast';
+import { useParams, useLocation } from "react-router-dom";
 
 const SellPage = () => {
+
+    const { productId } = useParams()
+    const location = useLocation()
 
     const { loggedInUser } = useContext(AuthContext)
 
@@ -22,6 +26,28 @@ const SellPage = () => {
     const [price, setPrice] = useState('')
     const [refresh, setRefresh] = useState(false)
 
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/sell/${productId}`, { headers })
+            .then(response => {
+                const {
+                    image,
+                    brand,
+                    name,
+                    size,
+                    description,
+                    price
+                } = response.data
+
+                setImage(image);
+                setBrand(brand);
+                setName(name);
+                setSize(size);
+                setDescription(description);
+                setPrice(price);
+            })
+            .catch(err => console.log(err));
+    }, [productId]);
+
     const handleSubmit = e => {
         e.preventDefault()
 
@@ -36,7 +62,6 @@ const SellPage = () => {
 
         axios.post(`${process.env.REACT_APP_API_URL}/sell`, newProduct, { headers })
             .then(response => {
-                console.log(response.data)
                 toast.success('Product Successfully Uploaded!',
                     {
                         style: {
@@ -65,6 +90,34 @@ const SellPage = () => {
                 setImage(response.data.url)
             })
             .catch(err => console.log(err))
+    }
+
+    const editButton = e => {
+        e.preventDefault()
+
+        const updatedItem = {
+            handleUpload,
+            brand,
+            name,
+            size,
+            description,
+            price
+        }
+
+        axios.put(`${process.env.REACT_APP_API_URL}/my-products/${productId}`, updatedItem, { headers })
+            .then(response => {
+                toast("Item successfully edited! ✅")
+            })
+            .catch(err => console.log(err))
+
+        setImage('')
+        setBrand('')
+        setName('')
+        setSize('')
+        setDescription('')
+        setPrice('')
+        setRefresh(!refresh)
+
     }
 
     return (
@@ -144,11 +197,21 @@ const SellPage = () => {
                                                     placeholder="0.00"
                                                 />
                                             </div>
-                                            <button
-                                                type='submit'
-                                                className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
-                                                <FaLock className="text-black" />Save
-                                            </button>
+                                            {location.pathname === "/sell" && (
+                                                <button
+                                                    type='submit'
+                                                    className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
+                                                    <FaLock className="text-black" />Save
+                                                </button>
+                                            )}
+                                            {location.pathname.startsWith(`/sell/${productId}`) && (
+                                                <button
+                                                    onClick={editButton}
+                                                    type='submit'
+                                                    className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
+                                                    <FaLock className="text-black" />Save Edit
+                                                </button>
+                                            )}
                                             <Toaster
                                                 position="bottom-center"
                                                 reverseOrder={false}

@@ -14,8 +14,6 @@ const HomePage = () => {
     const [dataComments, setDataComments] = useState([])
     const [dataCollections, setDataCollections] = useState([])
 
-    console.log(dataCollections)
-
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/all-products`)
             .then(response => {
@@ -74,7 +72,6 @@ const HomePage = () => {
                         Best Shoes
                     </h1>
                 </div>
-
                 <div>
                     <div className="mx-auto max-w-2xl py-2 sm:py-0 lg:max-w-7xl">
                         <div className="flex flex-row gap-x-4 gap-y-10 sm:grid sm:grid-cols-2 md:grid md:grid-cols-3 lg:grid lg:grid-cols-4 overflow-x-auto">
@@ -86,7 +83,6 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-
                 {/* <div className="mt-12 mb-12 flex flex-col relative justify-center items-center sm:mt-36">
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightSecondary font-bold text-xs px-16 text-center leading-none md:text-base md:px-56">
                         Discovery
@@ -105,7 +101,6 @@ const HomePage = () => {
                         })}
                     </div>
                 </div> */}
-
                 <div className="flex flex-col relative justify-center items-center mt-12 md:mt-28 sm:mt-16">
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightSecondary font-bold text-xs px-16 text-center md:text-base md:px-56">
                         ❤ Loved by people
@@ -114,7 +109,6 @@ const HomePage = () => {
                         Around the World
                     </h1>
                 </div>
-
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
                     <div className="mt-14 grid grid-cols-1 gap-y-10 w-full overflow-hidden sm:grid-cols-2 gap-x-10 md:grid-cols-2 md:gap-x-4 lg:grid-cols-3 lg:gap-x-6">
                         {
