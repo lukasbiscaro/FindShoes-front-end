@@ -78,46 +78,52 @@ const SellPage = () => {
                             <p className="text-white text-lg font-light py-5 mb-5"><span className="font-light text-red-600">REMEMBERING!</span> The sale of fake products is prohibited.</p>
                             <div className="flex flex-col text-white">
                                 <form onSubmit={e => handleSubmit(e)}>
-                                    <div className="text-lg text-highlightPrimary2 mb-5 mt-5">
-                                        Image of the Product:
+                                    <div className="flex align-middle items-center justify-between">
+                                        <div className="w-full mr-6">
+                                            <div className="text-lg text-highlightPrimary2">Name:</div>
+                                            <input
+                                                type='text'
+                                                value={name}
+                                                onChange={e => setName(e.target.value)}
+                                                className="mt-4 focus:ring-1 focus:ring-highlightPrimary w-full rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
+                                                placeholder="Enter the name of the product..." />
+                                        </div>
+                                        <div className="w-full">
+                                            <div className="text-lg text-highlightPrimary2 mb-5 mt-5">
+                                                Image:
+                                            </div>
+                                            <input
+                                                type="file"
+                                                onChange={e => handleUpload(e)}
+                                                className="mt-5 mb-5 block w-full text-sm p-2 text-gray-600 rounded-lg cursor-pointer bg-bgLogin focus:outline-none" />
+                                        </div>
                                     </div>
-                                    <input
-                                        type="file"
-                                        onChange={e => handleUpload(e)}
-                                        className="mt-5 mb-5 block w-full text-sm p-2 text-gray-600 rounded-lg cursor-pointer bg-bgLogin focus:outline-none file:" />
-                                    <div>
-                                        <div className="text-lg text-highlightPrimary2">Name:</div>
-                                        <input
-                                            type='text'
-                                            value={name}
-                                            onChange={e => setName(e.target.value)}
-                                            className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
-                                            placeholder="Enter the name of the product..." />
-                                    </div>
-                                    <div>
-                                        <div className="text-lg text-highlightPrimary2 mt-5">Brand:</div>
-                                        <input
-                                            type='text'
-                                            value={brand}
-                                            onChange={e => setBrand(e.target.value)}
-                                            className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
-                                            placeholder="Enter the name of the product..." />
-                                    </div>
-                                    <div>
-                                        <div className="text-lg text-highlightPrimary2 mt-5">Size:</div>
-                                        <input
-                                            type='number'
-                                            value={size}
-                                            onChange={e => setSize(e.target.value)}
-                                            className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
-                                            placeholder="Enter the size of the product..." />
+                                    <div className="flex items-center justify-between">
+                                        <div className="w-full mr-6">
+                                            <div className="text-lg text-highlightPrimary2 mt-5">Brand:</div>
+                                            <input
+                                                type='text'
+                                                value={brand}
+                                                onChange={e => setBrand(e.target.value)}
+                                                className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
+                                                placeholder="Enter the name of the product..." />
+                                        </div>
+                                        <div className="w-full">
+                                            <div className="text-lg text-highlightPrimary2 mt-5">Size:</div>
+                                            <input
+                                                type='number'
+                                                value={size}
+                                                onChange={e => setSize(e.target.value)}
+                                                className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
+                                                placeholder="Enter the size of the product..." />
+                                        </div>
                                     </div>
                                     <div>
                                         <div className="text-lg text-highlightPrimary2 mt-5">Leave a the description about your product:</div>
                                         <textarea
                                             value={description}
                                             onChange={e => setDescription(e.target.value)}
-                                            rows="6"
+                                            rows="4"
                                             className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
                                             placeholder="Size, Condition, Condition of the box..."></textarea>
                                         <div>
@@ -131,6 +137,7 @@ const SellPage = () => {
                                                     <span className="text-highlightPrimary2 sm:text-sm">$</span>
                                                 </div>
                                                 <input
+                                                    type="number"
                                                     value={price}
                                                     onChange={e => setPrice(e.target.value)}
                                                     className="mt-4 focus:ring-1 pl-7 pr-20 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"

@@ -36,23 +36,23 @@ const ProductsPage = () => {
                         <div className="overflow-hidden">
                             <h1 className="text-4xl text-highlightPrimary2 font-light uppercase">Your Shoes</h1>
                             <p className="text-white text-lg font-light py-5 mb-5">This are all your shoes registered in our system:</p>
+                            <div className="relative mb-5 sm:w-full">
+                                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg className="w-5 h-5 text-highlightPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </div>
+                                <input
+                                    className="w-full p-4 pl-10 text-sm text-white rounded-lg bg-purple-500 bg-opacity-10 focus:outline-none placeholder:text-white placeholder:text-opacity-30"
+                                    placeholder="Search by the Name..." />
+                                <button
+                                    className="text-white absolute right-2.5 bottom-3 bg-highlightPrimary focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1">Search
+                                </button>
+                            </div>
                             {
                                 loading
                                     ?
                                     data.length
                                         ?
                                         <form>
-                                            <div className="relative mb-5">
-                                                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                                    <svg className="w-5 h-5 text-highlightPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                                                </div>
-                                                <input
-                                                    className="block w-full p-4 pl-10 text-sm text-white rounded-lg bg-purple-500 bg-opacity-10 focus:outline-none placeholder:text-white placeholder:text-opacity-30"
-                                                    placeholder="Search by the Name..." />
-                                                <button
-                                                    className="text-white absolute right-2.5 bottom-3 bg-highlightPrimary focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1">Search
-                                                </button>
-                                            </div>
                                             <table className="min-w-full text-sm font-light">
                                                 <thead className="border-b border-highlightPrimary2 bg-purple-500 bg-opacity-10 text-white font-medium text-lg">
                                                     <tr className="text-center">

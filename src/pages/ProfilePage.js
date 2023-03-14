@@ -85,11 +85,11 @@ const ProfilePage = () => {
         <>
             <NavBarLogged />
             <div className="container max-w-screen-xl mx-auto px-5 py-8">
-                <div className="border-highlightPrimary2 flex flex-col justify-between md:flex-row md:space-x-6 md:space-y-0 space-y-6 bg-purple-500 bg-opacity-10 w-full p-8 shadow-lg text-white
+                <div className="border-highlightPrimary2 flex flex-col justify-between md:flex-row md:space-y-0 lg:space-x-6 space-y-6 bg-purple-500 bg-opacity-10 w-full p-8 shadow-lg text-white
             ">
                     <div className="flex flex-col space-y-8">
                         <div>
-                            <h1 className="text-4xl text-highlightPrimary2 font-light uppercase">Personal Information</h1>
+                            <h1 className="text-4xl text-highlightPrimary2 font-light uppercase mb-5">Personal Information</h1>
                         </div>
                         <div className="flex flex-col space-y-6 ">
                             <div>
@@ -102,8 +102,8 @@ const ProfilePage = () => {
                         <div className="bg-bgPrimary shadow-lg p-8 text-gray-800">
                             <form onSubmit={handleSubmit(onSubmit)}
                                 className="flex flex-col space-y-6">
-                                <div className="flex justify-between gap-5">
-                                    <div>
+                                <div className="flex justify-between gap-x-4">
+                                    <div className='w-full'>
                                         <label className="text-lg text-highlightPrimary2">Edit First Name</label>
                                         <input
                                             {...register("firstName")}
@@ -114,7 +114,7 @@ const ProfilePage = () => {
                                             <p className='ml-1'>{errors.firstName?.message}</p>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div className='w-full'>
                                         <label className="text-lg text-highlightPrimary2">Edit Last Name</label>
                                         <input
                                             {...register("lastName")}

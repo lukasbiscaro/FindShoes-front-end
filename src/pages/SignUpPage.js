@@ -34,7 +34,7 @@ const SignUpPage = () => {
         axios.post(`${process.env.REACT_APP_API_URL}/auth/sign-up`, newUser)
             .then(response => {
                 if (response.status === 201) {
-                    alert('qopdkpqwokd')
+                    alert('User Created')
                     navigate('/login')
                 }
             })
@@ -55,7 +55,7 @@ const SignUpPage = () => {
                             </Link>
                             <div className="mt-20">
                                 <h2 className="text-lg font-semibold text-white">Be part of one of the biggest marketplaces in the sneaker world!</h2>
-                                <p className="mt-2 text-sm text-textGray">Already have an account? <a className="font-medium text-highlightPrimary2 hover:underline" href="/login">Sign In</a></p>
+                                <p className="mt-2 text-sm text-textGray">Already have an account? <Link className="font-medium text-highlightPrimary2 hover:underline" to={"/login"}>Sign In</Link></p>
                             </div>
                         </div>
                         <form
