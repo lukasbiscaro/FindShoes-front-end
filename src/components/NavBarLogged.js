@@ -19,7 +19,7 @@ const NavBarLogged = () => {
                 <nav className="relative z-50 flex justify-between">
                     <div className="flex items-center md:gap-x-12">
                         <Link to={'/'}>
-                            <div className="text-white hover:text-highlightPrimary2">
+                            <div className="text-white">
                                 <h1 className="font-bold text-sm sm:text-xl">Find<span className="font-light">Shoes</span></h1>
                                 <h2 className="font-light tracking-widest uppercase text-xs sm:text-xs">Marketplace</h2>
                             </div>

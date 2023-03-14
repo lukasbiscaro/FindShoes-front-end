@@ -25,7 +25,6 @@ const CommentPage = () => {
 
         axios.post(`${process.env.REACT_APP_API_URL}/my-comment`, newComment, { headers })
             .then(response => {
-                console.log(response.data)
                 toast('Thank you for your feedback!',
                     {
                         icon: '😁',

@@ -9,7 +9,7 @@ import { FiDelete } from 'react-icons/fi'
 import { AuthContext } from '../contexts/AuthContext';
 
 const ProductsPage = () => {
-    const { productId } = useParams()
+
     const { isLoading, loggedInUser } = useContext(AuthContext)
 
     const headers = {
@@ -18,6 +18,7 @@ const ProductsPage = () => {
 
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
+    const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/my-products`, { headers })
@@ -29,9 +30,11 @@ const ProductsPage = () => {
     }, [isLoading])
 
     const deleteProduct = productId => {
+
         axios.delete(`${process.env.REACT_APP_API_URL}/my-products/${productId}`, { headers })
             .then(response => {
                 alert("product deleted.")
+                setRefresh(!refresh)
             })
             .catch(err => console.log(err))
     }
@@ -88,12 +91,17 @@ const ProductsPage = () => {
                                                                     <td>{item.description}</td>
                                                                     <td>R$ {item.price}</td>
                                                                     <td className="text-2xl">
-                                                                        <button className="text-green-500">
-                                                                            <AiOutlineEye />
-                                                                        </button>
-                                                                        <button className="px-2 text-yellow-300">
-                                                                            <AiFillEdit />
-                                                                        </button>
+                                                                        <Link to={`/all-products/${item._id}`}>
+                                                                            <button className="text-green-500">
+                                                                                <AiOutlineEye />
+                                                                            </button>
+                                                                        </Link>
+                                                                        <Link to={`/sell/${item._id}`}>
+                                                                            <button
+                                                                                className="px-2 text-yellow-300">
+                                                                                <AiFillEdit />
+                                                                            </button>
+                                                                        </Link>
                                                                         <button
                                                                             onClick={() => deleteProduct(item._id)}>
                                                                             <FiDelete className="text-red-500" />
