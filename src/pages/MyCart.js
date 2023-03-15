@@ -18,10 +18,10 @@ const myCart = () => {
                 <div className="flex flex-col items-center sm:flex-row p-4 min-h-max bg-highlightPrimary bg-opacity-20 rounded-lg border-highlightPrimary2 border-2 border-opacity-10">
                     <div className='flex flex-col w-full'>
                         <div className='flex flex-row mb-6'>
-                            <div className="flex flex-col mr-6 sm:w-60 w-full mb-4 sm:mb-0">
+                            <div className="flex flex-col mr-6 flex-1 mb-4 sm:mb-0">
                                 <img src={item1} alt="" className="w-full h-48 rounded-lg" />
                             </div>
-                            <div className="flex flex-col mr-6 md:w-96">
+                            <div className="flex flex-col mr-6 flex-1">
                                 <p className="text-gray-400 text-xs font-bold">
                                     Collection
                                 </p>
@@ -47,7 +47,7 @@ const myCart = () => {
                                     </select>
                                 </div>
                             </div>
-                            <div className="flex flex-col justify-center items-end md:w-96">
+                            <div className="flex flex-col justify-center items-end flex-1">
                                 <div className='text-highlightPrimary2 text-3xl font-bold'>
                                     R$ 200,00
                                 </div>
@@ -61,10 +61,10 @@ const myCart = () => {
                         </div>
 
                         <div className='flex flex-row mb-6'>
-                            <div className="flex flex-col mr-6 sm:w-60 w-full mb-4 sm:mb-0">
+                            <div className="flex flex-col mr-6 flex-1 mb-4 sm:mb-0">
                                 <img src={item1} alt="" className="w-full h-48 rounded-lg" />
                             </div>
-                            <div className="flex flex-col mr-6 md:w-96">
+                            <div className="flex flex-col mr-6 flex-1">
                                 <p className="text-gray-400 text-xs font-bold">
                                     Collection
                                 </p>
@@ -90,7 +90,7 @@ const myCart = () => {
                                     </select>
                                 </div>
                             </div>
-                            <div className="flex flex-col justify-center items-end md:w-96">
+                            <div className="flex flex-col justify-center items-end flex-1">
                                 <div className='text-highlightPrimary2 text-3xl font-bold'>
                                     R$ 200,00
                                 </div>
