@@ -6,11 +6,11 @@ export const AuthProvider = (props) => {
     const [loggedInUser, setLoggedInUser] = useState({ token: '', user: {} })
     const [isLoading, setIsLoading] = useState(true)
 
-    // const logout = () => {
-    //     localStorage.removeItem('loggeInUser')
-    //     setLoggedInUser({})
-    // }
-
+    const logout = () => {
+        localStorage.removeItem('loggedInUser')
+        setLoggedInUser({})
+    }
+ 
     useEffect(() => {
         const storedUser = localStorage.getItem('loggedInUser')
         const parsedUser = JSON.parse(storedUser) || {}
@@ -22,7 +22,7 @@ export const AuthProvider = (props) => {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ isLoading, loggedInUser, setLoggedInUser }}>
+        <AuthContext.Provider value={{ isLoading, loggedInUser, setLoggedInUser, logout }}>
             {props.children}
         </AuthContext.Provider>
     )
