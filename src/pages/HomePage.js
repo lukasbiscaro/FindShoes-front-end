@@ -3,7 +3,7 @@ import axios from 'axios';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import ShoesCard from "../components/ShoesCard";
-import CollectionsCard from "../components/CollectionsCard";
+// import CollectionsCard from "../components/CollectionsCard";
 import CommentCard from '../components/CommentCard';
 import { BsLightningCharge, BsStar } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ const HomePage = () => {
 
     const [dataProducts, setDataProducts] = useState([])
     const [dataComments, setDataComments] = useState([])
-    const [dataCollections, setDataCollections] = useState([])
+    // const [dataCollections, setDataCollections] = useState([])
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/all-products`)
@@ -30,13 +30,13 @@ const HomePage = () => {
             .catch(err => console.log(err))
     }, [])
 
-    useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/collections`)
-            .then(response => {
-                setDataCollections(response.data)
-            })
-            .catch(err => console.log(err))
-    }, [])
+    // useEffect(() => {
+    //     axios.get(`${process.env.REACT_APP_API_URL}/collections`)
+    //         .then(response => {
+    //             setDataCollections(response.data)
+    //         })
+    //         .catch(err => console.log(err))
+    // }, [])
 
     return (
         <>
@@ -56,7 +56,7 @@ const HomePage = () => {
                         The largest digital marketplace for the best shoes
                     </h2>
                     <Link
-                        to="/collections"
+                        to="/exploreItems"
                         className="text-white mt-10 mb-5 flex justify-center items-center transition-all duration-500 ease-in-out bg-highlightPrimary hover:bg-opacity-70 md:px-8 md:py-4 px-4 py-2">
                         <span className="mr-2">
                             <BsLightningCharge />
@@ -105,12 +105,12 @@ const HomePage = () => {
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightSecondary font-bold text-xs px-16 text-center md:text-base md:px-56">
                         ❤ Loved by people
                     </h3>
-                    <h1 className="text-white uppercase sm:mb-12 md:mb-20 text-2xl mx-5 text-center leading-none md:text-4xl md:mx-40 relative">
+                    <h1 className="text-white uppercase mb-14 sm:mb-12 md:mb-20 text-2xl mx-5 text-center leading-none md:text-4xl md:mx-40 relative">
                         Around the World
                     </h1>
                 </div>
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
-                    <div className="mt-14 grid grid-cols-1 gap-y-10 w-full overflow-hidden sm:grid-cols-2 gap-x-10 md:grid-cols-2 md:gap-x-4 lg:grid-cols-3 lg:gap-x-6">
+                    <div className="grid grid-cols-1 gap-y-10 w-full overflow-hidden sm:grid-cols-2 gap-x-10 md:grid-cols-2 md:gap-x-4 lg:grid-cols-3 lg:gap-x-6">
                         {
                             dataComments.length > 0 && dataComments.map(comment => {
                                 return (

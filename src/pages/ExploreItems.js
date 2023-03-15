@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from '../components/NavBar';
+import NavBarLogged from '../components/NavBarLogged';
 import Footer from '../components/Footer';
 import axios from 'axios';
 import ShoesCard from "../components/ShoesCard";
@@ -17,12 +17,14 @@ const ExploreItems = () => {
 
     return (
         <>
-            <NavBar />
-            <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-6 mb-4">
-                    <h1 className="text-3xl sm:mb-10 md:text-4xl text-highlightPrimary2 font-light uppercase">
-                        Explore All Items
-                    </h1>
+            <NavBarLogged />
+            <main className="container max-w-screen-xl mx-auto px-5 py-8">
+                <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
+                    <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                        <h1 className="text-3xl md:text-4xl text-highlightPrimary2 font-light uppercase">
+                            Explore All Items
+                        </h1>
+                    </div>
                 </div>
                 <div id="bestShoesCards">
                     <div className="mx-auto max-w-2xl py-2 sm:py-0 lg:max-w-7xl">
