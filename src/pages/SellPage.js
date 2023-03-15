@@ -128,7 +128,7 @@ const SellPage = () => {
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                         <div>
                             <h1 className="text-4xl text-highlightPrimary2 font-light uppercase">Sell Them</h1>
-                            <p className="text-white text-lg font-light py-5 mb-5"><span className="font-light text-red-600">REMEMBERING!</span> The sale of fake products is prohibited.</p>
+                            <p className="text-white text-opacity-50 text-lg font-light py-5 mb-5"><span className="font-light text-red-600">REMEMBERING!</span> The sale of fake products is prohibited.</p>
                             <div className="flex flex-col text-white">
                                 <form onSubmit={e => handleSubmit(e)}>
                                     <div className="flex align-middle items-center justify-between">
@@ -200,7 +200,7 @@ const SellPage = () => {
                                             {location.pathname === "/sell" && (
                                                 <button
                                                     type='submit'
-                                                    className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
+                                                    className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light px-6 py-2 mt-10 mb-3">
                                                     <FaLock className="text-black" />Save
                                                 </button>
                                             )}
@@ -208,7 +208,7 @@ const SellPage = () => {
                                                 <button
                                                     onClick={editButton}
                                                     type='submit'
-                                                    className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
+                                                    className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light px-6 py-2 mt-10 mb-3">
                                                     <FaLock className="text-black" />Save Edit
                                                 </button>
                                             )}

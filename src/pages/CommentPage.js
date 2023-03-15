@@ -1,12 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios';
-import NavBarLogged from '../components/NavBarLogged';
-import Footer from '../components/Footer';
+import NavBarLogged from '../components/NavBarLogged'
+import Footer from '../components/Footer'
 import { AuthContext } from '../contexts/AuthContext';
-import toast, { Toaster } from 'react-hot-toast';
-import { FiDelete } from 'react-icons/fi';
+import toast, { Toaster } from 'react-hot-toast'
+import { Link, useParams } from 'react-router-dom';
 
 const CommentPage = () => {
+
+    const { commentId } = useParams()
     const { loggedInUser } = useContext(AuthContext)
 
     const headers = {
@@ -14,8 +16,26 @@ const CommentPage = () => {
     }
 
     const [text, setText] = useState('')
-    const [refresh, setRefresh] = useState(false)
     const [dataComments, setDataComments] = useState([])
+    const [refresh, setRefresh] = useState(false)
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/my-comment`, { headers })
+            .then(response => {
+                setDataComments(response.data)
+            })
+    }, [refresh])
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/my-comment/${commentId}`, { headers })
+            .then(response => {
+                const {
+                    text
+                } = response.data
+
+                setText(text)
+            })
+    }, [commentId])
 
     const onSubmit = e => {
         e.preventDefault()
@@ -42,20 +62,28 @@ const CommentPage = () => {
             .catch(err => console.log(err))
     }
 
-    useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/all-comments`)
+    const editButton = e => {
+        e.preventDefault()
+
+        const updatedComment = {
+            text
+        }
+
+        axios.put(`${process.env.REACT_APP_API_URL}/my-comment/${commentId}`, updatedComment, { headers })
             .then(response => {
-                setDataComments(response.data)
-                setRefresh(true)
+                toast("Item successfully edited! ✅")
             })
             .catch(err => console.log(err))
-    }, [])
 
-    const deleteComment = commentId => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/my-comment/${commentId}`, { headers })
+        setText('')
+        setRefresh(!refresh)
+    }
+
+    const deleteComment = id => {
+        axios.delete(`${process.env.REACT_APP_API_URL}/my-comments/${id}`, { headers })
             .then(response => {
-                alert("comment deleted.")
-                setRefresh(true)
+                alert("product deleted.")
+                setRefresh(!refresh)
             })
             .catch(err => console.log(err))
     }
@@ -73,7 +101,7 @@ const CommentPage = () => {
                                     <p className="mb-8 lg:mb-16 font-light text-center text-white text-opacity-50 sm:text-xl">Provide your feedback on how it was used on our platform, it is of great importance to us.</p>
                                     <form
                                         onSubmit={onSubmit}
-                                        className="space-y-8 mb-10">
+                                        className="space-y-8">
                                         <div className="sm:col-span-2">
                                             <label className="text-lg text-highlightPrimary2">Your message</label>
                                             <textarea
@@ -85,7 +113,7 @@ const CommentPage = () => {
                                         </div>
                                         <button
                                             type='submit'
-                                            className="text-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2">
+                                            className="text-center bg-highlightPrimary text-white font-light px-6 py-2">
                                             <p className="text-black" />Send
                                         </button>
                                         <Toaster
@@ -93,39 +121,40 @@ const CommentPage = () => {
                                             reverseOrder={false}
                                         />
                                     </form>
-
-                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <div className="relative overflow-x-auto shadow-md mt-24">
+                                        <table className="w-full text-sm text-left">
+                                            <thead className="border-b border-highlightPrimary2 bg-purple-500 bg-opacity-10">
                                                 <tr>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Message
+                                                    <th className="text-highlightPrimary2 font-light px-6 py-3 uppercase">
+                                                        your recent comments
                                                     </th>
-                                                    <td scope="col" class="px-6 py-3">
-                                                        Delete
-                                                    </td>
+                                                    <th>
+                                                    </th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                {
-                                                    dataComments.length > 0 && dataComments.map(comment => {
-                                                        return (
-                                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"> 
-                                                                <td class="px-6 py-4">
+                                            {
+                                                dataComments.map((comment) => {
+                                                    return (
+                                                        <tbody key={comment._id}>
+                                                            <tr className="flex flex-col sm:flex sm:flex-row sm:justify-between sm:items-center  justify-start items-start bg-transparent border-b border-highlightPrimary2">
+                                                                <td className="px-6 py-4 text-white max-w-xs sm:max-w-sm md:max-w-lg truncate">
                                                                     {comment.text}
                                                                 </td>
-                                                                <td class="px-6 py-4">
+                                                                <td className="text-center px-6 mb-3 sm:mb-0">
+                                                                    <Link to={`/my-comment/${commentId}`}>
+                                                                        <button
+                                                                            className="bg-bgLogin p-1 uppercase font-medium text-blue-600 hover:underline mr-3">Edit</button>
+                                                                    </Link>
+
                                                                     <button
-                                                                        onClick={() => deleteComment(comment._id)}>
-                                                                        <FiDelete className="text-red-500" />
-                                                                    </button>
+                                                                        onClick={() => deleteComment()}
+                                                                        className="bg-bgLogin p-1 uppercase font-medium text-red-600 hover:underline">delete</button>
                                                                 </td>
                                                             </tr>
-                                                        )
-                                                    })
-                                                }
-                                                
-                                            </tbody>
+                                                        </tbody>
+                                                    )
+                                                })
+                                            }
                                         </table>
                                     </div>
                                 </div>

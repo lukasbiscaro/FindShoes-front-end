@@ -21,6 +21,7 @@ const App = () => {
       <Route path='/my-profile' element={<IsLogged><ProfilePage /></IsLogged>} />
       <Route path='/my-products' element={<IsLogged><ProductsPage /></IsLogged>} />
       <Route path='/my-comment' element={<IsLogged><CommentPage /></IsLogged>} />
+      <Route path='/my-comment/:commentId' element={<IsLogged><CommentPage /></IsLogged>} />
       <Route path='/sell' element={<IsLogged><SellPage /></IsLogged>} />
       <Route path='/sell/:productId' element={<IsLogged><SellPage /></IsLogged>} />
       <Route path='/exploreItems' element={<ExploreItems />} />

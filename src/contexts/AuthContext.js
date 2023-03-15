@@ -10,7 +10,7 @@ export const AuthProvider = (props) => {
         localStorage.removeItem('loggedInUser')
         setLoggedInUser({})
     }
- 
+
     useEffect(() => {
         const storedUser = localStorage.getItem('loggedInUser')
         const parsedUser = JSON.parse(storedUser) || {}

@@ -162,7 +162,7 @@ const ProfilePage = () => {
                                 </div>
                                 <button
                                     type='submit'
-                                    className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">
+                                    className="w-full flex items-center justify-center gap-3 self-center bg-highlightPrimary text-white font-light px-6 py-2 mt-10 mb-3">
                                     <FaLock className="text-black" />Save Changes
                                 </button>
                                 <Toaster
@@ -172,7 +172,7 @@ const ProfilePage = () => {
                             </form>
                             <button
                                 onClick={deleteAccount}
-                                className="w-full flex items-center justify-center gap-3 self-center hover:text-bgPrimary hover:bg-red-600 border text-red-600 border-gray-600 border-opacity-30 bg-bgLogin font-light rounded-lg px-6 py-2 mt-5 mb-3">
+                                className="w-full flex items-center justify-center gap-3 self-center hover:text-bgPrimary hover:bg-red-600 border text-red-600 border-gray-600 border-opacity-30 bg-bgLogin font-light px-6 py-2 mt-5 mb-3">
                                 Delete Account
                             </button>
                         </div>

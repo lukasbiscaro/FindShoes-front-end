@@ -1,11 +1,9 @@
 import React from "react";
 import { useEffect, useState, useContext } from "react";
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import NavBarLogged from "../components/NavBarLogged";
 import Footer from '../components/Footer.js'
-import { AiOutlineEye, AiFillEdit } from 'react-icons/ai'
-import { FiDelete } from 'react-icons/fi'
 import { AuthContext } from '../contexts/AuthContext';
 
 const ProductsPage = () => {
@@ -46,16 +44,16 @@ const ProductsPage = () => {
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                         <div className="overflow-hidden">
                             <h1 className="text-4xl text-highlightPrimary2 font-light uppercase">Your Shoes</h1>
-                            <p className="text-white text-lg font-light py-5 mb-5">This are all your shoes registered in our system:</p>
+                            <p className="text-white text-opacity-50 text-lg font-light py-5 mb-5">This are all your shoes registered in our system:</p>
                             <div className="relative mb-5 sm:w-full">
                                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <svg className="w-5 h-5 text-highlightPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                 </div>
                                 <input
-                                    className="w-full p-4 pl-10 text-sm text-white rounded-lg bg-purple-500 bg-opacity-10 focus:outline-none placeholder:text-white placeholder:text-opacity-30"
+                                    className="w-full p-4 pl-10 text-sm text-white bg-purple-500 bg-opacity-10 focus:outline-none placeholder:text-white placeholder:text-opacity-30"
                                     placeholder="Search by the Name..." />
                                 <button
-                                    className="text-white absolute right-2.5 bottom-3 bg-highlightPrimary focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1">Search
+                                    className="text-white absolute right-2.5 bottom-3 bg-highlightPrimary focus:outline-none focus:ring-blue-300 font-medium text-sm px-4 py-1">Search
                                 </button>
                             </div>
                             {
@@ -89,21 +87,23 @@ const ProductsPage = () => {
                                                                     <td>{item.size}</td>
                                                                     <td>{item.description}</td>
                                                                     <td>R$ {item.price}</td>
-                                                                    <td className="text-2xl">
+                                                                    <td className="text-sm font-bold">
                                                                         <Link to={`/all-products/${item._id}`}>
-                                                                            <button className="text-green-500">
-                                                                                <AiOutlineEye />
+                                                                            <button
+                                                                                className="bg-bgLogin p-1 uppercase text-blue-600 hover:underline">
+                                                                                view
                                                                             </button>
                                                                         </Link>
                                                                         <Link to={`/sell/${item._id}`}>
                                                                             <button
-                                                                                className="px-2 text-yellow-300">
-                                                                                <AiFillEdit />
+                                                                                className="bg-bgLogin p-1 mr-2 ml-2 uppercase text-yellow-400 hover:underline">
+                                                                                edit
                                                                             </button>
                                                                         </Link>
                                                                         <button
-                                                                            onClick={() => deleteProduct(item._id)}>
-                                                                            <FiDelete className="text-red-500" />
+                                                                            onClick={() => deleteProduct(item._id)}
+                                                                            className="bg-bgLogin p-1 uppercase text-red-600 hover:underline">
+                                                                            delete
                                                                         </button>
                                                                     </td>
                                                                 </tr>
@@ -117,7 +117,7 @@ const ProductsPage = () => {
                                         <div className="container max-w-screen-xl mx-auto px-5 py-8 mt-36">
                                             <div className="text-white text-center text-xl flex flex-col justify-center items-center">
                                                 You do not have products registered on our website yet!
-                                                <Link to="/sell" className="bg-highlightPrimary text-white font-light rounded-lg px-6 py-2 mt-10 mb-3">Start Selling Now!</Link>
+                                                <Link to="/sell" className="bg-highlightPrimary text-white font-light px-6 py-2 mt-10 mb-3">Start Selling Now!</Link>
                                             </div>
                                         </div>
                                     :

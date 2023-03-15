@@ -49,14 +49,14 @@ const LoginPage = () => {
                             </Link>
                             <div className="mt-20">
                                 <h2 className="text-lg font-semibold text-white">Please login to your account</h2>
-                                <p className="mt-2 text-sm text-textGray">Don't have an account? <Link className="font-medium text-highlightPrimary2 hover:underline" to={"/sign-up"}>Sign Up</Link></p>
+                                <p className="mt-2 text-sm text-textGray">Don't have an account? <Link className="font-medium text-highlightPrimary hover:underline" to={"/sign-up"}>Sign Up</Link></p>
                             </div>
                         </div>
                         <form
                             onSubmit={handleSubmit(onSubmit)}
                             className="mt-10 grid grid-cols-1 gap-y-8 relative">
                             <div>
-                                <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Email</label>
+                                <label className="mb-3 block text-sm font-medium text-highlightPrimary">Email</label>
                                 <input
                                     {...register("email")}
                                     type="email"
@@ -67,7 +67,7 @@ const LoginPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Password</label>
+                                <label className="mb-3 block text-sm font-medium text-highlightPrimary">Password</label>
                                 <input
                                     {...register("password")}
                                     type="password"
@@ -80,9 +80,9 @@ const LoginPage = () => {
                             <div>
                                 <button
                                     type='submit'
-                                    className="group relative h-10 w-40 overflow-hidden rounded-md text-lg shadow">
-                                    <div className="absolute inset-0 w-2 bg-highlightPrimary2 transition-all duration-[500ms] ease-out group-hover:w-full"></div>
-                                    <span className="text-highlightPrimary2 relative group-hover:text-textBlack">Login →</span>
+                                    className="group relative h-10 w-40 overflow-hidden text-lg shadow">
+                                    <div className="absolute inset-0 w-2 bg-highlightPrimary transition-all duration-[500ms] ease-out group-hover:w-full"></div>
+                                    <span className="text-highlightPrimary relative group-hover:text-textBlack">Login →</span>
                                 </button>
                             </div>
                         </form>
