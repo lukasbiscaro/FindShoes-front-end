@@ -30,7 +30,6 @@ const ProductsPage = () => {
     }, [isLoading])
 
     const deleteProduct = productId => {
-
         axios.delete(`${process.env.REACT_APP_API_URL}/my-products/${productId}`, { headers })
             .then(response => {
                 alert("product deleted.")

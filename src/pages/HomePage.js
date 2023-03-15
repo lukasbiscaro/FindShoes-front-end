@@ -9,7 +9,6 @@ import { BsLightningCharge, BsStar } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-
     const [dataProducts, setDataProducts] = useState([])
     const [dataComments, setDataComments] = useState([])
     // const [dataCollections, setDataCollections] = useState([])
