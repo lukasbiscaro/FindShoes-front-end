@@ -30,7 +30,7 @@ const LoginPage = () => {
             .then(response => {
                 localStorage.setItem('loggedInUser', JSON.stringify(response.data))
                 alert("User logged")
-                navigate('/')
+                navigate('/my-profile')
             })
             .catch(err => console.log(err))
     }
@@ -82,7 +82,7 @@ const LoginPage = () => {
                                     type='submit'
                                     className="group relative h-10 w-40 overflow-hidden rounded-md text-lg shadow">
                                     <div className="absolute inset-0 w-2 bg-highlightPrimary2 transition-all duration-[500ms] ease-out group-hover:w-full"></div>
-                                    <span className="text-highlightPrimary2 relative group-hover:text-textBlack">Sign In →</span>
+                                    <span className="text-highlightPrimary2 relative group-hover:text-textBlack">Login →</span>
                                 </button>
                             </div>
                         </form>

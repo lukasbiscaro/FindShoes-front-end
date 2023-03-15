@@ -24,7 +24,7 @@ const ProductDetail = () => {
                 <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                         <div className="overflow-hidden">
-                            <h1 className="text-4xl mb-10 text-highlightPrimary2 font-light uppercase">Product Details</h1>
+                            <h1 className="text-3xl sm:mb-10 md:text-4xl text-highlightPrimary2 font-light uppercase">Product Details</h1>
                             <div className="overflow-hidden bg-purple-500 bg-opacity-10 p-16">
                                 <div className="container mx-auto">
                                     {
