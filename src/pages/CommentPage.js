@@ -1,9 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios';
-import NavBarLogged from '../components/NavBarLogged'
-import Footer from '../components/Footer'
+import NavBarLogged from '../components/NavBarLogged';
+import Footer from '../components/Footer';
 import { AuthContext } from '../contexts/AuthContext';
-import toast, { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast';
+import { FiDelete } from 'react-icons/fi';
 
 const CommentPage = () => {
     const { loggedInUser } = useContext(AuthContext)
@@ -14,6 +15,7 @@ const CommentPage = () => {
 
     const [text, setText] = useState('')
     const [refresh, setRefresh] = useState(false)
+    const [dataComments, setDataComments] = useState([])
 
     const onSubmit = e => {
         e.preventDefault()
@@ -40,6 +42,24 @@ const CommentPage = () => {
             .catch(err => console.log(err))
     }
 
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/all-comments`)
+            .then(response => {
+                setDataComments(response.data)
+                setRefresh(true)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+    const deleteComment = commentId => {
+        axios.delete(`${process.env.REACT_APP_API_URL}/my-comment/${commentId}`, { headers })
+            .then(response => {
+                alert("comment deleted.")
+                setRefresh(true)
+            })
+            .catch(err => console.log(err))
+    }
+
     return (
         <>
             <NavBarLogged />
@@ -53,7 +73,7 @@ const CommentPage = () => {
                                     <p className="mb-8 lg:mb-16 font-light text-center text-white text-opacity-50 sm:text-xl">Provide your feedback on how it was used on our platform, it is of great importance to us.</p>
                                     <form
                                         onSubmit={onSubmit}
-                                        className="space-y-8">
+                                        className="space-y-8 mb-10">
                                         <div className="sm:col-span-2">
                                             <label className="text-lg text-highlightPrimary2">Your message</label>
                                             <textarea
@@ -79,40 +99,32 @@ const CommentPage = () => {
                                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                                 <tr>
                                                     <th scope="col" class="px-6 py-3">
-                                                        Product name
+                                                        Message
                                                     </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Color
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Category
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Price
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Action
-                                                    </th>
+                                                    <td scope="col" class="px-6 py-3">
+                                                        Delete
+                                                    </td>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"> 
-                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        Apple MacBook Pro 17"
-                                                    </th>
-                                                    <td class="px-6 py-4">
-                                                        Silver
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        Laptop
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        $2999
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                    </td>
-                                                </tr>
+                                                {
+                                                    dataComments.length > 0 && dataComments.map(comment => {
+                                                        return (
+                                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"> 
+                                                                <td class="px-6 py-4">
+                                                                    {comment.text}
+                                                                </td>
+                                                                <td class="px-6 py-4">
+                                                                    <button
+                                                                        onClick={() => deleteComment(comment._id)}>
+                                                                        <FiDelete className="text-red-500" />
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        )
+                                                    })
+                                                }
+                                                
                                             </tbody>
                                         </table>
                                     </div>
