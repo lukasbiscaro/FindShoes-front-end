@@ -1,17 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { userNavigationLogged } from '../db/profileNavLogged';
 import { FiShoppingCart, FiUser } from 'react-icons/fi';
 import { Menu, Transition } from '@headlessui/react';
+import { AuthContext } from '../contexts/AuthContext';
 
 const NavBarLogged = () => {
+    const { logout } = useContext(AuthContext)
     const navigate = useNavigate()
-
-    const logOut = e => {
-        e.preventDefault()
-        localStorage.clear()
-        navigate('/login')
-    }
 
     return (
         <header className="py-10">
@@ -80,22 +76,51 @@ const NavBarLogged = () => {
                                 leaveTo="transform opacity-0 scale-95"
                             >
                                 <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-gray-900">
-                                    {userNavigationLogged.map((item) => (
-                                        <Menu.Item key={item.id}>
-                                            {({ active }) => (
-                                                <>
-                                                    <Link
-                                                        to={item.to}
-                                                        onClick={item.click}
-                                                        className='flex rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary2 hover:text-black cursor-pointer'
-                                                    >
-                                                        {item.name}
-                                                    </Link>
-                                                </>
-
-                                            )}
-                                        </Menu.Item>
-                                    ))}
+                                    <Menu.Item>
+                                        <>
+                                            <ul>
+                                                <a
+                                                    href='/my-profile'
+                                                    className='flex rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary2 hover:text-black cursor-pointer'
+                                                >
+                                                    Profile
+                                                </a>
+                                            </ul>
+                                            <ul>
+                                                <a
+                                                    href='/my-products'
+                                                    className='flex rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary2 hover:text-black cursor-pointer'
+                                                >
+                                                    Products
+                                                </a>
+                                            </ul>
+                                            <ul>
+                                                <a
+                                                    href='/sell'
+                                                    className='flex rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary2 hover:text-black cursor-pointer'
+                                                >
+                                                    Sell Product
+                                                </a>
+                                            </ul>
+                                            <ul>
+                                                <a
+                                                    href='/my-comment'
+                                                    className='flex rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary2 hover:text-black cursor-pointer'
+                                                >
+                                                    Feedback
+                                                </a>
+                                            </ul>
+                                            <ul>
+                                                <a
+                                                    href='/login'
+                                                    onClick={() => logout()}
+                                                    className='flex rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary2 hover:text-black cursor-pointer'
+                                                >
+                                                    Exit
+                                                </a>
+                                            </ul>
+                                        </>
+                                    </Menu.Item>
                                 </Menu.Items>
                             </Transition>
                         </Menu>

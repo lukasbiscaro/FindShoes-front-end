@@ -30,7 +30,7 @@ const LoginPage = () => {
             .then(response => {
                 localStorage.setItem('loggedInUser', JSON.stringify(response.data))
                 alert("User logged")
-                navigate('/my-profile')
+                navigate('/')
             })
             .catch(err => console.log(err))
     }
