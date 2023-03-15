@@ -14,7 +14,7 @@ const HomePage = () => {
     // const [dataCollections, setDataCollections] = useState([])
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/all-products`)
+        axios.get(`${process.env.REACT_APP_API_URL}/all-products?limit=1`)
             .then(response => {
                 setDataProducts(response.data)
             })
@@ -74,7 +74,7 @@ const HomePage = () => {
                 <div>
                     <div className="mx-auto max-w-2xl py-2 sm:py-0 lg:max-w-7xl">
                         <div className="flex flex-row gap-x-4 gap-y-10 sm:grid sm:grid-cols-2 md:grid md:grid-cols-3 lg:grid lg:grid-cols-4 overflow-x-auto">
-                            {dataProducts.length > 0 && dataProducts.map(product => {
+                            {dataProducts.length > 0 && dataProducts.slice(0,8).map(product => {
                                 return (
                                     <ShoesCard product={product} key={product._id} />
                                 )
@@ -111,7 +111,7 @@ const HomePage = () => {
                 <div className="mx-auto max-w-2xl lg:max-w-7xl">
                     <div className="grid grid-cols-1 gap-y-10 w-full overflow-hidden sm:grid-cols-2 gap-x-10 md:grid-cols-2 md:gap-x-4 lg:grid-cols-3 lg:gap-x-6">
                         {
-                            dataComments.length > 0 && dataComments.map(comment => {
+                            dataComments.length > 0 && dataComments.slice(0,3).map(comment => {
                                 return (
                                     <CommentCard comment={comment} key={comment._id} />
                                 )
