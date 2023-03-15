@@ -11,7 +11,6 @@ import { FaLock } from 'react-icons/fa'
 import toast, { Toaster } from 'react-hot-toast';
 
 const ProfilePage = () => {
-
     const { isLoading, loggedInUser } = useContext(AuthContext)
 
     const schemaSign = yup.object().shape({
@@ -28,6 +27,12 @@ const ProfilePage = () => {
     const [data, setData] = useState([])
     const [refresh, setRefresh] = useState(false)
 
+    function refreshPage() {
+        setTimeout(() => {
+            window.location.reload(false);
+        }, "2000");
+    }
+
     const navigate = useNavigate()
 
     const headers = {
@@ -43,7 +48,6 @@ const ProfilePage = () => {
     }, [isLoading])
 
     const onSubmit = (data) => {
-
         const updatedUser = {
             firstName: data.firstName,
             lastName: data.lastName,
@@ -62,7 +66,7 @@ const ProfilePage = () => {
                             }
                         })
                     reset()
-                    setRefresh(!refresh)
+                    refreshPage()
                 }
             })
             .catch(err => console.log(err))
