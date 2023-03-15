@@ -55,7 +55,7 @@ const SignUpPage = () => {
                             </Link>
                             <div className="mt-20">
                                 <h2 className="text-lg font-semibold text-white">Be part of one of the biggest marketplaces in the sneaker world!</h2>
-                                <p className="mt-2 text-sm text-textGray">Already have an account? <Link className="font-medium text-highlightPrimary2 hover:underline" to={"/login"}>Sign In</Link></p>
+                                <p className="mt-2 text-sm text-textGray">Already have an account? <Link className="font-medium text-highlightPrimary hover:underline" to={"/login"}>Sign In</Link></p>
                             </div>
                         </div>
                         <form
@@ -63,7 +63,7 @@ const SignUpPage = () => {
                             className="mt-10 grid grid-cols-1 gap-y-8 relative">
                             <div className='flex gap-x-8'>
                                 <div>
-                                    <label className="mb-3 block text-sm font-medium text-highlightPrimary2">First Name</label>
+                                    <label className="mb-3 block text-sm font-medium text-highlightPrimary">First Name</label>
                                     <input
                                         {...register("firstName")}
                                         type="text"
@@ -73,7 +73,7 @@ const SignUpPage = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Last Name</label>
+                                    <label className="mb-3 block text-sm font-medium text-highlightPrimary">Last Name</label>
                                     <input
                                         {...register("lastName")}
                                         type="text"
@@ -85,7 +85,7 @@ const SignUpPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Email</label>
+                                <label className="mb-3 block text-sm font-medium text-highlightPrimary">Email</label>
                                 <input
                                     {...register("email")}
                                     type="text"
@@ -96,7 +96,7 @@ const SignUpPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Password</label>
+                                <label className="mb-3 block text-sm font-medium text-highlightPrimary">Password</label>
                                 <input
                                     {...register("password")}
                                     type="password"
@@ -107,7 +107,7 @@ const SignUpPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <label className="mb-3 block text-sm font-medium text-highlightPrimary2">Confirm Password</label>
+                                <label className="mb-3 block text-sm font-medium text-highlightPrimary">Confirm Password</label>
                                 <input
                                     {...register("confirmPassword")}
                                     type="password"
@@ -118,9 +118,9 @@ const SignUpPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <button type='submit' className="group relative h-10 w-40 overflow-hidden rounded-md text-lg shadow">
-                                    <div className="absolute inset-0 w-2 bg-highlightPrimary2 transition-all duration-[500ms] ease-out group-hover:w-full"></div>
-                                    <span className="text-highlightPrimary2 relative group-hover:text-black">Sign Up →</span>
+                                <button type='submit' className="group relative h-10 w-40 overflow-hidden text-lg shadow">
+                                    <div className="absolute inset-0 w-2 bg-highlightPrimary transition-all duration-[500ms] ease-out group-hover:w-full"></div>
+                                    <span className="text-highlightPrimary relative group-hover:text-black">Sign Up →</span>
                                 </button>
                             </div>
                         </form>

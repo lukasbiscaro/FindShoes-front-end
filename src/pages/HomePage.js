@@ -3,7 +3,6 @@ import axios from 'axios';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import ShoesCard from "../components/ShoesCard";
-// import CollectionsCard from "../components/CollectionsCard";
 import CommentCard from '../components/CommentCard';
 import { BsLightningCharge, BsStar } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
@@ -12,7 +11,6 @@ const HomePage = () => {
 
     const [dataProducts, setDataProducts] = useState([])
     const [dataComments, setDataComments] = useState([])
-    // const [dataCollections, setDataCollections] = useState([])
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/all-products`)
@@ -29,14 +27,6 @@ const HomePage = () => {
             })
             .catch(err => console.log(err))
     }, [])
-
-    // useEffect(() => {
-    //     axios.get(`${process.env.REACT_APP_API_URL}/collections`)
-    //         .then(response => {
-    //             setDataCollections(response.data)
-    //         })
-    //         .catch(err => console.log(err))
-    // }, [])
 
     return (
         <>
@@ -83,24 +73,6 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="mt-12 mb-12 flex flex-col relative justify-center items-center sm:mt-36">
-                    <h3 className="mt-2 mb-2 md:mb-0 text-highlightSecondary font-bold text-xs px-16 text-center leading-none md:text-base md:px-56">
-                        Discovery
-                    </h3>
-                    <h1 className="font-light text-white uppercase text-2xl mx-10 text-center leading-none md:text-5xl md:mx-56 relative">
-                        Collections
-                    </h1>
-                </div>
-
-                <div className="mx-auto max-w-2xl lg:max-w-7xl">
-                    <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        {dataCollections.length > 0 && dataCollections.map(collection => {
-                            return (
-                                <CollectionsCard brand={collection} key={collection._id} />
-                            )
-                        })}
-                    </div>
-                </div> */}
                 <div className="flex flex-col relative justify-center items-center mt-12 md:mt-28 sm:mt-16">
                     <h3 className="mt-2 mb-2 md:mb-0 text-highlightSecondary font-bold text-xs px-16 text-center md:text-base md:px-56">
                         ❤ Loved by people

@@ -18,8 +18,8 @@ const ShoesCard = ({ product }) => {
                 <div className='flex flex-row justify-between items-center mt-5'>
                     <Link
                         to={`/all-products/${product._id}`}
-                        className="w-full transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold border-b-4 border-highlightPrimary bg-highlightPrimary bg-opacity-20 uppercase">
-                        <span className='text-white text-opacity-50 hover:text-opacity-100 transition-all duration-300 ease-in-out'>
+                        className="text-white text-opacity-50 hover:text-opacity-100 w-full transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold border-b-4 border-highlightPrimary bg-highlightPrimary bg-opacity-20 uppercase">
+                        <span>
                             view product
                         </span>
                     </Link>

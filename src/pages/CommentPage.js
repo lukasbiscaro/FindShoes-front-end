@@ -1,11 +1,14 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios';
 import NavBarLogged from '../components/NavBarLogged'
 import Footer from '../components/Footer'
 import { AuthContext } from '../contexts/AuthContext';
 import toast, { Toaster } from 'react-hot-toast'
+import { Link, useParams } from 'react-router-dom';
 
 const CommentPage = () => {
+
+    const { commentId } = useParams()
     const { loggedInUser } = useContext(AuthContext)
 
     const headers = {
@@ -13,7 +16,26 @@ const CommentPage = () => {
     }
 
     const [text, setText] = useState('')
+    const [dataComments, setDataComments] = useState([])
     const [refresh, setRefresh] = useState(false)
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/my-comment`, { headers })
+            .then(response => {
+                setDataComments(response.data)
+            })
+    }, [refresh])
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/my-comment/${commentId}`, { headers })
+            .then(response => {
+                const {
+                    text
+                } = response.data
+
+                setText(text)
+            })
+    }, [commentId])
 
     const onSubmit = e => {
         e.preventDefault()
@@ -35,6 +57,32 @@ const CommentPage = () => {
                     }
                 );
                 setText('')
+                setRefresh(!refresh)
+            })
+            .catch(err => console.log(err))
+    }
+
+    const editButton = e => {
+        e.preventDefault()
+
+        const updatedComment = {
+            text
+        }
+
+        axios.put(`${process.env.REACT_APP_API_URL}/my-comment/${commentId}`, updatedComment, { headers })
+            .then(response => {
+                toast("Item successfully edited! ✅")
+            })
+            .catch(err => console.log(err))
+
+        setText('')
+        setRefresh(!refresh)
+    }
+
+    const deleteComment = id => {
+        axios.delete(`${process.env.REACT_APP_API_URL}/my-comments/${id}`, { headers })
+            .then(response => {
+                alert("product deleted.")
                 setRefresh(!refresh)
             })
             .catch(err => console.log(err))
@@ -65,7 +113,7 @@ const CommentPage = () => {
                                         </div>
                                         <button
                                             type='submit'
-                                            className="text-center bg-highlightPrimary text-white font-light rounded-lg px-6 py-2">
+                                            className="text-center bg-highlightPrimary text-white font-light px-6 py-2">
                                             <p className="text-black" />Send
                                         </button>
                                         <Toaster
@@ -73,47 +121,40 @@ const CommentPage = () => {
                                             reverseOrder={false}
                                         />
                                     </form>
-
-                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <div className="relative overflow-x-auto shadow-md mt-24">
+                                        <table className="w-full text-sm text-left">
+                                            <thead className="border-b border-highlightPrimary2 bg-purple-500 bg-opacity-10">
                                                 <tr>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Product name
+                                                    <th className="text-highlightPrimary2 font-light px-6 py-3 uppercase">
+                                                        your recent comments
                                                     </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Color
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Category
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Price
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Action
+                                                    <th>
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"> 
-                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        Apple MacBook Pro 17"
-                                                    </th>
-                                                    <td class="px-6 py-4">
-                                                        Silver
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        Laptop
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        $2999
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                            {
+                                                dataComments.map((comment) => {
+                                                    return (
+                                                        <tbody key={comment._id}>
+                                                            <tr className="flex flex-col sm:flex sm:flex-row sm:justify-between sm:items-center  justify-start items-start bg-transparent border-b border-highlightPrimary2">
+                                                                <td className="px-6 py-4 text-white max-w-xs sm:max-w-sm md:max-w-lg truncate">
+                                                                    {comment.text}
+                                                                </td>
+                                                                <td className="text-center px-6 mb-3 sm:mb-0">
+                                                                    <Link to={`/my-comment/${commentId}`}>
+                                                                        <button
+                                                                            className="bg-bgLogin p-1 uppercase font-medium text-blue-600 hover:underline mr-3">Edit</button>
+                                                                    </Link>
+
+                                                                    <button
+                                                                        onClick={() => deleteComment()}
+                                                                        className="bg-bgLogin p-1 uppercase font-medium text-red-600 hover:underline">delete</button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    )
+                                                })
+                                            }
                                         </table>
                                     </div>
                                 </div>

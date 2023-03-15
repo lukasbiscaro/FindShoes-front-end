@@ -5,7 +5,7 @@ export const userNavigation = [
         click: ''
     },
     {
-        name: 'Sign up',
+        name: 'Sign Up',
         to: '/sign-up',
         click: ''
     }
