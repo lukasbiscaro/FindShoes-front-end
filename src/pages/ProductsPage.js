@@ -82,7 +82,7 @@ const ProductsPage = () => {
                                                                 className="text-center text-lg border-b border-highlightPrimary2">
                                                                 <tr className="text-white justify-center align-middle items-center">
                                                                     <img className="font-medium py-4 px-1 w-20 m-auto" alt="shoeImage" src={item.image} />
-                                                                    <td>{item.brand}</td>
+                                                                    <td className="font-bold">{item.brand}</td>
                                                                     <td>{item.name}</td>
                                                                     <td>{item.size}</td>
                                                                     <td>{item.description}</td>
