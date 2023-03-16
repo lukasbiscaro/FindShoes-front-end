@@ -33,7 +33,7 @@ const ExploreItems = () => {
                 <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                         <h1 className="text-3xl md:text-4xl text-highlightPrimary2 font-light uppercase mb-10">
-                            Explore All Items
+                            Explore All Sneakers
                         </h1>
                         <form>
                             <div className="relative flex w-full flex-wrap items-stretch">
