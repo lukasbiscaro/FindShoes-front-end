@@ -13,19 +13,17 @@ const NavBarLogged = () => {
                 <nav className="relative z-50 flex justify-between">
                     <div className="flex items-center md:gap-x-12">
                         <Link to={'/'}>
-                            <div className="text-white">
-                                <h1 className="font-bold text-sm sm:text-xl">Find<span className="font-light">Shoes</span></h1>
+                            <div className="text-white text-sm">
+                                <h1 className="font-bold text-xl">Find<span className="font-light">Shoes</span></h1>
                                 <h2 className="font-light tracking-widest uppercase text-xs sm:text-xs">Marketplace</h2>
                             </div>
                         </Link>
                         <div className="hidden md:flex md:gap-x-6">
-                            <Link className="inline-block py-1 px-2 text-sm text-white hover:border-b-2 hover:border-highlightPrimary2 hover:text-highlightPrimary2 uppercase" to="/exploreItems">Explore Sneakers</Link>
+                            <Link className="inline-block py-1 px-2 text-sm text-white hover:border-b-2 hover:border-highlightPrimary2 hover:text-highlightPrimary2 uppercase" to="/all-sneakers">all Sneakers</Link>
                         </div>
                     </div>
                     <div className="flex items-center gap-x-3 md:gap-x-3">
-                        <div className="hidden md:flex">
-                        </div>
-                        <div className="hidden md:flex md:gap-x-3">
+                        <div className="md:flex md:gap-x-3">
                             <Link
                                 className="transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary bg-highlightPrimary text-white hover:text-black uppercase hover:font-bold md:px-6" to='/myCart'>
                                 <FiShoppingCart className='text-lg' />
@@ -55,16 +53,24 @@ const NavBarLogged = () => {
                                         <>
                                             <ul>
                                                 <a
-                                                    href='/exploreItems'
-                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:border-b-4 hover:border-highlightPrimary hover:text-white cursor-pointer'
+                                                    href='/'
+                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary hover:text-white cursor-pointer md:border-b-2 md:border-highlightPrimary'
                                                 >
-                                                    Explore Items
+                                                    Home
+                                                </a>
+                                            </ul>
+                                            <ul className='md:hidden'>
+                                                <a
+                                                    href='/all-sneakers'
+                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary hover:text-white cursor-pointer border-b-2 border-highlightPrimary'
+                                                >
+                                                    All Sneakers
                                                 </a>
                                             </ul>
                                             <ul>
                                                 <a
                                                     href='/my-profile'
-                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:border-b-4 hover:border-highlightPrimary hover:text-white cursor-pointer'
+                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary hover:text-white cursor-pointer'
                                                 >
                                                     Profile
                                                 </a>
@@ -72,7 +78,7 @@ const NavBarLogged = () => {
                                             <ul>
                                                 <a
                                                     href='/my-products'
-                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:border-b-4 hover:border-highlightPrimary hover:text-white cursor-pointer'
+                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary hover:text-white cursor-pointer'
                                                 >
                                                     Products
                                                 </a>
@@ -80,7 +86,7 @@ const NavBarLogged = () => {
                                             <ul>
                                                 <a
                                                     href='/sell'
-                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:border-b-4 hover:border-highlightPrimary hover:text-white cursor-pointer'
+                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary hover:text-white cursor-pointer'
                                                 >
                                                     Sell Product
                                                 </a>
@@ -88,7 +94,7 @@ const NavBarLogged = () => {
                                             <ul>
                                                 <a
                                                     href='/my-comment'
-                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:border-b-4 hover:border-highlightPrimary hover:text-white cursor-pointer'
+                                                    className='flex px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary hover:text-white cursor-pointer'
                                                 >
                                                     Feedback
                                                 </a>
@@ -97,7 +103,7 @@ const NavBarLogged = () => {
                                                 <a
                                                     href='/login'
                                                     onClick={() => logout()}
-                                                    className='uppercase flex px-3 py-2 text-sm font-medium text-gray-400 hover:border-b-4 hover:border-highlightPrimary hover:text-white cursor-pointer'
+                                                    className='uppercase flex px-3 py-2 text-sm font-medium text-gray-400 hover:bg-highlightPrimary hover:text-white cursor-pointer'
                                                 >
                                                     Exit
                                                 </a>
