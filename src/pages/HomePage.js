@@ -45,7 +45,7 @@ const HomePage = () => {
                         The largest digital marketplace for the best shoes
                     </h2>
                     <Link
-                        to="/exploreItems"
+                        to="/all-sneakers"
                         className="text-white mt-10 mb-5 flex justify-center items-center transition-all duration-500 ease-in-out bg-highlightPrimary hover:bg-opacity-70 md:px-8 md:py-4 px-4 py-2">
                         <span className="mr-2">
                             <BsLightningCharge />

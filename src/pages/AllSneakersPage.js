@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import axios from 'axios';
 import ShoesCard from "../components/ShoesCard";
 
-const ExploreItems = () => {
+const AllSneakersPage = () => {
     const [dataProducts, setDataProducts] = useState([])
     const [dataSearch, setDataSearch] = useState([])
 
@@ -18,7 +18,7 @@ const ExploreItems = () => {
 
     const handleSearch = e => {
         const query = e.target.value
-        axios.get(`${process.env.REACT_APP_API_URL}/exploreItems/search?query=${query}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/all-sneakers/search?query=${query}`)
             .then(response => {
                 setDataSearch(response.data)
             })
@@ -40,7 +40,7 @@ const ExploreItems = () => {
                                 <input
                                     type="text"
                                     onChange={handleSearch}
-                                    className="text-white md:w-full lg:w-full relative flex-auto border border-solid border-opacity-20 border-highlightPrimary2 bg-transparent py-2 pl-3 pr-12 outline-none focus:border-primary-600 focus:outline-none focus:ring-1 focus:ring-highlightPrimary placeholder:text-white placeholder:text-opacity-30"
+                                    className="text-white md:w-full lg:w-full relative flex-auto border border-solid border-opacity-20 border-highlightPrimary2 bg-transparent py-2 pl-3 pr-12 outline-none focus:border-primary-600 focus:outline-none focus:ring-1 focus:ring-highlightPrimary placeholder:text-white placeholder:text-opacity-30 z-10"
                                     placeholder="Search..." />
                                 <div
                                     type="submit"
@@ -61,7 +61,7 @@ const ExploreItems = () => {
                         </form>
                     </div>
                 </div>
-                <div id="bestShoesCards">
+                <div>
                     <div className="mx-auto max-w-2xl py-2 sm:py-0 lg:max-w-7xl">
                         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                             {dataSearch >= 0
@@ -86,4 +86,4 @@ const ExploreItems = () => {
     )
 }
 
-export default ExploreItems
+export default AllSneakersPage

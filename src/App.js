@@ -7,7 +7,7 @@ import ProfilePage from './pages/ProfilePage.js'
 import SellPage from './pages/SellPage.js'
 import ProductsPage from './pages/ProductsPage.js'
 import CommentPage from './pages/CommentPage.js'
-import ExploreItems from './pages/ExploreItems'
+import AllSneakersPage from './pages/AllSneakersPage.js'
 import ProductDetail from './pages/ProductDetail'
 import MyCart from './pages/MyCart'
 import IsLogged from './components/IsLogged.js'
@@ -24,7 +24,7 @@ const App = () => {
       <Route path='/my-comment/:commentId' element={<IsLogged><CommentPage /></IsLogged>} />
       <Route path='/sell' element={<IsLogged><SellPage /></IsLogged>} />
       <Route path='/sell/:productId' element={<IsLogged><SellPage /></IsLogged>} />
-      <Route path='/exploreItems' element={<ExploreItems />} />
+      <Route path='/all-sneakers' element={<AllSneakersPage />} />
       <Route path='/all-products/:productId' element={<ProductDetail />} />
       <Route path='/myCart' element={<MyCart />} />
     </Routes>

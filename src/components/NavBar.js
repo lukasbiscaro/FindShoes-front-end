@@ -13,12 +13,12 @@ const NavBar = () => {
                         <div className="flex items-center md:gap-x-12">
                             <Link to={'/'}>
                                 <div className="text-white">
-                                    <h1 className="font-bold text-sm sm:text-xl">Find<span className="font-light">Shoes</span></h1>
+                                    <h1 className="font-bold text-xl">Find<span className="font-light">Shoes</span></h1>
                                     <h2 className="font-light tracking-widest uppercase text-xs sm:text-xs">Marketplace</h2>
                                 </div>
                             </Link>
                             <div className="hidden md:flex md:gap-x-6">
-                                <Link className="inline-block py-1 px-2 text-sm text-white hover:border-b-2 hover:border-highlightPrimary2 hover:text-highlightPrimary2 uppercase" to="/exploreItems">Explore Items</Link>
+                                <Link className="inline-block py-1 px-2 text-sm text-white hover:border-b-2 hover:border-highlightPrimary2 hover:text-highlightPrimary2 uppercase" to="/all-sneakers">all Sneakers</Link>
                             </div>
                         </div>
                         <div className="flex items-center gap-x-3 md:gap-x-3">
