@@ -24,29 +24,6 @@ const NavBarLogged = () => {
                     </div>
                     <div className="flex items-center gap-x-3 md:gap-x-3">
                         <div className="hidden md:flex">
-                            <form>
-                                <div className="relative flex w-full flex-wrap items-stretch">
-                                    <input
-                                        type="search"
-                                        className="text-white md:w-full lg:w-full relative flex-auto border border-solid border-opacity-20 border-highlightPrimary2 bg-transparent py-2 pl-3 pr-12 outline-none focus:border-primary-600 focus:outline-none focus:ring-1 focus:ring-highlightPrimary placeholder:text-white placeholder:text-opacity-30"
-                                        placeholder="Search..." />
-                                    <button
-                                        type="submit"
-                                        className="input-group-text z-50 flex items-center whitespace-nowrap absolute right-1 top-1 rounded px-3 py-1.5 text-center text-base font-normal text-highlightPrimary"
-                                        id="basic-addon2">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20"
-                                            fill="currentColor"
-                                            className="h-5 w-5 text-highlightPrimary">
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </form>
                         </div>
                         <div className="hidden md:flex md:gap-x-3">
                             <Link
