@@ -9,10 +9,10 @@ const ShoesCard = ({ product }) => {
                     src={product.image}
                     alt="shoe-img"
                     className="w-full object-cover object-center lg:h-48 h-48" />
-                <h5 className='text-white text-opacity-50 text-xs font-light mt-5'>
+                <h5 className='text-white text-opacity-50 text-xs font-light mt-5 uppercase'>
                     {product.brand}
                 </h5>
-                <h4 className='text-white text-md font-light'>
+                <h4 className='text-white text-md font-light uppercase'>
                     {product.name}
                 </h4>
                 <div className='flex flex-row justify-between items-center mt-5'>
