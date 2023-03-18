@@ -30,7 +30,7 @@ const ProductsPage = () => {
 
     const handleSearch = e => {
         const query = e.target.value
-        axios.get(`${process.env.REACT_APP_API_URL}/exploreItems/search?query=${query}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/all-sneakers/search?query=${query}`)
             .then(response => {
                 setDataSearch(response.data)
             })
