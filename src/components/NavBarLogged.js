@@ -1,8 +1,8 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { FiShoppingCart, FiUser } from 'react-icons/fi';
-import { Menu, Transition } from '@headlessui/react';
-import { AuthContext } from '../contexts/AuthContext';
+import { FiShoppingCart, FiUser } from 'react-icons/fi'
+import { Menu, Transition } from '@headlessui/react'
+import { AuthContext } from '../contexts/AuthContext'
 
 const NavBarLogged = () => {
     const { logout } = useContext(AuthContext)
@@ -25,7 +25,7 @@ const NavBarLogged = () => {
                     <div className="flex items-center gap-x-3 md:gap-x-3">
                         <div className="md:flex md:gap-x-3">
                             <Link
-                                className="transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary bg-highlightPrimary text-white hover:text-black uppercase hover:font-bold md:px-6" to='/myCart'>
+                                className="transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary bg-highlightPrimary text-white hover:text-black uppercase hover:font-bold md:px-6" to='/my-cart'>
                                 <FiShoppingCart className='text-lg' />
                             </Link>
                         </div>

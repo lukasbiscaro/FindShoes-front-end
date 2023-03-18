@@ -1,10 +1,11 @@
 import bgImage from '../images/BgLoginPage.png'
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import toast, { Toaster } from 'react-hot-toast'
 
 const LoginPage = () => {
 
@@ -29,8 +30,19 @@ const LoginPage = () => {
         axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
             .then(response => {
                 localStorage.setItem('loggedInUser', JSON.stringify(response.data))
-                alert("User logged")
-                navigate('/')
+                toast('Be very Welcome!',
+                    {
+                        icon: '🎊',
+                        style: {
+                            borderRadius: '30px',
+                            background: '#5D36FF',
+                            color: '#fff',
+                        },
+                    }
+                )
+                setTimeout(() => {
+                    navigate('/')
+                }, 2000)
             })
             .catch(err => console.log(err))
     }
@@ -84,6 +96,10 @@ const LoginPage = () => {
                                     <div className="absolute inset-0 w-2 bg-highlightPrimary transition-all duration-[500ms] ease-out group-hover:w-full"></div>
                                     <span className="text-highlightPrimary relative group-hover:text-textBlack">Login →</span>
                                 </button>
+                                <Toaster
+                                    position="top-center"
+                                    reverseOrder={false}
+                                />
                             </div>
                         </form>
                     </div>

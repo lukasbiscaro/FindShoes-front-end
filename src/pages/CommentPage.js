@@ -1,19 +1,22 @@
 import React, { useState, useContext, useEffect } from 'react'
-import axios from 'axios';
+import axios from 'axios'
 import NavBarLogged from '../components/NavBarLogged'
 import Footer from '../components/Footer'
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../contexts/AuthContext'
 import toast, { Toaster } from 'react-hot-toast'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom'
 
 const CommentPage = () => {
 
-    const { commentId } = useParams()
     const { loggedInUser } = useContext(AuthContext)
 
     const headers = {
         'Authorization': 'Bearer ' + loggedInUser.jwt
     }
+
+    const { commentId } = useParams()
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const [text, setText] = useState('')
     const [dataComments, setDataComments] = useState([])
@@ -55,9 +58,11 @@ const CommentPage = () => {
                             color: '#fff',
                         },
                     }
-                );
+                )
                 setText('')
-                setRefresh(!refresh)
+                setTimeout(() => {
+                    window.location.reload()
+                }, 2000)
             })
             .catch(err => console.log(err))
     }
@@ -71,19 +76,42 @@ const CommentPage = () => {
 
         axios.put(`${process.env.REACT_APP_API_URL}/my-comment/${commentId}`, updatedComment, { headers })
             .then(response => {
-                toast("Item successfully edited! ✅")
+                toast('Comment was Successfully Updated!',
+                    {
+                        icon: '💬',
+                        style: {
+                            borderRadius: '30px',
+                            background: '#5D36FF',
+                            color: '#fff',
+                        },
+                    }
+                )
+                setText('')
+                setTimeout(() => {
+                    window.location.reload(
+                        navigate('/my-comment')
+                    )
+                }, 2000)
             })
             .catch(err => console.log(err))
-
-        setText('')
-        setRefresh(!refresh)
     }
 
-    const deleteComment = id => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/my-comments/${id}`, { headers })
+    const deleteComment = commentId => {
+        axios.delete(`${process.env.REACT_APP_API_URL}/my-comment/${commentId}`, { headers })
             .then(response => {
-                alert("product deleted.")
-                setRefresh(!refresh)
+                toast('Comment was Successfully Deleted!',
+                    {
+                        icon: '🗑️',
+                        style: {
+                            borderRadius: '30px',
+                            background: '#5D36FF',
+                            color: '#fff',
+                        },
+                    }
+                )
+                setTimeout(() => {
+                    window.location.reload()
+                }, 2000)
             })
             .catch(err => console.log(err))
     }
@@ -111,11 +139,21 @@ const CommentPage = () => {
                                                 className="mt-4 focus:ring-1 focus:ring-highlightPrimary block w-full appearance-none rounded-md bg-bgLogin text-white px-3 py-3 focus:outline-none sm:text-sm placeholder:text-sm placeholder:text-gray-600"
                                                 placeholder="Leave a comment..."></textarea>
                                         </div>
-                                        <button
-                                            type='submit'
-                                            className="text-center bg-highlightPrimary text-white font-light px-6 py-2">
-                                            <p className="text-black" />Send
-                                        </button>
+                                        {location.pathname === "/my-comment" && (
+                                            <button
+                                                type='submit'
+                                                className="text-center bg-highlightPrimary text-white font-light px-6 py-2">
+                                                <p className="text-black" />Send
+                                            </button>
+                                        )}
+                                        {location.pathname.startsWith(`/my-comment/${commentId}`) && (
+                                            <button
+                                                type='submit'
+                                                onClick={editButton}
+                                                className="text-center bg-highlightPrimary text-white font-light px-6 py-2">
+                                                <p className="text-black" />Save Edit
+                                            </button>
+                                        )}
                                         <Toaster
                                             position="bottom-center"
                                             reverseOrder={false}
@@ -141,13 +179,12 @@ const CommentPage = () => {
                                                                     {comment.text}
                                                                 </td>
                                                                 <td className="text-center px-6 mb-3 sm:mb-0">
-                                                                    <Link to={`/my-comment/${commentId}`}>
+                                                                    <Link to={`/my-comment/${comment._id}`}>
                                                                         <button
                                                                             className="bg-bgLogin p-1 uppercase font-medium text-blue-600 hover:underline mr-3">Edit</button>
                                                                     </Link>
-
                                                                     <button
-                                                                        onClick={() => deleteComment()}
+                                                                        onClick={() => deleteComment(comment._id)}
                                                                         className="bg-bgLogin p-1 uppercase font-medium text-red-600 hover:underline">delete</button>
                                                                 </td>
                                                             </tr>
