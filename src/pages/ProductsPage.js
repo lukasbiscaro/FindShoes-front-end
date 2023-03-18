@@ -1,10 +1,10 @@
-import React from "react";
-import { useEffect, useState, useContext } from "react";
+import React from "react"
+import { useEffect, useState, useContext } from "react"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import NavBarLogged from "../components/NavBarLogged";
+import NavBarLogged from "../components/NavBarLogged"
 import Footer from '../components/Footer.js'
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../contexts/AuthContext'
 
 const ProductsPage = () => {
 
@@ -17,7 +17,6 @@ const ProductsPage = () => {
     const [dataProducts, setDataProducts] = useState([])
     const [dataSearch, setDataSearch] = useState([])
     const [loading, setLoading] = useState(false)
-    const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/my-products`, { headers })
@@ -39,10 +38,7 @@ const ProductsPage = () => {
 
     const deleteProduct = productId => {
         axios.delete(`${process.env.REACT_APP_API_URL}/my-products/${productId}`, { headers })
-            .then(response => {
-                alert("product deleted.")
-                setRefresh(!refresh)
-            })
+            .then(response => { })
             .catch(err => console.log(err))
     }
 
@@ -105,10 +101,10 @@ const ProductsPage = () => {
                                                                 className="text-center text-lg border-b border-highlightPrimary2">
                                                                 <tr className="text-white justify-center align-middle items-center">
                                                                     <img className="font-medium py-4 px-1 w-20 m-auto" alt="shoeImage" src={product.image} />
-                                                                    <td className="font-bold">{product.brand}</td>
-                                                                    <td>{product.name}</td>
+                                                                    <td className="font-bold uppercase">{product.brand}</td>
+                                                                    <td className="uppercase">{product.name}</td>
                                                                     <td>{product.size}</td>
-                                                                    <td>{product.description}</td>
+                                                                    <td className="text-gray-500">{product.description}</td>
                                                                     <td>R$ {product.price}</td>
                                                                     <td className="text-sm font-bold">
                                                                         <Link to={`/all-products/${product._id}`}>
@@ -141,10 +137,10 @@ const ProductsPage = () => {
                                                                 className="text-center text-lg border-b border-highlightPrimary2">
                                                                 <tr className="text-white justify-center align-middle items-center">
                                                                     <img className="font-medium py-4 px-1 w-20 m-auto" alt="shoeImage" src={product.image} />
-                                                                    <td className="font-bold">{product.brand}</td>
-                                                                    <td>{product.name}</td>
+                                                                    <td className="font-bold uppercase">{product.brand}</td>
+                                                                    <td className="uppercase">{product.name}</td>
                                                                     <td>{product.size}</td>
-                                                                    <td>{product.description}</td>
+                                                                    <td className="text-gray-500">{product.description}</td>
                                                                     <td>R$ {product.price}</td>
                                                                     <td className="text-sm font-bold">
                                                                         <Link to={`/all-products/${product._id}`}>

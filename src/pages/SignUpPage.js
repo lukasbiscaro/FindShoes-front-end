@@ -1,10 +1,11 @@
 import bgImage from '../images/BgLoginPage.png'
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import toast, { Toaster } from 'react-hot-toast'
 
 const SignUpPage = () => {
 
@@ -33,10 +34,19 @@ const SignUpPage = () => {
 
         axios.post(`${process.env.REACT_APP_API_URL}/auth/sign-up`, newUser)
             .then(response => {
-                if (response.status === 201) {
-                    alert('User Created')
+                toast('User Successfully Registered!',
+                    {
+                        icon: '👋🏼',
+                        style: {
+                            borderRadius: '30px',
+                            background: '#5D36FF',
+                            color: '#fff',
+                        },
+                    }
+                )
+                setTimeout(() => {
                     navigate('/login')
-                }
+                }, 2000)
             })
             .catch(err => console.log(err))
     }
@@ -122,6 +132,10 @@ const SignUpPage = () => {
                                     <div className="absolute inset-0 w-2 bg-highlightPrimary transition-all duration-[500ms] ease-out group-hover:w-full"></div>
                                     <span className="text-highlightPrimary relative group-hover:text-black">Sign Up →</span>
                                 </button>
+                                <Toaster
+                                    position="top-center"
+                                    reverseOrder={false}
+                                />
                             </div>
                         </form>
                     </div>

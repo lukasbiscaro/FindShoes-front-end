@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import ShoesCard from "../components/ShoesCard";
-import CommentCard from '../components/CommentCard';
-import { BsLightningCharge, BsStar } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
+import ShoesCard from "../components/ShoesCard"
+import CommentCard from '../components/CommentCard'
+import { BsLightningCharge, BsStar } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
     const [dataProducts, setDataProducts] = useState([])

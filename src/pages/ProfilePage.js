@@ -1,17 +1,26 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios';
+import axios from 'axios'
 import NavBarLogged from "../components/NavBarLogged"
-import Footer from '../components/Footer';
-import { AuthContext } from '../contexts/AuthContext';
+import Footer from '../components/Footer'
+import { AuthContext } from '../contexts/AuthContext'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form'
 import { FaLock } from 'react-icons/fa'
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast'
 
 const ProfilePage = () => {
+
     const { isLoading, loggedInUser } = useContext(AuthContext)
+
+    const headers = {
+        'Authorization': 'Bearer ' + loggedInUser.jwt
+    }
+
+    const [data, setData] = useState([])
+
+    const navigate = useNavigate()
 
     const schemaSign = yup.object().shape({
         firstName: yup.string().required("First Name is required!"),
@@ -23,21 +32,6 @@ const ProfilePage = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schemaSign)
     })
-
-    const [data, setData] = useState([])
-    const [refresh, setRefresh] = useState(false)
-
-    function refreshPage() {
-        setTimeout(() => {
-            window.location.reload(false);
-        }, "2000");
-    }
-
-    const navigate = useNavigate()
-
-    const headers = {
-        'Authorization': 'Bearer ' + loggedInUser.jwt
-    }
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/my-profile`, { headers })
@@ -56,18 +50,20 @@ const ProfilePage = () => {
 
         axios.put(`${process.env.REACT_APP_API_URL}/my-profile`, updatedUser, { headers })
             .then(response => {
-                if (response.status === 200) {
-                    toast.success('Profile Successfully Updated!',
-                        {
-                            style: {
-                                borderRadius: '10px',
-                                background: '#5D36FF',
-                                color: '#fff',
-                            }
-                        })
-                    reset()
-                    refreshPage()
-                }
+                toast('Profile Successfully Updated!',
+                    {
+                        icon: '👤',
+                        style: {
+                            borderRadius: '30px',
+                            background: '#5D36FF',
+                            color: '#fff',
+                        },
+                    }
+                )
+                reset()
+                setTimeout(() => {
+                    window.location.reload()
+                }, 2000)
             })
             .catch(err => console.log(err))
     }
@@ -77,10 +73,8 @@ const ProfilePage = () => {
 
         axios.delete(`${process.env.REACT_APP_API_URL}/my-profile`, { headers })
             .then(response => {
-                if (response.status === 204) {
-                    localStorage.clear()
-                    navigate('/sign-up')
-                }
+                localStorage.clear()
+                navigate('/sign-up')
             })
             .catch(err => console.log(err))
     }

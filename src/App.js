@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import SignUpPage from './pages/SignUpPage.js'
@@ -26,9 +26,9 @@ const App = () => {
       <Route path='/sell/:productId' element={<IsLogged><SellPage /></IsLogged>} />
       <Route path='/all-sneakers' element={<AllSneakersPage />} />
       <Route path='/all-products/:productId' element={<ProductDetail />} />
-      <Route path='/myCart' element={<MyCart />} />
+      <Route path='/my-cart' element={<IsLogged><MyCart /></IsLogged>} />
     </Routes>
-  );
+  )
 }
 
 export default App
