@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import NavBarLogged from '../components/NavBarLogged'
-import Footer from '../components/Footer'
-import axios from 'axios'
-import ShoesCard from "../components/ShoesCard"
+import React, { useEffect, useState } from 'react';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import axios from 'axios';
+import ShoesCard from "../components/ShoesCard";
 
 const AllSneakersPage = () => {
     const [dataProducts, setDataProducts] = useState([])
@@ -27,7 +27,7 @@ const AllSneakersPage = () => {
 
     return (
         <>
-            <NavBarLogged />
+            <NavBar />
 
             <main className="container max-w-screen-xl mx-auto px-5 py-8">
                 <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
@@ -44,7 +44,7 @@ const AllSneakersPage = () => {
                                     placeholder="Search..." />
                                 <div
                                     type="submit"
-                                    className="input-group-text z-50 flex items-center whitespace-nowrap absolute right-1 top-1 rounded px-3 py-1.5 text-center text-base font-normal text-highlightPrimary"
+                                    className="input-group-text z-20 flex items-center whitespace-nowrap absolute right-1 top-1 rounded px-3 py-1.5 text-center text-base font-normal text-highlightPrimary"
                                     id="basic-addon2">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
