@@ -73,8 +73,20 @@ const ProfilePage = () => {
 
         axios.delete(`${process.env.REACT_APP_API_URL}/my-profile`, { headers })
             .then(response => {
-                localStorage.clear()
-                navigate('/sign-up')
+                toast('Profile was Successfully Deleted!',
+                    {
+                        icon: '🏳️',
+                        style: {
+                            borderRadius: '30px',
+                            background: '#5D36FF',
+                            color: '#fff',
+                        },
+                    }
+                )
+                setTimeout(() => {
+                    localStorage.clear()
+                    navigate('/sign-up')
+                }, 2000)
             })
             .catch(err => console.log(err))
     }
