@@ -24,7 +24,7 @@ The project was created using ReactJS for the front-end and a combination of Nod
 
 As the project is already deployed on a server for the backend and Netlify for the frontend, there's no need to run it locally.
 
-Simply access the following link: <a hre="https://findshoes.netlify.app/" target="_blank">FindShoes</a> to access the application in production.
+Simply access the following link: <a href="https://findshoes.netlify.app/" target="_blank">FindShoes</a>  to access the application in production.
 
 There, you can create an account as a seller or buyer, add products to your cart, and make purchases securely with encrypted passwords.
 
