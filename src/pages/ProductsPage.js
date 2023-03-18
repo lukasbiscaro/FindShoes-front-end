@@ -2,7 +2,7 @@ import React from "react"
 import { useEffect, useState, useContext } from "react"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import NavBarLogged from "../components/NavBarLogged"
+import NavBar from "../components/NavBar"
 import Footer from '../components/Footer.js'
 import { AuthContext } from '../contexts/AuthContext'
 
@@ -44,7 +44,7 @@ const ProductsPage = () => {
 
     return (
         <>
-            <NavBarLogged />
+            <NavBar />
             <div className="container max-w-screen-xl mx-auto px-5 py-8">
                 <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">

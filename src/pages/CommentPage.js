@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
-import NavBarLogged from '../components/NavBarLogged'
+import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import { AuthContext } from '../contexts/AuthContext'
 import toast, { Toaster } from 'react-hot-toast'
@@ -118,7 +118,7 @@ const CommentPage = () => {
 
     return (
         <>
-            <NavBarLogged />
+            <NavBar />
             <div className="container max-w-screen-xl mx-auto px-5 py-8">
                 <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
