@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import NavBarLogged from "../components/NavBarLogged"
+import NavBar from "../components/NavBar"
 import Footer from '../components/Footer'
 import { AuthContext } from '../contexts/AuthContext'
 import * as yup from 'yup'
@@ -81,7 +81,7 @@ const ProfilePage = () => {
 
     return (
         <>
-            <NavBarLogged />
+            <NavBar />
             <div className="container max-w-screen-xl mx-auto px-5 py-8">
                 <div className="border-highlightPrimary2 flex flex-col justify-between md:flex-row md:space-y-0 lg:space-x-6 space-y-6 bg-purple-500 bg-opacity-10 w-full p-8 shadow-lg text-white
             ">
