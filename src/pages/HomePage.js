@@ -33,11 +33,11 @@ const HomePage = () => {
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 overflow-hidden">
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-24">
                     <h1 className="font-bold text-white text-4xl sm:text-5xl md:text-6xl mb-5 mx-10 lg:mx-16 text-center relative">
-                        <span className="absolute text-highlightPrimary left-0 top-6 z-50 rotate-45">
+                        <span className="absolute text-highlightPrimary left-0 top-6 z-20 rotate-45">
                             <BsStar size={24} />
                         </span>
                         Buy or trade the Best Shoes in the World
-                        <span className="absolute text-highlightPrimary2 right-0 bottom-0 z-50 -rotate-45">
+                        <span className="absolute text-highlightPrimary2 right-0 bottom-0 z-20 -rotate-45">
                             <BsStar size={24} />
                         </span>
                     </h1>

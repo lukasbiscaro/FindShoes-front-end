@@ -2,25 +2,24 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { userNavigation } from '../db/profileNav';
 import { Menu, Transition } from '@headlessui/react';
-import { AuthContext } from '../contexts/AuthContext';
 import { FiShoppingCart, FiUser } from 'react-icons/fi';
 
 const NavBar = () => {
-    const [loggedInUser, setloggedInUser] = useState({loggedIn : true})
+    const [loggedInUser, setloggedInUser] = useState({logged : false})
 
     useEffect(() => {
-        if (localStorage.getItem('loggedInUser') && loggedInUser.loggedIn === false) {
-            setloggedInUser({loggedIn : true})
+        if (localStorage.getItem('loggedInUser') && loggedInUser.logged === false) {
+            setloggedInUser({logged : true})
         }
     },[])
 
     const logOut = () => {
         localStorage.removeItem('loggedInUser');
-        setloggedInUser({loggedIn : false});
-        console.log(loggedInUser.loggedIn)
+        setloggedInUser({logged : false});
+        console.log(loggedInUser)
     }
 
-    if(loggedInUser.loggedIn === false) {
+    if(loggedInUser.logged === false) {
         return (
             <>
                 <header className="py-10">
@@ -118,7 +117,7 @@ const NavBar = () => {
                 </header>
             </>
         ) 
-    } else if(loggedInUser.loggedIn === true) {
+    } else if(loggedInUser.logged === true) {
         return (
             <>
                 <header className="py-10">
@@ -138,7 +137,7 @@ const NavBar = () => {
                             <div className="flex items-center gap-x-3 md:gap-x-3">
                                 <div className="md:flex md:gap-x-3">
                                     <Link
-                                        className="transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary bg-highlightPrimary text-white hover:text-black uppercase hover:font-bold md:px-6" to='/myCart'>
+                                        className="transition-all duration-500 ease-in-out group inline-flex items-center justify-center py-2 px-6 text-sm font-bold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 border-2 border-highlightPrimary bg-highlightPrimary text-white hover:text-black uppercase hover:font-bold md:px-6" to='/my-cart'>
                                         <FiShoppingCart className='text-lg' />
                                     </Link>
                                 </div>
