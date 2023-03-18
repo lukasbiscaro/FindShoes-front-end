@@ -1,31 +1,38 @@
-📚 Overview
+# 📚 Overview
 
-FindShoes is a web application built with ReactJS for the front-end. It utilizes Tailwind CSS for styling and Axios for making HTTP requests. 
+FindShoes is a marketplace built with a MongoDB, Express, NodeJS and ReactJS for the front-end. It utilizes Tailwind CSS for styling. The marketplace allows users to initially sell products from one another.
 
-The application is a marketplace where users can buy and sell shoes from one another. The passwords are encrypted using Bcrypt for security.
+# 💭 Creation
 
-💭 Creation
+The project was created using the MEAN stack and ReactJS for the front-end. It was developed by a team of developers and designed to be scalable and modular.
 
-The project was created using ReactJS for the front-end and a combination of NodeJS, Express, and MongoDB for the back-end. It was developed by the same team, both of them, designed to be user-friendly and modular.
+# ⌨️ Technology’s
 
-⌨️ Technology’s
+<ul>
 
-* ReactJS: A JavaScript library used to build user interfaces.
+<li><a href="https://www.mongodb.com/" target="_blank">MongoDB: A NoSQL database used to store product and user data.</a></li>
 
-* Tailwind CSS: A utility-first CSS framework used to style the application.
+<li><a href="https://expressjs.com" target="_blank">Express: A web application framework for NodeJS used to handle HTTP requests and responses.</a></li>
 
-* Bcrypt: A password hashing function used for encrypting user passwords.
+<li><a href="https://nodejs.org/en" target="_blank">NodeJS: A JavaScript runtime environment used to run server-side JavaScript code.</a></li>
 
-* Axios: A promise-based HTTP client used for making HTTP requests.
+<li><a href="https://react.dev/" target="_blank">ReactJS: A JavaScript library used to build user interfaces.</a></li>
 
-✏️ How To Execute
+<li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS: A utility-first CSS framework used to style the marketplace.</a></li>
+</ul>
 
-As the project is already deployed on a server for the backend and Netlify for the frontend, there's no need to run it locally.
+# ✏️ How To Execute
 
-Simply access the following link:  https://jovial-cannoli-622101.netlify.app  to access the application in production.
+As the project is already deployed on MongoDB Atlas for the backend and Netlify for the frontend, there's no need to run it locally. 
 
-There, you can create an account as a seller or buyer, add products to your cart, and make purchases securely with encrypted passwords.
+Simply access the following link: <a href="https://findshoes.netlify.app/" target="_blank">FindShoes</a>  to access the application in production. 
 
-👨🏻‍💻 Developers
+There, you can create an account as a seller and add products for sale. 
 
-The project was developed by: Lukas Biscaro and Felipe Franco.
+# 👨🏻‍💻 Developers
+
+The project was developed by: <a href="https://github.com/lukasbiscaro">Lukas Biscaro</a> and <a href="https://github.com/felipeffranco">Felipe Franco</a>. 
+
+
+
+
