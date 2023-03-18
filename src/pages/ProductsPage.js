@@ -47,6 +47,7 @@ const ProductsPage = () => {
                     {
                         icon: '🗑️',
                         style: {
+                            fontSize: "16px",
                             borderRadius: '30px',
                             background: '#5D36FF',
                             color: '#fff'
