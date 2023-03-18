@@ -1,14 +1,14 @@
 import item1 from '../images/bg.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavBarLogged from '../components/NavBarLogged';
+import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { FaApplePay } from 'react-icons/fa';
 
 const myCart = () => {
     return (
         <>
-            <NavBarLogged />
+            <NavBar />
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col relative justify-center items-center mt-6 sm:mt-6 mb-6">
                     <h1 className="font-bold text-white text-center leading-none text-7xl mx-56 relative">
