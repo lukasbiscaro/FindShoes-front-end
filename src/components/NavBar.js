@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { userNavigation } from '../db/profileNav';
-import { Menu, Transition } from '@headlessui/react';
+import { userNavigation } from '../db/profileNav'
+import { Menu, Transition } from '@headlessui/react'
 
 const NavBar = () => {
 

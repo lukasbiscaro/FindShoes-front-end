@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import NavBarLogged from '../components/NavBarLogged';
-import Footer from '../components/Footer';
-import axios from 'axios';
-import ShoesCard from "../components/ShoesCard";
+import React, { useEffect, useState } from 'react'
+import NavBarLogged from '../components/NavBarLogged'
+import Footer from '../components/Footer'
+import axios from 'axios'
+import ShoesCard from "../components/ShoesCard"
 
 const AllSneakersPage = () => {
     const [dataProducts, setDataProducts] = useState([])
