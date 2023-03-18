@@ -1,10 +1,11 @@
 import React from "react"
 import { useEffect, useState, useContext } from "react"
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import NavBar from "../components/NavBar"
 import Footer from '../components/Footer.js'
 import { AuthContext } from '../contexts/AuthContext'
+import toast, { Toaster } from 'react-hot-toast'
 
 const ProductsPage = () => {
 
@@ -13,6 +14,8 @@ const ProductsPage = () => {
     const headers = {
         'Authorization': 'Bearer ' + loggedInUser.jwt
     }
+
+    const { productId } = useParams()
 
     const [dataProducts, setDataProducts] = useState([])
     const [dataSearch, setDataSearch] = useState([])
@@ -36,9 +39,24 @@ const ProductsPage = () => {
             .catch(err => console.log(err))
     }
 
-    const deleteProduct = productId => {
+    const deleteProduct = (productId, event) => {
+        event.preventDefault()
         axios.delete(`${process.env.REACT_APP_API_URL}/my-products/${productId}`, { headers })
-            .then(response => { })
+            .then(response => {
+                toast('Product was Successfully Deleted!',
+                    {
+                        icon: '🗑️',
+                        style: {
+                            borderRadius: '30px',
+                            background: '#5D36FF',
+                            color: '#fff'
+                        },
+                    }
+                )
+                setTimeout(() => {
+                    window.location.reload()
+                }, 2000)
+            })
             .catch(err => console.log(err))
     }
 
@@ -106,26 +124,30 @@ const ProductsPage = () => {
                                                                     <td>{product.size}</td>
                                                                     <td className="text-gray-500">{product.description}</td>
                                                                     <td>R$ {product.price}</td>
-                                                                    <td className="text-sm font-bold">
+                                                                    <td>
                                                                         <Link to={`/all-products/${product._id}`}>
                                                                             <button
-                                                                                className="bg-bgLogin p-1 uppercase text-blue-600 hover:underline">
+                                                                                className="text-sm font-bold bg-bgLogin p-1 uppercase text-blue-600 hover:underline">
                                                                                 view
                                                                             </button>
                                                                         </Link>
                                                                         <Link to={`/sell/${product._id}`}>
                                                                             <button
-                                                                                className="bg-bgLogin p-1 mr-2 ml-2 uppercase text-yellow-400 hover:underline">
+                                                                                className="text-sm font-bold bg-bgLogin p-1 mr-2 ml-2 uppercase text-yellow-400 hover:underline">
                                                                                 edit
                                                                             </button>
                                                                         </Link>
                                                                         <button
-                                                                            onClick={() => deleteProduct(product._id)}
-                                                                            className="bg-bgLogin p-1 uppercase text-red-600 hover:underline">
+                                                                            onClick={(event) => deleteProduct(product._id, event)}
+                                                                            className="text-sm font-bold bg-bgLogin p-1 uppercase text-red-600 hover:underline">
                                                                             delete
                                                                         </button>
                                                                     </td>
                                                                 </tr>
+                                                                <Toaster
+                                                                    position="top-center"
+                                                                    reverseOrder={false}
+                                                                />
                                                             </tbody>
                                                         )
                                                     })
@@ -156,12 +178,16 @@ const ProductsPage = () => {
                                                                             </button>
                                                                         </Link>
                                                                         <button
-                                                                            onClick={() => deleteProduct(product._id)}
+                                                                            onClick={(event) => deleteProduct(product._id, event)}
                                                                             className="bg-bgLogin p-1 uppercase text-red-600 hover:underline">
                                                                             delete
                                                                         </button>
                                                                     </td>
                                                                 </tr>
+                                                                <Toaster
+                                                                    position="top-center"
+                                                                    reverseOrder={false}
+                                                                />
                                                             </tbody>
                                                         )
                                                     })
